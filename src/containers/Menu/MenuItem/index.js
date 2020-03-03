@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-function MenuItem({icon, route}) {
+function MenuItem({icon, path}) {
   return (
-    <p>{icon} {route}</p>
+    <Link to={path} />
   );
 }
 
