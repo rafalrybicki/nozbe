@@ -1,9 +1,9 @@
 import React from 'react';
-import Menu from './containers/Menu'
+import Menu from './components/Menu'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 import Priority from './components/Priority'
 import Inbox from './components/Inbox'
