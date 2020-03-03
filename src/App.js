@@ -20,7 +20,7 @@ function App() {
     <Router>
       <Menu />
       <Switch>
-        <Route path="/" component={Priority} exact />
+        <Route path="/priority" component={Priority} exact />
         <Route path="/inbox" component={Inbox} />
         <Route path="/projects" component={Projects} />
         <Route path="/categories" component={Categories} />
@@ -29,6 +29,7 @@ function App() {
         <Route path="/team" component={Team} />
         <Route path="/search" component={Search} />
         <Route path="/settings" component={Settings} />
+        <Route path="/" component={Priority} />
       </Switch>
     </Router>  );
 }

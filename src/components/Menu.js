@@ -1,19 +1,20 @@
 import React from 'react';
 import MenuItem from './MenuItem';
 
+
 class Menu extends React.Component {
   render() {
     return (
       <div>
-        <MenuItem icon='test' path='priority' />
-        <MenuItem icon='test' path='inbox' />
-        <MenuItem icon='test' path='projects' />
-        <MenuItem icon='test' path='categories' />
-        <MenuItem icon='test' path='calendar' />
-        <MenuItem icon='test' path='templates' />
-        <MenuItem icon='test' path='team' />
-        <MenuItem icon='test' path='search' />
-        <MenuItem icon='test' path='settings' />
+        <MenuItem icon='star' path='priority' />
+        <MenuItem icon='inbox' path='inbox' />
+        <MenuItem icon='all_inbox' path='projects' />
+        <MenuItem icon='flag' path='categories' />
+        <MenuItem icon='event_note' path='calendar' />
+        <MenuItem icon='business_center' path='templates' />
+        <MenuItem icon='people' path='team' />
+        <MenuItem icon='search' path='search' />
+        <MenuItem icon='settings' path='settings' />
       </div>
       )
   }
