@@ -4,14 +4,14 @@ import './Toolbar.css'
 
 function Search(props) {
   const openMenu = useCallback(() => {
-    document.querySelector('.menu').classList.add('open')
+    document.querySelector('nav').classList.add('open')
   })
   return (
     <div className="toolbar">
       <Icon className="menu-icon" onClick={openMenu}>menu</Icon>
       <Icon className="sync-icon">sync</Icon>
       <p>unknown title yet</p>
-      {<Icon>info_outlined</Icon>}
+      <Icon className="info-icon">info_outlined</Icon>
     </div>
   );
 }

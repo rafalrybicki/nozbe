@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react';
 import Menu from './components/Menu'
 import Toolbar from './components/Toolbar'
 import './App.css'
@@ -19,17 +19,12 @@ import Search from './components/Search'
 import Settings from './components/Settings'
 
 function App() {
-  const closeMenu = useCallback((e) => {
-    const isOpen = document.querySelector('.menu').classList.contains('open')
-    if (isOpen && e.clientX > 320) {
-      document.querySelector('.menu').classList.remove('open')
-    }
-  })
-  
+
+
   return (
     <Router >
       <Menu />
-      <div className="main" onClick={closeMenu}>
+      <div className="main">
         <Toolbar />
         <Switch>
           <Route path="/priority" component={Priority} />
@@ -41,8 +36,7 @@ function App() {
           <Route path="/team" component={Team} />
           <Route path="/search" component={Search} />
           <Route path="/settings" component={Settings} />
-          <Route path="/" component={Priority} exact />
-          <Redirect from="/" to="priority" />
+          <Redirect exact from="/" to="priority" />
         </Switch>
       </div>
     </Router>  );
