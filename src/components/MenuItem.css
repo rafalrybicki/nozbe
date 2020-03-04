@@ -1,0 +1,38 @@
+a {
+  display: block;
+  text-decoration: none;
+  height: 42px;
+  width: 270px;
+  font-size: 14px;
+  color: #C7C7C7;
+  position: relative;
+}
+
+a.active {
+  color: #28ce63;
+  background: #252529
+}
+
+a .material-icons {
+  display: inline-block;
+  padding: 8px 10px;
+  margin-bottom: -16px;
+  font-size: 28px;
+}
+
+.amount {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 24px;
+  top: 5px;
+  font-size: 11px;
+  padding-top: 3px;
+  border-radius: 50%;
+  min-width: 18px;
+  min-height: 18px;
+  text-align: center;
+  background: #E9E9EA;
+  color: #5C5C5C
+}
+

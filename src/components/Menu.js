@@ -6,8 +6,8 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        <MenuItem icon='star' path='priority' />
-        <MenuItem icon='inbox' path='inbox' />
+        <MenuItem icon='star' path='priority' amount={5} />
+        <MenuItem icon='inbox' path='inbox' amount={1} />
         <MenuItem icon='all_inbox' path='projects' />
         <MenuItem icon='flag' path='categories' />
         <MenuItem icon='event_note' path='calendar' />

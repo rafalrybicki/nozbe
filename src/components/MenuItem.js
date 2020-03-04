@@ -1,15 +1,17 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import Icon from '@material-ui/core/Icon';
+import './MenuItem.css'
 
-function MenuItem({icon, path}) {
+function MenuItem({icon, path, amount}) {
   return (
-    <div>
+    <React.Fragment>
       <NavLink to={path} >
-        <Icon>{icon}}</Icon>
+        <Icon>{icon}</Icon>
         {path.charAt(0).toUpperCase() + path.slice(1)}
+        {amount && <span className="amount">{amount}</span>}
       </NavLink>
-    </div>
+    </React.Fragment>
   );
 }
 
