@@ -41,7 +41,7 @@ const initialState = [
     id: 4,
     content: 'content4',
     completed: true,
-    priority: false,
+    priority: true,
     time: 60,
     project: 'project2',
     category: 'work',
