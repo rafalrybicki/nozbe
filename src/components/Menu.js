@@ -4,9 +4,7 @@ import './Menu.css'
 
 class Menu extends React.Component {
   closeMenu = (e) => {
-    
-    const isOpen = document.querySelector('nav').classList.contains('open') 
-    if (isOpen && e.clientX > 320) {
+    if (window.innerWidth < 734 && e.clientX > 320) {
       document.querySelector('nav').classList.remove('open')
     }
   }
