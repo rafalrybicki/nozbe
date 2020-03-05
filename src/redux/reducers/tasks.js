@@ -1,9 +1,11 @@
+
+
 const initialState = [
   {
     id: 1,
     content: 'content1',
     completed: false,
-    priority: false,
+    priority: true,
     time: 10,
     project: 'inbox',
     category: 'sport',
@@ -15,9 +17,9 @@ const initialState = [
     id: 2,
     content: 'content2',
     completed: true,
-    priority: false,
+    priority: true,
     time: 5,
-    project: 'inbox',
+    project: 'some project',
     category: 'work',
     date: Date.now(),
     repeat: false,
@@ -29,7 +31,7 @@ const initialState = [
     completed: false,
     priority: false,
     time: 30,
-    project: 'project1',
+    project: 'inbox',
     category: 'home',
     date: Date.now(),
     repeat: false,

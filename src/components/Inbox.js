@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-function Inbox(props) {
-  return (
-    <p>Inbox</p>
-  );
+function mapStateToProps(state) {
+  return {
+    tasks: state.tasks.filter(task => task.project === 'inbox')
+  };
 }
 
-export default Inbox
+class Inbox extends Component {
+  render() {
+    const tasks = this.props.tasks.map(task => (
+      <div key={task.id}>{task.content}</div>
+    ))
+    return (
+      <React.Fragment>
+        {tasks}
+      </React.Fragment>
+    );
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(Inbox);

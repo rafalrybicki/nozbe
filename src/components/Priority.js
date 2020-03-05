@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    tasks: state.tasks
+    tasks: state.tasks.filter(task => task.priority === true)
   };
 }
 
