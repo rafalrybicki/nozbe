@@ -1,4 +1,5 @@
 nav {
+  z-index: 100;
   height: 100vh;
   background-color: transparent;
   transition: background-color 0.2s ;
@@ -28,13 +29,13 @@ nav.open .menu {
     transform: translateX(-320px);
     transition: transform 0.15s ease-in-out;
   }
+
 }
 
 @media (min-width: 734px) {
   nav {
     display: block;
   }
-
   .menu {
     width: 270px;
   }

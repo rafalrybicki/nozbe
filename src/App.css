@@ -7,5 +7,11 @@
 }
 
 .main {
+  position: relative;
   width: 100%;
+  overflow-y: scroll;
+}
+
+.yield {
+  margin-top: 50px;
 }

@@ -19,25 +19,25 @@ import Search from './components/Search'
 import Settings from './components/Settings'
 
 function App() {
-
-
   return (
     <Router >
       <Menu />
       <div className="main">
         <Toolbar />
-        <Switch>
-          <Route path="/priority" component={Priority} />
-          <Route path="/inbox" component={Inbox} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/categories" component={Categories} />
-          <Route path="/calendar" component={Calendar} />
-          <Route path="/templates" component={Templates} />
-          <Route path="/team" component={Team} />
-          <Route path="/search" component={Search} />
-          <Route path="/settings" component={Settings} />
-          <Redirect exact from="/" to="priority" />
-        </Switch>
+        <div className="yield">
+          <Switch>
+            <Route path="/priority" component={Priority} />
+            <Route path="/inbox" component={Inbox} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/categories" component={Categories} />
+            <Route path="/calendar" component={Calendar} />
+            <Route path="/templates" component={Templates} />
+            <Route path="/team" component={Team} />
+            <Route path="/search" component={Search} />
+            <Route path="/settings" component={Settings} />
+            <Redirect exact from="/" to="priority" />
+          </Switch>
+        </div>
       </div>
     </Router>  );
 }

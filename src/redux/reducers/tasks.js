@@ -1,5 +1,3 @@
-
-
 const initialState = [
   {
     id: 1,
@@ -53,6 +51,16 @@ const initialState = [
 
 const tasks = (state = initialState, action) => {
   switch (action.type) {
+    case 'ADD_TASK':
+      return [
+        ...state,
+        {
+          id: action.id,
+          content: action.content,
+          completed: false,
+          project: 'inbox',
+        }
+      ]
     default:
       return state
   }

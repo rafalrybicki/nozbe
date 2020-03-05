@@ -8,14 +8,17 @@ function mapStateToProps(state) {
 }
 
 class Inbox extends Component {
+  addTask = () => {
+    this.props.dispatch({type: 'ADD_TASK', id: Math.random(), content: 'new task'})
+  }
   render() {
     const tasks = this.props.tasks.map(task => (
-      <div key={task.id}>{task.content}</div>
+      <div key={task.id} >{task.content}</div>
     ))
     return (
-      <React.Fragment>
+      <div onClick={this.addTask}>
         {tasks}
-      </React.Fragment>
+      </div>
     );
   }
 }
