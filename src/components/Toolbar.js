@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import Icon from '@material-ui/core/Icon';
 import './Toolbar.css'
 
-function Search(props) {
+function Toolbar(props) {
   const openMenu = useCallback(() => {
     document.querySelector('nav').classList.add('open')
   })
@@ -16,4 +16,4 @@ function Search(props) {
   );
 }
 
-export default Search
+export default Toolbar
