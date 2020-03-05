@@ -2,26 +2,50 @@ const initialState = [
   {
     id: 1,
     content: 'content1',
-    finished: false,
-    priority: false
+    completed: false,
+    priority: false,
+    time: 10,
+    project: 'inbox',
+    category: 'sport',
+    date: Date.now(),
+    repeat: false,
+    comments: []
   },
   {
     id: 2,
     content: 'content2',
-    finished: true,
-    priority: false
+    completed: true,
+    priority: false,
+    time: 5,
+    project: 'inbox',
+    category: 'work',
+    date: Date.now(),
+    repeat: false,
+    comments: []
   },
   {
     id: 3,
     content: 'content3',
-    finished: false,
-    priority: true
+    completed: false,
+    priority: false,
+    time: 30,
+    project: 'project1',
+    category: 'home',
+    date: Date.now(),
+    repeat: false,
+    comments: []
   },
   {
     id: 4,
     content: 'content4',
-    finished: true,
-    priority: true
+    completed: true,
+    priority: false,
+    time: 60,
+    project: 'project2',
+    category: 'work',
+    date: Date.now(),
+    repeat: false,
+    comments: []
   }
 ]
 
