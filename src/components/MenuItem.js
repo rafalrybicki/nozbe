@@ -9,7 +9,7 @@ function MenuItem({icon, path, amount}) {
       <NavLink to={path} className="menu-item">
         <Icon>{icon}</Icon>
         {path.charAt(0).toUpperCase() + path.slice(1)}
-        {amount && <span className="amount">{amount}</span>}
+        {amount > 0 && <span className="amount">{amount}</span>}
       </NavLink>
     </React.Fragment>
   );

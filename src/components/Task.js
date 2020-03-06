@@ -4,10 +4,12 @@ import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-function Task({ id, content, completed, repeat, project, comments, time, date, category, priority, togglePriority}) {
+function Task({ content, completed, repeat, project, comments, time, date, category, priority, togglePriority}) {
+ 
   return (
     <div className="task">
       <Icon className="completed">{completed ? 'check_circle_outline_outlined' : 'radio_button_unchecked'}</Icon>
+      <Icon className="completed transparent">check_circle_outline_outlined</Icon>
       <div>
         <span>{content}</span>
         <div className="attributes">
