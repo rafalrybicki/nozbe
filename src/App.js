@@ -1,6 +1,5 @@
 import React from 'react';
 import Menu from './components/Menu'
-import Toolbar from './components/Toolbar'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -8,8 +7,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Priority from './components/Priority'
-import Inbox from './components/Inbox'
 import Projects from './components/Projects'
 import Categories from './components/Categories'
 import Calendar from './components/Calendar'
@@ -17,18 +14,18 @@ import Templates from './components/Templates'
 import Team from './components/Team'
 import Search from './components/Search'
 import Settings from './components/Settings'
+import Tasks from './components/Tasks'
 
 function App() {
   return (
     <Router >
       <Menu />
       <div className="main">
-        <Toolbar />
         <div className="yield">
           <Switch>
-            <Route path="/priority" component={Priority} />
-            <Route path="/inbox" component={Inbox} />
-            <Route path="/projects" component={Projects} />
+            <Route path="/priority" component={Tasks} />
+            <Route path="/inbox" component={Tasks} />
+            <Route path="/projects" component={Projects} />  {/* /projects/:project */}
             <Route path="/categories" component={Categories} />
             <Route path="/calendar" component={Calendar} />
             <Route path="/templates" component={Templates} />

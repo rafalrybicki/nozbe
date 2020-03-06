@@ -1,13 +1,14 @@
 .toolbar {
-  position: absolute;
   width: 100%;
   box-sizing: border-box;
   padding: 10px 15px;
   display: flex;
+  height: 43px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(21,21,21,0.2);
+  background-color: grey;
 }
 
 .toolbar p {
@@ -24,6 +25,8 @@
 
 .sync-icon {
   display: none;
+  transform: scaleX(-1) rotate(110deg);
+  
 }
 
 @media (min-width: 734px) {

@@ -4,12 +4,12 @@ const initialState = [
     content: 'content1',
     completed: false,
     priority: true,
-    time: 10,
+    time: '10 min',
     project: 'inbox',
     category: 'sport',
     date: Date.now(),
-    repeat: false,
-    comments: []
+    repeat: true,
+    comments: [{}, {}]
   },
   {
     id: 2,
@@ -58,6 +58,7 @@ const tasks = (state = initialState, action) => {
           id: action.id,
           content: action.content,
           completed: false,
+          priority: true,
           project: 'inbox',
         }
       ]

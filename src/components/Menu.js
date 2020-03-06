@@ -12,9 +12,8 @@ function mapStateToProps(state) {
 
 class Menu extends React.Component {
   closeMenu = (e) => {
-    console.log(e.clientX, e.clientY)
     if (window.innerWidth < 734) {
-      if (e.clientX > 320 || e.clientX < 320 && e.clientY < 84) {
+      if (e.clientX > 320 || (e.clientX < 320 && e.clientY < 88)) {
         document.querySelector('nav').classList.remove('open')
       }
     }
