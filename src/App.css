@@ -18,3 +18,8 @@
   height: calc(100% - 43px);
   overflow-y: auto;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

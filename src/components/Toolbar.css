@@ -1,7 +1,7 @@
 .toolbar {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 15px;
+  padding: 10px;
   display: flex;
   height: 43px;
   flex-direction: row;
@@ -26,7 +26,6 @@
 .sync-icon {
   display: none;
   transform: scaleX(-1) rotate(110deg);
-  
 }
 
 @media (min-width: 734px) {

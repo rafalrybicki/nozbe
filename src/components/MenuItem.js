@@ -6,7 +6,7 @@ import './MenuItem.css'
 function MenuItem({icon, path, amount}) {
   return (
     <React.Fragment>
-      <NavLink to={path} >
+      <NavLink to={path} className="menu-item">
         <Icon>{icon}</Icon>
         {path.charAt(0).toUpperCase() + path.slice(1)}
         {amount && <span className="amount">{amount}</span>}

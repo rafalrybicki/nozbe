@@ -5,7 +5,7 @@ import Task from './Task'
 
 function mapStateToProps(state) {
   return {
-    tasks: state.tasks.filter(task => task.priority === true)
+    tasks: state.tasks//.filter(task => task.priority === true)
   };
 }
 
@@ -26,7 +26,7 @@ class Tasks extends Component {
       <div>
         <Toolbar title={this.props.match.path} />
         {this.props.tasks.map(task => (
-          <Task {...task} />
+          <Task {...task} key={task.id} />
         ))}
         
       </div>

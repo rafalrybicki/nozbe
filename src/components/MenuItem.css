@@ -1,25 +1,24 @@
-a {
+.menu-item {
   display: block;
-  text-decoration: none;
   height: 44px;
   font-size: 14px;
   color: #C7C7C7;
   position: relative;
 }
 
-a.active {
+.active.menu-item  {
   color: #28ce63;
   background: #252529
 }
 
-a .material-icons {
+.menu-item .material-icons {
   display: inline-block;
   padding: 8px 10px;
   margin-bottom: -17px;
   font-size: 28px;
 }
 
-.amount {
+.menu-item .amount {
   display: inline-block;
   box-sizing: border-box;
   position: absolute;

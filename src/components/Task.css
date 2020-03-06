@@ -1,0 +1,45 @@
+.task {
+  height: 59px;
+  border-bottom: 1px solid #dadada;
+  display: flex;
+  align-items: center;
+  padding-right: 13px;
+  padding-left: 8px;
+}
+
+.task div {
+  flex-grow: 1;
+}
+
+.task div .attributes {
+  display: flex;
+  align-items: center;
+}
+
+.task .material-icons {
+  display: inline-block;
+}
+
+.task div .material-icons  {
+  font-size: 15px;
+}
+
+.task .completed {
+  font-size: 33px;
+  padding-right: 5px;
+}
+
+.task div span {
+  display: block;
+}
+
+
+.task a {
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+.task a .circle {
+  margin-bottom: -4px;
+  padding-right: 2px;
+}
