@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar'
 import Task from './Task'
+import { togglePriority } from '../redux/actions'
 
 function mapStateToProps(state) {
   return {
@@ -11,7 +12,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-  
+    togglePriority: (id) => dispatch(togglePriority(id))
   };
 }
 
@@ -26,7 +27,7 @@ class Tasks extends Component {
       <div>
         <Toolbar title={this.props.match.path} />
         {this.props.tasks.map(task => (
-          <Task {...task} key={task.id} />
+          <Task {...task} key={task.id} togglePriority={() => this.props.togglePriority(task.id)} />
         ))}
         
       </div>
@@ -36,4 +37,5 @@ class Tasks extends Component {
 
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(Tasks);

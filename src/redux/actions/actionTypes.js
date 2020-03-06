@@ -1,0 +1,1 @@
+export const TOGGLE_PRIORITY = 'TOGGLE_PRIORITY'

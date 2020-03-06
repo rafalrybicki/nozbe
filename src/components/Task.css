@@ -18,6 +18,7 @@
 
 .task .material-icons {
   display: inline-block;
+  cursor: pointer;
 }
 
 .task div .material-icons  {

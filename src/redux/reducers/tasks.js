@@ -1,3 +1,5 @@
+import { TOGGLE_PRIORITY } from '../actions/actionTypes'
+
 const initialState = [
   {
     id: 1,
@@ -51,6 +53,10 @@ const initialState = [
 
 const tasks = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_PRIORITY:
+      return state.map(
+        task => task.id === action.id ? { ...task, priority: !task.priority } : task
+      );
     case 'ADD_TASK':
       return [
         ...state,
