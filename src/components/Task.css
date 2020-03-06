@@ -30,15 +30,6 @@
   padding-right: 5px;
 }
 
-.task .completed.transparent{
-  position: absolute;
-  color: transparent;
-}
-
-.task .completed:hover {
-  color: black
-} 
-
 .task div span {
   display: block;
 }
