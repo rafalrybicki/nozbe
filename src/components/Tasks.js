@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar'
 import Task from './Task'
-import { togglePriority } from '../redux/actions'
+import { togglePriority, toggleCompletion } from '../redux/actions'
 
 function mapStateToProps(state) {
   return {
@@ -12,7 +12,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    togglePriority: (id) => dispatch(togglePriority(id))
+    togglePriority: (id) => dispatch(togglePriority(id)),
+    toggleCompletion: (id) => dispatch(toggleCompletion(id))
   };
 }
 
@@ -27,7 +28,12 @@ class Tasks extends Component {
       <div>
         <Toolbar title={this.props.match.path} />
         {this.props.tasks.map(task => (
-          <Task {...task} key={task.id} togglePriority={() => this.props.togglePriority(task.id)} />
+          <Task 
+            {...task} 
+            key={task.id} 
+            togglePriority={() => this.props.togglePriority(task.id)}
+            toggleCompletion={() => this.props.toggleCompletion(task.id)}
+          />
         ))}
         
       </div>

@@ -1,10 +1,10 @@
-import { TOGGLE_PRIORITY } from '../actions/actionTypes'
+import { TOGGLE_PRIORITY, TOGGLE_COMPLETION } from '../actions/actionTypes'
 
 const initialState = [
   {
     id: 1,
     content: 'content1',
-    completed: false,
+    completion: false,
     priority: true,
     time: '10 min',
     project: 'inbox',
@@ -16,7 +16,7 @@ const initialState = [
   {
     id: 2,
     content: 'content2',
-    completed: true,
+    completion: true,
     priority: false,
     time: '5 min',
     project: 'some project',
@@ -28,7 +28,7 @@ const initialState = [
   {
     id: 3,
     content: 'content3',
-    completed: false,
+    completion: false,
     priority: false,
     time: '30 min',
     project: 'inbox',
@@ -40,7 +40,7 @@ const initialState = [
   {
     id: 4,
     content: 'content4',
-    completed: true,
+    completion: true,
     priority: true,
     time: '1 h',
     project: 'project2',
@@ -56,6 +56,10 @@ const tasks = (state = initialState, action) => {
     case TOGGLE_PRIORITY:
       return state.map(
         task => task.id === action.id ? { ...task, priority: !task.priority } : task
+      );
+    case TOGGLE_COMPLETION:
+      return state.map(
+        task => task.id === action.id ? { ...task, completion: !task.completion } : task
       );
     case 'ADD_TASK':
       return [

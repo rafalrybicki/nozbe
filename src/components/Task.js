@@ -4,19 +4,20 @@ import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-function Task({ completed, content, repeat, project, comments, time, date, category, priority, togglePriority}) {
-  const [complete, setComplete] = useState(completed);
-  const toggle = () => {
-    if (completed) return
-    setComplete(!complete)
+function Task({ completion, content, repeat, project, comments, time, date, category, priority, togglePriority, toggleCompletion}) {
+  const [completed, setComplete] = useState(completion);
+  const hover = () => {
+    if (completion) return
+    setComplete(!completed)
   }
   return (
     <div className="task">
       <Icon className="completed"
-        onMouseEnter={toggle}
-        onMouseLeave={toggle}
+        onMouseEnter={hover}
+        onMouseLeave={hover}
+        onClick={toggleCompletion}
       >
-        {complete ? 'check_circle_outline_outlined' : 'radio_button_unchecked'}
+        {completed ? 'check_circle_outline_outlined' : 'radio_button_unchecked'}
       </Icon>
       <div>
         <span>{content}</span>
