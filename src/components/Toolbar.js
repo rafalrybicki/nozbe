@@ -10,7 +10,7 @@ function Toolbar({title}) {
     <div className="toolbar">
       <Icon className="menu-icon" onClick={openMenu}>menu</Icon>
       <Icon className="sync-icon">sync</Icon>
-      <p>{title[1].toUpperCase() + title.slice(2)}</p>
+      <p>{title[0].toUpperCase() + title.slice(1)}</p>
       <Icon className="info-icon">info_outlined</Icon>
     </div>
   );

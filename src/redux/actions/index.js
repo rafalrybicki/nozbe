@@ -1,4 +1,8 @@
-import { TOGGLE_PRIORITY, TOGGLE_COMPLETION } from './actionTypes'
+import { 
+  TOGGLE_PRIORITY, 
+  TOGGLE_COMPLETION,
+  ADD_TASK 
+} from './actionTypes'
 
 export const togglePriority = id => ({
   type: TOGGLE_PRIORITY,
@@ -10,3 +14,8 @@ export const toggleCompletion = id => ({
   id
 })
 
+export const addTask = (content, project) => ({
+  type: ADD_TASK,
+  content,
+  project
+})

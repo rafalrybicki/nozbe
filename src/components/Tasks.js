@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Toolbar from './Toolbar'
 import StatusBar from './StatusBar'
 import Task from './Task'
-import { togglePriority, toggleCompletion } from '../redux/actions'
+import NewTask from './NewTask'
+import { togglePriority, toggleCompletion} from '../redux/actions'
 import './Tasks.css'
 
 function mapStateToProps(state) {
@@ -26,9 +27,11 @@ function mapDispatchToProps(dispatch) {
 
 class Tasks extends Component {
   render() {
+    const pathname = this.props.location.pathname.slice(1)
     return (
       <div className="tasks">
-        <Toolbar title={this.props.match.path} />
+        <Toolbar title={pathname} />
+        <NewTask project={pathname} />
         {this.props.tasks.map(task => (
           <Task 
             {...task} 

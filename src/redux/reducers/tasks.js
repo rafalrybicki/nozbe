@@ -1,4 +1,4 @@
-import { TOGGLE_PRIORITY, TOGGLE_COMPLETION } from '../actions/actionTypes'
+import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, ADD_TASK } from '../actions/actionTypes'
 
 const initialState = [
   {
@@ -8,7 +8,7 @@ const initialState = [
     priority: true,
     time: '10 min',
     project: 'inbox',
-    category: 'sport',
+    category: [],
     date: Date.now(),
     repeat: true,
     comments: [{}, {}]
@@ -20,7 +20,7 @@ const initialState = [
     priority: false,
     time: '5 min',
     project: 'some project',
-    category: 'work',
+    category: ['work'],
     date: Date.now(),
     repeat: false,
     comments: []
@@ -32,7 +32,7 @@ const initialState = [
     priority: false,
     time: '30 min',
     project: 'inbox',
-    category: 'home',
+    category: ['home'],
     date: Date.now(),
     repeat: false,
     comments: []
@@ -44,7 +44,7 @@ const initialState = [
     priority: true,
     time: '1 h',
     project: 'project2',
-    category: 'work',
+    category: [],
     date: false,
     repeat: false,
     comments: []
@@ -61,15 +61,20 @@ const tasks = (state = initialState, action) => {
       return state.map(
         task => task.id === action.id ? { ...task, completion: !task.completion } : task
       );
-    case 'ADD_TASK':
+    case ADD_TASK:
       return [
         ...state,
         {
-          id: action.id,
+          id: Math.random(),
           content: action.content,
-          completed: false,
-          priority: true,
-          project: 'inbox',
+          completion: false,
+          priority: action.project === 'priority' ? true : false,
+          time: null,
+          project: action.project === 'priority' ? 'inbox' : action.project,
+          date: null,
+          category: [],
+          repeat: false,
+          comments: []
         }
       ]
     default:

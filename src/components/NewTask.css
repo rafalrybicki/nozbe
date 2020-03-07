@@ -1,0 +1,20 @@
+.new-task {
+  width: 100%;
+  display: flex;
+}
+
+.new-task input {
+  flex-grow: 1;
+}
+
+.new-task .direction-up{
+  transform: rotate(-45deg); 
+}
+
+.new-task .direction-down{
+  transform: scaleX(-1) rotate(135deg);
+}
+
+.new-task .material-icons {
+  cursor: pointer;
+}
