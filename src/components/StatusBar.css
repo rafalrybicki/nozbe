@@ -1,0 +1,17 @@
+.status-bar {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #dadada;
+  height: 43px;
+  font-size: 12px;
+}
+
+.status-bar .material-icons {
+  font-size: 32px;
+}
