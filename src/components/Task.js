@@ -11,8 +11,8 @@ function Task({ completion, content, repeat, project, comments, time, date, cate
     setComplete(!completed)
   }
   return (
-    <div className="task">
-      <Icon className="completed"
+    <div className={completion ? 'task completed' : 'task'}>
+      <Icon className="completion"
         onMouseEnter={hover}
         onMouseLeave={hover}
         onClick={toggleCompletion}

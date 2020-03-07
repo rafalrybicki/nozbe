@@ -25,9 +25,14 @@
   font-size: 15px;
 }
 
-.task .completed {
+.task .completion {
   font-size: 33px;
   padding-right: 5px;
+}
+
+.task.completed {
+  background-color: #F4F4F4;
+      opacity: .5
 }
 
 .task div span {
