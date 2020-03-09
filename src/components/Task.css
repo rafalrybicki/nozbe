@@ -5,6 +5,7 @@
   align-items: center;
   padding-right: 13px;
   padding-left: 8px;
+  background-color: white;
 }
 
 .task div {
@@ -43,14 +44,13 @@
 }
 
 .task.completed {
-  background-color: #F4F4F4;
-      opacity: .5
+  background-color: #FFFFFF;
+  opacity: .5
 }
 
 .task div span {
   display: block;
 }
-
 
 .task a {
   padding-right: 5px;

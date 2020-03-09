@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar'
 import StatusBar from './StatusBar'
+import EditBar from './EditBar'
 import Task from './Task'
 import NewTask from './NewTask'
 import { togglePriority, toggleCompletion, deleteTasks} from '../redux/actions'
@@ -79,8 +80,8 @@ class Tasks extends Component {
             viewMode={viewMode}
           />
         ))}
-        <button onClick={this.deleteTasks}>delete</button>
-        <StatusBar done={1} left={4} changeMode={this.changeMode}/>
+        {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode}/>}
+        {!viewMode && <EditBar deleteTasks={this.deleteTasks} />}
       </div>
     );
   }

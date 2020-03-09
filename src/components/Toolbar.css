@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(21,21,21,0.2);
-  background-color: grey;
+  background: #FAFAFA;
 }
 
 .toolbar p {

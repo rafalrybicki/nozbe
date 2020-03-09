@@ -1,0 +1,41 @@
+.edit-bar {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  height: 43px;
+  align-items: center;
+  background: #FAFAFA;
+  border-top: 1px solid #dadada;
+}
+
+.edit-bar button {
+  background-color: white;
+  color: #555;
+  border: 1px solid rgba(21,21,21,0.2);
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.edit-bar button:active, .edit-bar button:focus {
+  outline: none;
+}
+
+.edit-bar button.delete {
+  padding: 0;
+  height: 34px;
+  width: 42px;
+  padding: 0 10px;
+}
+
+.edit-bar button span {
+  color: red;
+  font-size: 20px;
+  padding: 0;
+  margin-top: 3spx;
+}

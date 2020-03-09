@@ -50,7 +50,7 @@ function Task({ completion, content, repeat, project, comments, time, date, cate
 
 const styles = {
   color: {
-    color: 'blue', //project's color here
+    color: '#28ce63', //project's color here
   }
 }
 
