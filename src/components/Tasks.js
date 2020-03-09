@@ -4,7 +4,7 @@ import Toolbar from './Toolbar'
 import StatusBar from './StatusBar'
 import Task from './Task'
 import NewTask from './NewTask'
-import { togglePriority, toggleCompletion} from '../redux/actions'
+import { togglePriority, toggleCompletion, deleteTasks} from '../redux/actions'
 import './Tasks.css'
 
 function mapStateToProps(state) {
@@ -16,7 +16,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     togglePriority: (id) => dispatch(togglePriority(id)),
-    toggleCompletion: (id) => dispatch(toggleCompletion(id))
+    toggleCompletion: (id) => dispatch(toggleCompletion(id)),
+    dispatch: (func) => dispatch(func)
+    // deleteTasks: (tasks) => dispatch(deleteTasks(tasks))
   };
 }
 
@@ -44,13 +46,21 @@ class Tasks extends Component {
   setTaskToUpdate = (id) => {
     if (this.state.tasksToUpdate.includes(id)) {
       this.setState(prevState => {
-        return { tasksToUpdate: prevState.tasksToUpdate.filter(taskId => taskId != id) }
+        return { tasksToUpdate: prevState.tasksToUpdate.filter(taskId => taskId !== id) }
       })
     } else {
       this.setState(prevState => {
         return { tasksToUpdate: [...prevState.tasksToUpdate, id] }
       })
     }
+  }
+
+  deleteTasks = () => {
+    if(this.state.tasksToUpdate.length === 0) {
+      alert(false)
+      return
+    }
+    this.props.dispatch(deleteTasks(this.state.tasksToUpdate))
   }
 
   render() {
@@ -69,6 +79,7 @@ class Tasks extends Component {
             viewMode={viewMode}
           />
         ))}
+        <button onClick={this.deleteTasks}>delete</button>
         <StatusBar done={1} left={4} changeMode={this.changeMode}/>
       </div>
     );

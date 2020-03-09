@@ -1,4 +1,4 @@
-import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, ADD_TASK } from '../actions/actionTypes'
+import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, ADD_TASK, DELETE_TASKS } from '../actions/actionTypes'
 
 const initialState = [
   {
@@ -81,6 +81,10 @@ const tasks = (state = initialState, action) => {
           comments: []
         }
       ]
+    case DELETE_TASKS:
+      return state.filter(
+        task => !action.tasks.includes(task.id)
+      )
     default:
       return state
   }

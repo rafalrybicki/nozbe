@@ -1,7 +1,8 @@
 import { 
   TOGGLE_PRIORITY, 
   TOGGLE_COMPLETION,
-  ADD_TASK 
+  ADD_TASK, 
+  DELETE_TASKS
 } from './actionTypes'
 
 export const togglePriority = id => ({
@@ -18,4 +19,9 @@ export const addTask = (content, project) => ({
   type: ADD_TASK,
   content,
   project
+})
+
+export const deleteTasks = (tasks) => ({
+  type: DELETE_TASKS,
+  tasks
 })

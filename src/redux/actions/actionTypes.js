@@ -1,3 +1,4 @@
 export const TOGGLE_PRIORITY = 'TOGGLE_PRIORITY'
 export const TOGGLE_COMPLETION = 'TOGGLE_COMPLETION'
 export const ADD_TASK = 'ADD_TASK'
+export const DELETE_TASKS = 'DELETE_TASKS'
