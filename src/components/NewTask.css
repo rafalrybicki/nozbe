@@ -10,8 +10,18 @@
   margin-top: 0;
 }
 
-.new-task input {
+.new-task form {
   flex-grow: 1;
+  display: flex;
+}
+
+.new-task form, .new-task form input {
+  flex-grow: 1;
+}
+
+.new-task form button {
+  background-color: transparent;
+  border: 0;
 }
 
 .new-task .direction-up{

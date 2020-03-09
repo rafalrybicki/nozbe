@@ -14,7 +14,8 @@ let NewTask = ({dispatch, project}) => {
       setDirection(true)
     }
   }
-  const addNewTask = () => {
+  const addNewTask = (e) => {
+    e.preventDefault()
     if(input.value.trim() === '') return
 
     dispatch(addTask(input.value.trim(), project))
@@ -27,14 +28,16 @@ let NewTask = ({dispatch, project}) => {
         className={"direction-" + (direction ? 'up' : 'down')}
         onClick={toogleDirection}
       >redo</Icon>
-      <input 
-        type="text" 
-        placeholder="Enter task name" 
-        ref={node => {input = node}}
-      />
-      <Icon 
-        onClick={addNewTask}
-      >add</Icon>
+      <form onSubmit={addNewTask}>
+        <input
+          type="text"
+          placeholder="Enter task name"
+          ref={node => { input = node }}
+        />
+        <button type="submit">
+          <Icon>add</Icon>
+        </button>
+      </form>
     </div>
   );
 }
