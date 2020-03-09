@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-function Task({ completion, content, repeat, project, comments, time, date, category, priority,holder, viewMode, togglePriority, toggleCompletion, setTaskToUpdate}) {
+function Task({ completion, content, repeat, project, comments, time, date, category, priority, holder, viewMode, togglePriority, toggleCompletion, selectTask}) {
   const [completed, setComplete] = useState(completion);
   const hover = () => {
     if (completion) return
@@ -12,7 +12,7 @@ function Task({ completion, content, repeat, project, comments, time, date, cate
   }
   return (
     <div className={completion ? 'task completed' : 'task'}>
-      {!viewMode && <input type="checkbox" onChange={setTaskToUpdate} /> }
+      {!viewMode && <input type="checkbox" onChange={selectTask} /> }
       {!viewMode && <span className="initials">{holder[0] + holder.split(' ')[1][0]}</span>}
       {viewMode && <Icon className="completion"
                      onMouseEnter={hover}
@@ -41,9 +41,11 @@ function Task({ completion, content, repeat, project, comments, time, date, cate
       <Icon 
         style={styles.color}
         onClick={viewMode && togglePriority}
+        className="priority"
       >
         {priority ? 'star' : 'star_outlined'}
-      </Icon> 
+      </Icon>
+      {!viewMode && <Icon className="handler">menu</Icon>}
     </div>
   );
 }
