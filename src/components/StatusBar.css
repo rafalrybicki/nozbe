@@ -10,8 +10,10 @@
   border-top: 1px solid #dadada;
   height: 43px;
   font-size: 12px;
+  cursor: default;
 }
 
 .status-bar .material-icons {
   font-size: 32px;
+  cursor: pointer;
 }

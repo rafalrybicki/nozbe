@@ -11,7 +11,8 @@ const initialState = [
     category: [],
     date: Date.now(),
     repeat: true,
-    comments: [{}, {}]
+    comments: [{}, {}],
+    holder: 'R R'
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const initialState = [
     category: ['work'],
     date: Date.now(),
     repeat: false,
-    comments: []
+    comments: [],
+    holder: 'John Doe'
   },
   {
     id: 3,
@@ -35,7 +37,8 @@ const initialState = [
     category: ['home'],
     date: Date.now(),
     repeat: false,
-    comments: []
+    comments: [],
+    holder: 'John Doe'
   },
   {
     id: 4,
@@ -47,7 +50,8 @@ const initialState = [
     category: [],
     date: false,
     repeat: false,
-    comments: []
+    comments: [],
+    holder: 'R R'
   }
 ]
 

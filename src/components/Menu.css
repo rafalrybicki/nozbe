@@ -1,5 +1,5 @@
 nav {
-  z-index: 100;
+  z-index: 1000;
   height: 100vh;
   background-color: transparent;
   transition: background-color 0.2s ;

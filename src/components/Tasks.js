@@ -26,21 +26,50 @@ function mapDispatchToProps(dispatch) {
 // };
 
 class Tasks extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      project: this.props.location.pathname.split('/')[1],
+      viewMode: true,
+      tasksToUpdate: []
+    };
+  };
+
+  changeMode = () => {
+    this.setState(prevState => {
+      return {viewMode: !prevState.viewMode}
+    })
+  }
+
+  setTaskToUpdate = (id) => {
+    if (this.state.tasksToUpdate.includes(id)) {
+      this.setState(prevState => {
+        return { tasksToUpdate: prevState.tasksToUpdate.filter(taskId => taskId != id) }
+      })
+    } else {
+      this.setState(prevState => {
+        return { tasksToUpdate: [...prevState.tasksToUpdate, id] }
+      })
+    }
+  }
+
   render() {
-    const pathname = this.props.location.pathname.slice(1)
+    const {project, viewMode} = this.state
     return (
       <div className="tasks">
-        <Toolbar title={pathname} />
-        <NewTask project={pathname} />
+        <Toolbar title={project} viewMode={viewMode} />
+        <NewTask project={project} />
         {this.props.tasks.map(task => (
           <Task 
             {...task} 
             key={task.id} 
             togglePriority={() => this.props.togglePriority(task.id)}
             toggleCompletion={() => this.props.toggleCompletion(task.id)}
+            setTaskToUpdate={() => this.setTaskToUpdate(task.id)}
+            viewMode={viewMode}
           />
         ))}
-        <StatusBar done={1} left={4} />
+        <StatusBar done={1} left={4} changeMode={this.changeMode}/>
       </div>
     );
   }

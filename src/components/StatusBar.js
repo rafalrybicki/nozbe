@@ -2,8 +2,8 @@ import React from 'react';
 import './StatusBar.css'
 import Icon from '@material-ui/core/Icon';
 
-function StatusBar({done, left}) {
-  const toggleNewTask = () => {
+function StatusBar({done, left, changeMode}) {
+  const showNewTask = () => {
     document.addEventListener('click', hideNewTask)
     document.querySelector('.new-task').classList.add('show')
   }
@@ -16,9 +16,9 @@ function StatusBar({done, left}) {
   }
   return (
     <div className="status-bar">
-      <Icon>more_horiz</Icon>
+      <Icon onClick={changeMode}>more_horiz</Icon>
       {`${done} done  :  ${left} left`}
-      <Icon onClick={toggleNewTask}>add</Icon>
+      <Icon onClick={showNewTask}>add</Icon>
     </div>
   );
 }

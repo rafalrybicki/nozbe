@@ -3,9 +3,9 @@ import Icon from '@material-ui/core/Icon';
 import './Toolbar.css'
 
 function Toolbar({title}) {
-  const openMenu = useCallback(() => {
+  const openMenu = () => {
     document.querySelector('nav').classList.add('open')
-  })
+  }
   return (
     <div className="toolbar">
       <Icon className="menu-icon" onClick={openMenu}>menu</Icon>
