@@ -1,4 +1,4 @@
-import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, ADD_TASK, DELETE_TASKS } from '../actions/actionTypes'
+import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, COMPLETE_TASKS, ADD_TASK, DELETE_TASKS } from '../actions/actionTypes'
 
 const initialState = [
   {
@@ -64,6 +64,10 @@ const tasks = (state = initialState, action) => {
     case TOGGLE_COMPLETION:
       return state.map(
         task => task.id === action.id ? { ...task, completion: !task.completion } : task
+      );
+    case COMPLETE_TASKS:
+      return state.map(
+        task => action.tasks.includes(task.id) ? { ...task, completion:  true } : task
       );
     case ADD_TASK:
       return [

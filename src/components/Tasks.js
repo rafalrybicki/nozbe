@@ -5,7 +5,7 @@ import StatusBar from './StatusBar'
 import EditBar from './EditBar'
 import Task from './Task'
 import NewTask from './NewTask'
-import { togglePriority, toggleCompletion, deleteTasks} from '../redux/actions'
+import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../redux/actions'
 import './Tasks.css'
 import { Checkbox } from '@material-ui/core';
 
@@ -67,13 +67,21 @@ class Tasks extends Component {
         return { tasksToUpdate: [...prevState.allTasks] }
       })
     } else {
-      this.setState(prevState => {
-        return { tasksToUpdate: [] }
-      })
+      this.setState({ tasksToUpdate: [] })      
     }
     const checkboxes = document.querySelectorAll('.task input')
     const checked = this.state.tasksToUpdate.length === this.state.allTasks.length
     checkboxes.forEach(task => task.checked = !checked)
+  }
+
+  completeTasks = () => {
+    if (this.state.tasksToUpdate.length === 0) {
+      alert(false)
+      return
+    }
+    this.props.dispatch(completeTasks(this.state.tasksToUpdate))
+    document.querySelector('.select-all').checked = false;
+    this.setState({ tasksToUpdate: [] })
   }
 
   deleteTasks = () => {
@@ -83,6 +91,7 @@ class Tasks extends Component {
     }
     this.props.dispatch(deleteTasks(this.state.tasksToUpdate))
     document.querySelector('.select-all').checked = false;
+    this.setState({ tasksToUpdate: [] })
   }
 
   render() {
@@ -109,8 +118,8 @@ class Tasks extends Component {
             checked={this.state.tasksToUpdate.length === this.state.allTasks.length }
           />
         ))}
-        {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode}/>}
-        {!viewMode && <EditBar deleteTasks={this.deleteTasks} />}
+        {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
+        {!viewMode && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
       </div>
     );
   }
