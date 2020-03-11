@@ -5,6 +5,7 @@
   align-items: center;
   padding-left: 8px;
   background-color: white;
+  cursor: pointer;
 }
 
 .task div {
@@ -31,7 +32,6 @@
 
 .task .material-icons {
   display: inline-block;
-  cursor: pointer;
 }
 
 .task div .material-icons  {

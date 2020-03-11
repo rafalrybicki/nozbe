@@ -9,7 +9,7 @@ const initialState = [
     time: '10 min',
     project: 'inbox',
     category: [],
-    date: Date.now(),
+    date: new Date('2020-03-09'),
     repeat: true,
     comments: [{}, {}],
     holder: 'R R'
@@ -22,7 +22,7 @@ const initialState = [
     time: '5 min',
     project: 'some project',
     category: ['work'],
-    date: Date.now(),
+    date: new Date(),
     repeat: false,
     comments: [],
     holder: 'John Doe'
@@ -35,7 +35,7 @@ const initialState = [
     time: '30 min',
     project: 'inbox',
     category: ['home'],
-    date: Date.now(),
+    date: new Date(),
     repeat: false,
     comments: [],
     holder: 'John Doe'
@@ -48,7 +48,7 @@ const initialState = [
     time: '1 h',
     project: 'project2',
     category: [],
-    date: false,
+    date: new Date(),
     repeat: false,
     comments: [],
     holder: 'R R'

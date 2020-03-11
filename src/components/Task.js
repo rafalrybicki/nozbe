@@ -4,15 +4,22 @@ import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-function Task({ completion, content, repeat, project, comments, time, date, category, priority, holder, viewMode, togglePriority, toggleCompletion, selectTask}) {
+function Task({ id, completion, content, repeat, project, comments, time, date, category, priority, holder, viewMode, togglePriority, toggleCompletion, addToSelected, edit}) {
   const [completed, setComplete] = useState(completion);
   const hover = () => {
     if (completion) return
     setComplete(!completed)
   }
+  const editTask = (e) => {
+    if (e.target.classList.contains('completion') || e.target.classList.contains('priority') || e.target.tagName === 'A') {
+      return
+    } else {
+      edit(id)
+    }
+  }
   return (
-    <div className={completion ? 'task completed' : 'task'}>
-      {!viewMode && <input type="checkbox" onChange={selectTask} /> }
+    <div className={completion ? 'task completed' : 'task'} onClick={editTask}>
+      {!viewMode && <input type="checkbox" onChange={addToSelected} /> }
       {!viewMode && <span className="initials">{holder[0] + holder.split(' ')[1][0]}</span>}
       {viewMode && <Icon className="completion"
                      onMouseEnter={hover}
@@ -34,7 +41,7 @@ function Task({ completion, content, repeat, project, comments, time, date, cate
           {time && <Icon>schedule</Icon>}
           {time}
           {date && <Icon>today</Icon>}
-          {date && moment(date).format("MMM Do")} 
+          {date && moment(date).calendar()}
           change catergories to arr
         </div>
       </div>

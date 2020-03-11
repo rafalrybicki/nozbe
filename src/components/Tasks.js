@@ -7,7 +7,6 @@ import Task from './Task'
 import NewTask from './NewTask'
 import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../redux/actions'
 import './Tasks.css'
-import { Checkbox } from '@material-ui/core';
 
 function mapStateToProps(state) {
   return {
@@ -35,7 +34,8 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       viewMode: true,
-      tasksToUpdate: [],
+      editedTask: null,
+      selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };
   };
@@ -49,49 +49,57 @@ class Tasks extends Component {
   selectTask = (id) => {
     const selectAll = document.querySelector('.toolbar input')
 
-    if (this.state.tasksToUpdate.includes(id)) {
+    if (this.state.selectedTasks.includes(id)) {
       selectAll.checked = false
       this.setState(prevState => {
-        return { tasksToUpdate: prevState.tasksToUpdate.filter(taskId => taskId !== id) }
+        return { selectedTasks: prevState.selectedTasks.filter(taskId => taskId !== id) }
       })
     } else {
       this.setState(prevState => {
-        return { tasksToUpdate: [...prevState.tasksToUpdate, id] }
+        return { selectedTasks: [...prevState.selectedTasks, id] }
       })
     }
   }
 
   selectAll = () => {
-    if(this.state.tasksToUpdate.length < this.state.allTasks.length) {
+    if(this.state.selectedTasks.length < this.state.allTasks.length) {
       this.setState(prevState => {
-        return { tasksToUpdate: [...prevState.allTasks] }
+        return { selectedTasks: [...prevState.allTasks] }
       })
     } else {
-      this.setState({ tasksToUpdate: [] })      
+      this.setState({ selectedTasks: [] })      
     }
     const checkboxes = document.querySelectorAll('.task input')
-    const checked = this.state.tasksToUpdate.length === this.state.allTasks.length
+    const checked = this.state.selectedTasks.length === this.state.allTasks.length
     checkboxes.forEach(task => task.checked = !checked)
   }
 
   completeTasks = () => {
-    if (this.state.tasksToUpdate.length === 0) {
+    if (this.state.selectedTasks.length === 0) {
       alert(false)
       return
     }
-    this.props.dispatch(completeTasks(this.state.tasksToUpdate))
+    this.props.dispatch(completeTasks(this.state.selectedTasks))
     document.querySelector('.select-all').checked = false;
-    this.setState({ tasksToUpdate: [] })
+    this.setState({ selectedTasks: [] })
+  }
+
+  editTask = (id) => {
+    if (this.state.editedTask === id) {
+      this.setState({ editedTask: null})
+    } else {
+      this.setState({ editedTask: id})
+    }
   }
 
   deleteTasks = () => {
-    if(this.state.tasksToUpdate.length === 0) {
+    if(this.state.selectedTasks.length === 0) {
       alert(false)
       return
     }
-    this.props.dispatch(deleteTasks(this.state.tasksToUpdate))
+    this.props.dispatch(deleteTasks(this.state.selectedTasks))
     document.querySelector('.select-all').checked = false;
-    this.setState({ tasksToUpdate: [] })
+    this.setState({ selectedTasks: [] })
   }
 
   render() {
@@ -103,8 +111,8 @@ class Tasks extends Component {
           viewMode={viewMode} 
           closeEditMode={this.changeMode}
           selectAll={this.selectAll} 
-          quantity={this.state.tasksToUpdate.length} 
-          checked={this.state.tasksToUpdate.length === this.state.allTasks.length}
+          quantity={this.state.selectedTasks.length} 
+          checked={this.state.selectedTasks.length === this.state.allTasks.length}
         />
         <NewTask project={project} />
         {this.props.tasks.map(task => (
@@ -113,9 +121,10 @@ class Tasks extends Component {
             key={task.id} 
             togglePriority={() => this.props.togglePriority(task.id)}
             toggleCompletion={() => this.props.toggleCompletion(task.id)}
-            selectTask={() => this.selectTask(task.id)}
+            addToSelected={() => this.selectTask(task.id)}
             viewMode={viewMode}
-            checked={this.state.tasksToUpdate.length === this.state.allTasks.length }
+            checked={this.state.selectedTasks.length === this.state.allTasks.length }
+            edit={() => this.editTask(task.id)}
           />
         ))}
         {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
