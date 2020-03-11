@@ -23,7 +23,7 @@ function TaskBasic(props) {
       </div>
       <Icon
         style={styles.color}
-        onClick={viewMode && togglePriority}
+        onClick={viewMode ? togglePriority : undefined}
         className="priority"
       >
         {priority ? 'star' : 'star_outlined'}

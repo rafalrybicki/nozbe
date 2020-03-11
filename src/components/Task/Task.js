@@ -13,6 +13,7 @@ function Task(props) {
       return
     } else {
       // showDetails(!details)
+      console.log(true)
     }
   }
   return (

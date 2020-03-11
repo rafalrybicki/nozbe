@@ -43,7 +43,10 @@ class Tasks extends Component {
 
   changeMode = () => {
     this.setState(prevState => {
-      return {viewMode: !prevState.viewMode}
+      return {
+        viewMode: !prevState.viewMode,
+        selectedTasks: []
+      }
     })
   }
 

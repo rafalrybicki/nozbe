@@ -18,6 +18,7 @@
   height: 28px;
   width: 28px;
   font-size: 28px;
+  margin-right: -2px;
 }
 
 .task-basic .circle {

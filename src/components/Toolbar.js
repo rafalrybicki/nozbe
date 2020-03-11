@@ -14,12 +14,16 @@ function Toolbar({title, viewMode, selectAll, quantity, closeEditMode}) {
           type="checkbox" 
           onClick={selectAll} 
         />
-        {quantity}
+        <span>{quantity}</span>
       </div>}
       {viewMode && <Icon className="menu-icon" onClick={openMenu}>menu</Icon>}
       {viewMode && <Icon className="sync-icon">sync</Icon>}
 
-      <p>{title[0].toUpperCase() + title.slice(1)}</p>
+      <p>
+        {title[0].toUpperCase() + title.slice(1)}
+        <br />
+        {!viewMode && <span>Edit mode</span>}
+      </p>
       {viewMode && <Icon className="info-icon">info_outlined</Icon>}
       {!viewMode && <button className="close" onClick={closeEditMode}>Done</button>}
     </div>
