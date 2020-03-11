@@ -1,0 +1,19 @@
+.details {
+  position: absolute;
+  background-color: red;
+  top: 0;
+  right: 0;
+  width: 400px;
+  opacity: 1;
+  height: calc(100% - 86px);
+  margin-top: 43px;
+}
+
+.details .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details .span {
+  flex-grow: 1;
+}

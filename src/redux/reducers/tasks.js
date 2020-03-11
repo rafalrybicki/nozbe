@@ -7,12 +7,26 @@ const initialState = [
     completion: false,
     priority: true,
     time: '10 min',
-    project: 'inbox',
-    category: [],
+    project: {
+      name: 'Inbox',
+      path: '/inbox'
+    },
+    categories: [
+      {
+        name: 'Home',
+        icon: 'home'
+      },
+      {
+        name: 'Important',
+        icon: 'directions_run'
+      }
+    ],
     date: new Date('2020-03-09'),
     repeat: true,
     comments: [{}, {}],
-    holder: 'R R'
+    holder: 'R R',
+    created_at: new Date(),
+    updated_at: new Date()
   },
   {
     id: 2,
@@ -20,12 +34,22 @@ const initialState = [
     completion: true,
     priority: false,
     time: '5 min',
-    project: 'some project',
-    category: ['work'],
+    project: {
+      name: 'Inbox',
+      path: '/inbox'
+    },
+    categories: [
+      {
+        name: 'Home',
+        icon: 'home'
+      }
+    ],
     date: new Date(),
     repeat: false,
     comments: [],
-    holder: 'John Doe'
+    holder: 'John Doe',
+    created_at: new Date(),
+    updated_at: new Date()
   },
   {
     id: 3,
@@ -33,12 +57,22 @@ const initialState = [
     completion: false,
     priority: false,
     time: '30 min',
-    project: 'inbox',
-    category: ['home'],
+    project: {
+      name: 'Home',
+      path: '/home'
+    },
+    categories: [
+      {
+        name: 'Home',
+        icon: 'home'
+      }
+    ],
     date: new Date(),
     repeat: false,
     comments: [],
-    holder: 'John Doe'
+    holder: 'John Doe',
+    created_at: new Date(),
+    updated_at: new Date()
   },
   {
     id: 4,
@@ -46,12 +80,26 @@ const initialState = [
     completion: true,
     priority: true,
     time: '1 h',
-    project: 'project2',
-    category: [],
+    project: {
+      name: 'Home',
+      path: '/home'
+    },
+    categories: [
+      {
+        name: 'Home',
+        icon: 'home' 
+      },
+      {
+        name: 'Important',
+        icon: 'directions_run'
+      }
+    ],
     date: new Date(),
     repeat: false,
     comments: [],
-    holder: 'R R'
+    holder: 'R R',
+    created_at: new Date(),
+    updated_at: new Date()
   }
 ]
 

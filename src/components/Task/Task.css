@@ -1,0 +1,45 @@
+.task {
+  height: 60px;
+  border-bottom: 1px solid #dadada;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.task.completed {
+  background-color: #FFFFFF;
+  opacity: .5
+}
+
+.task .circle {
+  line-height: 1;
+  display: block;
+  height: 28px;
+  width: 28px;
+  margin-right: 12px;
+  border-radius: 50%;
+  border: 1.5px #C7C7C7 solid;
+  color: #C7C7C7
+}
+
+.task > .circle {
+  padding-top: 5px;
+  padding-left: 3px;
+  font-size: 15px;
+}
+
+.task input[type="checkbox"] {
+  margin-right: 12px;
+}
+
+.task .handler {
+  height: 42px;
+  width: 42px;
+  color: rgb(199, 199, 199);
+  cursor: move;
+  padding: 10px;
+  margin-right: -11px;
+  margin-left: 5px;
+}

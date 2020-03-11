@@ -1,0 +1,30 @@
+.task-basic {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.completed .task-title {
+  color: #848484
+}
+
+.task-basic > div {
+  flex-grow: 1;
+}
+
+.task-basic .priority {
+  height: 28px;
+  width: 28px;
+  font-size: 28px;
+}
+
+.task-basic .circle {
+  position: relative;
+  padding-left: 1px;
+  margin-right: 12px;
+  font-size: 28px;
+  font-weight: bold;
+}
+

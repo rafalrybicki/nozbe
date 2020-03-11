@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Toolbar from './Toolbar'
 import StatusBar from './StatusBar'
 import EditBar from './EditBar'
-import Task from './Task'
+import Task from './Task/Task'
+import TaskDetails from './TaskDetails/TaskDetails';
 import NewTask from './NewTask'
 import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../redux/actions'
 import './Tasks.css'
@@ -34,7 +35,7 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       viewMode: true,
-      editedTask: null,
+      // editedTask: null,
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };
@@ -84,13 +85,13 @@ class Tasks extends Component {
     this.setState({ selectedTasks: [] })
   }
 
-  editTask = (id) => {
-    if (this.state.editedTask === id) {
-      this.setState({ editedTask: null})
-    } else {
-      this.setState({ editedTask: id})
-    }
-  }
+  // editTask = (id) => {
+  //   if (this.state.editedTask === id) {
+  //     this.setState({ editedTask: null})
+  //   } else {
+  //     this.setState({ editedTask: id})
+  //   }
+  // }
 
   deleteTasks = () => {
     if(this.state.selectedTasks.length === 0) {
@@ -103,7 +104,7 @@ class Tasks extends Component {
   }
 
   render() {
-    const {project, viewMode} = this.state
+    const { project, viewMode, editedTask } = this.state
     return (
       <div className="tasks">
         <Toolbar 
@@ -124,11 +125,11 @@ class Tasks extends Component {
             addToSelected={() => this.selectTask(task.id)}
             viewMode={viewMode}
             checked={this.state.selectedTasks.length === this.state.allTasks.length }
-            edit={() => this.editTask(task.id)}
           />
         ))}
         {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
         {!viewMode && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
+        <TaskDetails />
       </div>
     );
   }
