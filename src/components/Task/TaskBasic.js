@@ -17,8 +17,8 @@ function TaskBasic(props) {
         {completion && <span>&#10003;</span>}
         </span>
       }
-      <div>
-        <span className="desc">tekst</span>
+      <div className="content">
+        <span className="desc">{props.content}</span>
         <TaskAttributes {...props} />
       </div>
       <Icon
@@ -34,7 +34,7 @@ function TaskBasic(props) {
 
 const styles = {
   color: {
-    color: '#28ce63', //project's color here
+    color: '#28ce63', //project's color for project insted for priority
   }
 }
 

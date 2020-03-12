@@ -6,6 +6,7 @@
   background-color: white;
   cursor: pointer;
   padding: 0 12px;
+  user-select: none;
 }
 
 .task.completed {
@@ -13,7 +14,7 @@
   opacity: .5
 }
 
-.task .circle {
+.task .circle, .task-basic .circle {
   line-height: 1;
   display: block;
   height: 28px;

@@ -21,7 +21,7 @@ function App() {
     <Router >
       <Menu />
       <div className="main">
-        <div className="yield">
+        {/* <div className="yield"> */}
           <Switch>
             <Route path="/priority" component={Tasks} />
             <Route path="/inbox" component={Tasks} />
@@ -35,8 +35,9 @@ function App() {
             <Redirect exact from="/" to="priority" />
           </Switch>
         </div>
-      </div>
-    </Router>  );
+      {/* </div> */}
+    </Router>  
+  );
 }
 
 export default App;

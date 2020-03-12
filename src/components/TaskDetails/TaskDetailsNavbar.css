@@ -1,0 +1,27 @@
+.task-details-navbar {
+  height: 43px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #FAFAFA;
+}
+
+.task-details-navbar .material-icons {
+  cursor: pointer;
+}
+
+.task-details-navbar:first-child {
+  border-right: 2px solid black;
+}
+
+.task-details-navbar:last-child {
+  margin-right: 5px;
+}
+
+
+.task-details-navbar .navbar-buttons span {
+  font-size: 30px;
+  display: inline-block;
+  margin: -3px 25px 0
+}

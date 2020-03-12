@@ -1,19 +1,31 @@
-.details {
+.task-details {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  background-color: red;
+  background-color: #F4F4F4;
   top: 0;
   right: 0;
   width: 400px;
   opacity: 1;
   height: calc(100% - 86px);
   margin-top: 43px;
+  overflow-x: hidden;
+  box-shadow: 0 0 25px rgba(21,21,21,0.35);
 }
 
-.details .header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.details .span {
+.task-details-inner {
   flex-grow: 1;
+  overflow-y: auto
 }
+
+.task-details .task-basic {
+  flex-grow: 0;
+  border-bottom: 1px solid #ccc;
+  max-height: 132px;
+  padding: 10px;
+}
+
+.task-details .task-basic .task-attributes {
+  display: none;
+}
+

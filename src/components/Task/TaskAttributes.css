@@ -8,6 +8,11 @@
   color: #B2B2B2;
   display: flex;
   justify-content: start;
+  height: 25px;
+}
+
+.task-attributes .danger {
+  color: red;
 }
 
 

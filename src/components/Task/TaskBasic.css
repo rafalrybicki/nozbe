@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  min-height: 60px;
 }
 
 .completed .task-title {
@@ -19,6 +19,7 @@
   width: 28px;
   font-size: 28px;
   margin-right: -2px;
+  margin-left: 10px;
 }
 
 .task-basic .circle {
@@ -27,5 +28,9 @@
   margin-right: 12px;
   font-size: 28px;
   font-weight: bold;
+}
+
+.task-basic .desc {
+  font-size: 14px;
 }
 

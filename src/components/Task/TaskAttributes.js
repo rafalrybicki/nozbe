@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import Icon from '@material-ui/core/Icon';
 import moment from 'moment';
 
-function TaskAttributes({ project, comments, repeat, time, date, categories, priority}) {
+function TaskAttributes({ project, comments, repeat, time, date, categories, completion}) {
   return (
     <div className="task-attributes">
-      {priority && 
+      {window.location.pathname === '/priority' && 
         <Link to={project.path}>
           <span>&bull;</span>
           {project.name}
@@ -29,8 +29,8 @@ function TaskAttributes({ project, comments, repeat, time, date, categories, pri
           {time}
         </div>}
       {date && 
-        <div>
-          <Icon>today</Icon>
+        <div className={date < Date.now() && completion === false ? 'danger' : ''}>
+        <Icon>today</Icon>
           {moment(date).calendar()}
         </div>}
       {categories.length > 0 &&
