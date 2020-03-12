@@ -11,6 +11,12 @@
   margin-top: 43px;
   overflow-x: hidden;
   box-shadow: 0 0 25px rgba(21,21,21,0.35);
+  transform: translateX(430px);
+  transition: transform 0.2s;
+}
+
+.show-details .task-details {
+  transform: translate(0);
 }
 
 .task-details-inner {

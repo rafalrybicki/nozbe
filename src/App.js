@@ -21,7 +21,6 @@ function App() {
     <Router >
       <Menu />
       <div className="main">
-        {/* <div className="yield"> */}
           <Switch>
             <Route path="/priority" component={Tasks} />
             <Route path="/inbox" component={Tasks} />

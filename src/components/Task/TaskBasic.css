@@ -30,6 +30,11 @@
   font-weight: bold;
 }
 
+
+.task-basic .circle span {
+  z-index: -1;
+}
+
 .task-basic .desc {
   font-size: 14px;
 }

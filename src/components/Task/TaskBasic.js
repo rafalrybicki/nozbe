@@ -6,7 +6,6 @@ import Icon from '@material-ui/core/Icon';
 
 function TaskBasic(props) {
   const { completion, viewMode, priority, toggleCompletion, togglePriority } = props
-
   return (
     <div className="task-basic">
       {viewMode &&
@@ -14,7 +13,7 @@ function TaskBasic(props) {
           className="circle"        
           onClick={toggleCompletion}
         >
-        {completion && <span>&#10003;</span>}
+        {completion && <span className="thick">&#10003;</span>}
         </span>
       }
       <div className="content">

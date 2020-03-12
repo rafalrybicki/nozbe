@@ -5,6 +5,7 @@
   justify-content: space-between;
   padding: 10px;
   background: #FAFAFA;
+  padding-right: 14px;
 }
 
 .task-details-navbar .material-icons {
@@ -14,11 +15,6 @@
 .task-details-navbar:first-child {
   border-right: 2px solid black;
 }
-
-.task-details-navbar:last-child {
-  margin-right: 5px;
-}
-
 
 .task-details-navbar .navbar-buttons span {
   font-size: 30px;

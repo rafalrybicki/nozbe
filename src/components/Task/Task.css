@@ -9,6 +9,10 @@
   user-select: none;
 }
 
+.task .content {
+  height: 100%;
+}
+
 .task.completed {
   background-color: #FFFFFF;
   opacity: .5

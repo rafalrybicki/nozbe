@@ -6,18 +6,18 @@ import TaskBasic from './TaskBasic'
 import Icon from '@material-ui/core/Icon';
 
 function Task(props) {
-  const { completion, holder, viewMode, addToSelected } = props
+  const { completion, holder, viewMode, addToSelected, toggleDetails} = props
 
-  const editTask = (e) => {
-    if (e.target.classList.contains('completion') || e.target.classList.contains('priority') || e.target.tagName === 'A') {
+  const showDetails = (e) => {
+    if (e.target.classList.contains('circle') || e.target.classList.contains('thick')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
       return
-    } else {
-      // showDetails(!details)
-      console.log(true)
+    } else if (viewMode) {
+      toggleDetails()
     }
   }
+
   return (
-    <div className={completion ? 'task completed' : 'task'} onClick={editTask}>
+    <div className={completion ? 'task completed' : 'task'} onClick={showDetails}>
       {!viewMode && <input type="checkbox" onChange={addToSelected} /> }
       {!viewMode && <span className="circle">{holder[0] + holder.split(' ')[1][0]}</span>}
       <TaskBasic {...props} />

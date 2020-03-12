@@ -2,4 +2,5 @@
   height: 100%;
   position: relative;
   background-color: #F4F4F4; 
+  overflow-x: hidden;
 }

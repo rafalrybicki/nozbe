@@ -35,11 +35,43 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       viewMode: true,
-      // editedTask: null,
+      selectedTask: this.props.tasks[0],
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };
   };
+ 
+  componentDidMount() {
+    document.querySelector('#root').addEventListener('click', this.hideTaskDetails)
+  }
+
+  componentWillUnmount() {
+    document.querySelector('#root').removeEventListener('click', this.hideTaskDetails)
+  }
+
+  hideTaskDetails = (e) => {
+    const tasks = document.querySelector('.show-details')
+
+    if (tasks) {
+      const path = [...e.path]
+      path.length = path.length - 5
+
+      let hideDetails = true
+      
+      for (let i = 0; i < path.length; i++) {
+        console.log(path[i])
+        if (path[i].classList.contains('task-details') || path[i].classList.contains('task')) {
+          hideDetails = false
+          break
+        }
+      }
+
+      if (hideDetails) {
+        tasks.classList.remove('show-details')
+      }
+    }
+  }
+
 
   changeMode = () => {
     this.setState(prevState => {
@@ -88,13 +120,21 @@ class Tasks extends Component {
     this.setState({ selectedTasks: [] })
   }
 
-  // editTask = (id) => {
-  //   if (this.state.editedTask === id) {
-  //     this.setState({ editedTask: null})
-  //   } else {
-  //     this.setState({ editedTask: id})
-  //   }
-  // }
+  toggleDetails = (id) => {
+    const detailsShown = document.querySelector('.tasks').classList.contains('show-details')
+
+    if (this.state.selectedTask.id === id ) {
+      if (detailsShown) {
+        document.querySelector('.tasks').classList.remove('show-details')
+      } else {
+        document.querySelector('.tasks').classList.add('show-details')
+      }
+    } else {
+      const newTask = this.props.tasks.find(task => task.id === id)
+      this.setState({selectedTask: newTask})
+      document.querySelector('.tasks').classList.add('show-details')
+    }
+  }
 
   deleteTasks = () => {
     if(this.state.selectedTasks.length === 0) {
@@ -107,9 +147,9 @@ class Tasks extends Component {
   }
 
   render() {
-    const { project, viewMode, editedTask } = this.state
+    const { project, viewMode, selectedTask } = this.state
     return (
-      <div className="tasks">
+      <div className="tasks show-details">
         <Toolbar 
           title={project} 
           viewMode={viewMode} 
@@ -128,11 +168,12 @@ class Tasks extends Component {
             addToSelected={() => this.selectTask(task.id)}
             viewMode={viewMode}
             checked={this.state.selectedTasks.length === this.state.allTasks.length }
+            toggleDetails={() => this.toggleDetails(task.id)}
           />
         ))}
         {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
         {!viewMode && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
-        <TaskDetails />
+        <TaskDetails {...selectedTask} />
       </div>
     );
   }

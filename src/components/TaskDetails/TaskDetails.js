@@ -3,10 +3,10 @@ import './TaskDetails.css';
 import TaskBasic from '../Task/TaskBasic';
 import TaskDetailsNavbar from './TaskDetailsNavbar';
 
-function TaskDetails({}) {
+function TaskDetails(props) {
   return (
     <div className="task-details">
-      <TaskBasic {...task} viewMode={true}/>
+      <TaskBasic {...props} viewMode={true}/>
       <div className="task-details-inner">
         sdfsdfsdf
         sdfsdfsdfsd
