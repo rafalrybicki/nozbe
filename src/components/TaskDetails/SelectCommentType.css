@@ -2,31 +2,37 @@
   margin-left: 30px;
   position: relative;
   display: inline-block;
-  border: 1px solid black;
-  border-bottom: none;
+  border: 1px solid #c7c7c7;
   border-radius: 3px;
-  height: 34px;
-  overflow: hidden;
   cursor: pointer;
   margin-bottom: 8px;
-}
-
-.select:hover {
-  height: auto;
+  background-color: white;
+  color: #555;
+  font-size: 13px;
 }
 
 .select .down {
   position: absolute;
   right: 0;
-  top: 3px;
+  top: 4.5px;
+  margin-right: 2px;
 }
 
 .select .option {
+  height: 32px;
   display: flex;
   align-content: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #c7c7c7;
   padding: 5px;
   padding-right: 30px;
+}
+
+.select .option *:last-child {
+  padding-top: 4px;
+}
+
+.select > .option {
+  border: none;
 }
 
 .select .option .material-icons {
@@ -34,3 +40,24 @@
   margin-right: 6px;
 }
 
+.select .option:last-of-type {
+  border: none;
+}
+
+.options {
+  background-color: inherit;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: 1px solid #c7c7c7;
+  border-radius: 3px;
+  z-index: 100;
+}
+
+.options .active {
+  background: #c7c7c7;
+}
+
+.hide {
+  display: none;
+}
