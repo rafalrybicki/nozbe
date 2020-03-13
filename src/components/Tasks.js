@@ -148,7 +148,7 @@ class Tasks extends Component {
   render() {
     const { project, viewMode, selectedTask } = this.state
     return (
-      <div className="tasks">
+      <div className="tasks show-details">
         <Toolbar 
           title={project} 
           viewMode={viewMode} 

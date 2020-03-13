@@ -4,8 +4,13 @@
   overflow-x: hidden;
 }
 
+.task-details-content > * {
+  margin: 0 10px;
+  width: calc(100% - 20px);
+}
+
 
 .task-details-content .test{
-  background-color: #red;
+  background-color: red;
   height: 1000px;
 }
