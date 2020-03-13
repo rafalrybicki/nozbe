@@ -59,7 +59,6 @@ class Tasks extends Component {
       let hideDetails = true
       
       for (let i = 0; i < path.length; i++) {
-        console.log(path[i])
         if (path[i].classList.contains('task-details') || path[i].classList.contains('task')) {
           hideDetails = false
           break
@@ -149,7 +148,7 @@ class Tasks extends Component {
   render() {
     const { project, viewMode, selectedTask } = this.state
     return (
-      <div className="tasks show-details">
+      <div className="tasks">
         <Toolbar 
           title={project} 
           viewMode={viewMode} 

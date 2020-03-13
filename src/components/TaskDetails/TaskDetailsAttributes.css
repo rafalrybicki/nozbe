@@ -1,0 +1,27 @@
+.task-details-attributes {
+  height: 172px;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: baseline;
+  margin-left: 10px;
+}
+
+.task-details-attributes .picker {
+  background-color: white;
+  display: flex;
+  margin-right: 6px;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: calc(50% - 13px);
+  min-height: 37px;
+  padding: 5px 10px;
+  align-items: center;
+}
+
+.task-details-attributes .picker .material-icons {
+  font-size: 22px;
+  margin-right: 5px;
+}

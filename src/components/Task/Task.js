@@ -2,7 +2,6 @@ import React from 'react';
 import './Task.css';
 
 import TaskBasic from './TaskBasic'
-
 import Icon from '@material-ui/core/Icon';
 
 function Task(props) {

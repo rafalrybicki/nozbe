@@ -19,11 +19,6 @@
   transform: translate(0);
 }
 
-.task-details-inner {
-  flex-grow: 1;
-  overflow-y: auto
-}
-
 .task-details .task-basic {
   flex-grow: 0;
   border-bottom: 1px solid #ccc;

@@ -1,0 +1,11 @@
+.task-details-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.task-details-content .test{
+  background-color: #red;
+  height: 1000px;
+}
