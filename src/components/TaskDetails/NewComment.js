@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './NewComment.css'
-import SelectCommentType from './SelectCommentType'
+import CommentTypePicker from './CommentTypePicker'
 import Icon from '@material-ui/core/Icon';
 
 function NewComment(props) {
@@ -8,10 +8,11 @@ function NewComment(props) {
   return (
     <div className="new-comment">
       <Icon className="close">close</Icon>
-      <SelectCommentType setType={(type) => setType(type)}/>
+      <CommentTypePicker setType={(type) => setType(type)} type={type} />
       <button>Save</button>
       <textarea placeholder="Add comment (ENTER)" />
       type = {type}
+      <Icon className="new-comment-checklist">format_list_bulleted</Icon>
     </div>
   );
 }
