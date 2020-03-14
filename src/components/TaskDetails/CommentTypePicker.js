@@ -9,7 +9,7 @@ function CommentTypePicker(props) {
     { value: 'Attachment', icon: 'attach_file' },
   ];
 
-  const [current, setCurrenValue] = useState(options.find(el => el.type = props.type));
+  const [currentType, setCurrenValue] = useState(options.find(el => el.value === props.type));
  
   const toggleOptions = (e) => {
     const commentTypePicker = document.querySelector('.options')
@@ -34,27 +34,36 @@ function CommentTypePicker(props) {
   }
 
   return (
-    <div className="select" >
-      <div className="option" onClick={toggleOptions}>
-        <Icon className="down">expand_more</Icon>
-        <Icon>{current.icon}</Icon>
-        <span>{current.value}</span>
-      </div>
+    <div className="comment-type-picker">
+      <Icon 
+        className="close"
+        onClick={() => props.setType(false)}
+      >close</Icon>
+      <div className="select" >
+        <div className="option" onClick={toggleOptions}>
+          <Icon className="down">expand_more</Icon>
+          <Icon>{currentType.icon}</Icon>
+          <span>{currentType.value}</span>
+        </div>
 
-      <div className="options hide" >
-        {options.map((option, i) => 
-          <div 
-            className={option.value === current.value ? "option active" : "option"} 
-            data-value={option.value}
-            key={i}
-            data-id={i}
-            onClick={toggleOptions}
-          >
-            <Icon>{option.icon}</Icon>
-            <span>{option.value}</span>
-          </div>
-        )}
+        <div className="options hide" >
+          {options.map((option, i) =>
+            <div
+              className={option.value === currentType.value ? "option active" : "option"}
+              data-value={option.value}
+              key={i}
+              data-id={i}
+              onClick={toggleOptions}
+            >
+              <Icon>{option.icon}</Icon>
+              <span>{option.value}</span>
+            </div>
+          )}
+        </div>
       </div>
+      <button 
+        
+      >Save</button>
     </div>
   );
 }

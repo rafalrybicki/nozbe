@@ -1,3 +1,39 @@
+.comment-type-picker{
+  width: 100%;
+}
+
+.comment-type-picker button {
+  display: inline-block;
+  height: 34px;
+  color: white;
+  border-radius: 4px;
+  background-color: #28ce63;
+  border: 1px solid rgba(21,21,21,0.1);
+  padding: 8px 16px;
+  outline: none;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.comment-type-picker button:disabled {
+  background: #f6f6f6;
+  color: #ccc;
+}
+
+.comment-type-picker .close {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 17px;
+  left: 2px;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+}
+
 .select {
   margin-left: 30px;
   position: relative;
