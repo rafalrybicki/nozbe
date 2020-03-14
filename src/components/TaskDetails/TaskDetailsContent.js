@@ -9,7 +9,7 @@ function TaskDetailsContent(props) {
     <div className="task-details-content">
       <TaskDetailsAttributes />
       <NewComment />
-      <Comments />
+      <Comments comments={props.comments} />
     </div>
   );
 }

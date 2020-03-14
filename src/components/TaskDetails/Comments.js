@@ -1,9 +1,10 @@
 import React from 'react';
+import Comment from './Comment'
 
 function Comments(props) {
   return (
-    <div>
-      comments
+    <div className="comments">
+      {props.comments && props.comments.map(comment => <Comment {...comment} /> )}
     </div>
   );
 }

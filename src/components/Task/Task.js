@@ -1,5 +1,6 @@
 import React from 'react';
 import './Task.css';
+import Avatar from '../Avatar'
 
 import TaskBasic from './TaskBasic'
 import Icon from '@material-ui/core/Icon';
@@ -18,7 +19,7 @@ function Task(props) {
   return (
     <div className={completion ? 'task completed' : 'task'} onClick={showDetails}>
       {!viewMode && <input type="checkbox" onChange={addToSelected} /> }
-      {!viewMode && <span className="circle">{holder[0] + holder.split(' ')[1][0]}</span>}
+      {!viewMode && <Avatar userName={holder} />}
       <TaskBasic {...props} />
       {!viewMode && <Icon className="handler">menu</Icon>}
     </div>

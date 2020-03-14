@@ -39,3 +39,13 @@
   font-size: 14px;
 }
 
+.task-basic .circle {
+  line-height: 1;
+  display: block;
+  height: 28px;
+  width: 28px;
+  margin-right: 12px;
+  border-radius: 50%;
+  border: 1.5px #C7C7C7 solid;
+  color: #C7C7C7
+}

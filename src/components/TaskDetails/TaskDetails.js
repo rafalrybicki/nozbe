@@ -8,7 +8,7 @@ function TaskDetails(props) {
   return (
     <div className="task-details">
       <TaskBasic {...props} viewMode={true}/>
-      <TaskDetailsContent />
+      <TaskDetailsContent comments={props.comments} />
       <TaskDetailsNavbar />
     </div>
   );

@@ -23,7 +23,10 @@ const initialState = [
     ],
     date: new Date('2020-03-09'),
     repeat: true,
-    comments: [{}, {}],
+    comments: [
+      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }, 
+      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
+    ],
     holder: 'R R',
     created_at: new Date(),
     updated_at: new Date()
