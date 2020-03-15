@@ -5,7 +5,7 @@ import NewComment from './NewComment';
 import Comments from './Comments';
 import TaskDetailsFooter from './TaskDetailsFooter';
 
-function TaskDetailsContent({project, deadline, categories, repeat, time, comments, author, created_at}) {
+function TaskDetailsContent({project, deadline, categories, repeat, duration, comments, author, created_at}) {
   return (
     <div className="task-details-content">
       <TaskDetailsAttributes 
@@ -13,7 +13,7 @@ function TaskDetailsContent({project, deadline, categories, repeat, time, commen
         deadline={deadline} 
         categories={categories} 
         repeat={repeat} 
-        time={time} 
+        duration={duration} 
       />
       <NewComment />
       <Comments 

@@ -7,7 +7,7 @@ const initialState = [
     content: 'content1',
     completion: false,
     priority: true,
-    time: null,
+    duration: null,
     project: {
       name: 'Inbox',
       path: '/inbox',
@@ -23,10 +23,12 @@ const initialState = [
         icon: 'directions_run'
       }
     ],
-    deadline: new Date('2020-03-09'),
-    repeat: true,
+    deadline: null,
+    repeat: 'Every Month',
     comments: [
       { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }, 
+      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
+      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
       { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
     ],
     holder: 'R R',
@@ -39,7 +41,7 @@ const initialState = [
     content: 'content2',
     completion: true,
     priority: false,
-    time: null,
+    duration: null,
     project: {
       name: 'Inbox',
       path: '/inbox',
@@ -52,7 +54,7 @@ const initialState = [
       }
     ],
     deadline: new Date(),
-    repeat: false,
+    repeat: null,
     comments: [],
     holder: 'John Doe',
     created_at: new Date(),
@@ -64,7 +66,7 @@ const initialState = [
     content: 'content3',
     completion: false,
     priority: false,
-    time: '30 min',
+    duration: '30 min',
     project: {
       name: 'Home',
       path: '/home',
@@ -77,7 +79,7 @@ const initialState = [
       }
     ],
     deadline: new Date(),
-    repeat: false,
+    repeat: null,
     comments: [],
     holder: 'John Doe',
     created_at: new Date(),
@@ -89,7 +91,7 @@ const initialState = [
     content: 'content4',
     completion: true,
     priority: true,
-    time: '1 h',
+    duration: '1 h',
     project: {
       name: 'Home',
       path: '/home',
@@ -106,7 +108,7 @@ const initialState = [
       }
     ],
     deadline: new Date(),
-    repeat: false,
+    repeat: 'Every Week',
     comments: [],
     holder: 'R R',
     created_at: new Date(),

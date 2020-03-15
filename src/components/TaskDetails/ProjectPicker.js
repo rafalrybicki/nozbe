@@ -2,13 +2,13 @@ import React from 'react';
 import './ProjectPicker.css';
 import Icon from '@material-ui/core/Icon';
 
-function ProjectPicker({project, color}) {
+function ProjectPicker({projectName, color}) {
   return (
     <div className="picker">
       <Icon style={{'color': color}}>
-        {project === 'Inbox' ? 'inbox' : 'fiber_manual_record'}
+        {projectName === 'Inbox' ? 'inbox' : 'fiber_manual_record'}
       </Icon>
-      <span>1</span>
+      <span>{projectName}</span>
     </div>
   );
 }
