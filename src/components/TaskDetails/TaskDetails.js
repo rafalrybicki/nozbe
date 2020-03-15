@@ -8,7 +8,7 @@ function TaskDetails(props) {
   return (
     <div className="task-details">
       <TaskBasic {...props} viewMode={true}/>
-      <TaskDetailsContent comments={props.comments} author={props.author} date={props.created_at} />
+      <TaskDetailsContent {...props} />
       <TaskDetailsNavbar />
     </div>
   );

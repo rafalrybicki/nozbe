@@ -7,10 +7,11 @@ const initialState = [
     content: 'content1',
     completion: false,
     priority: true,
-    time: '10 min',
+    time: null,
     project: {
       name: 'Inbox',
-      path: '/inbox'
+      path: '/inbox',
+      color: 'black'
     },
     categories: [
       {
@@ -22,7 +23,7 @@ const initialState = [
         icon: 'directions_run'
       }
     ],
-    date: new Date('2020-03-09'),
+    deadline: new Date('2020-03-09'),
     repeat: true,
     comments: [
       { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }, 
@@ -38,10 +39,11 @@ const initialState = [
     content: 'content2',
     completion: true,
     priority: false,
-    time: '5 min',
+    time: null,
     project: {
       name: 'Inbox',
-      path: '/inbox'
+      path: '/inbox',
+      color: 'black'
     },
     categories: [
       {
@@ -49,7 +51,7 @@ const initialState = [
         icon: 'home'
       }
     ],
-    date: new Date(),
+    deadline: new Date(),
     repeat: false,
     comments: [],
     holder: 'John Doe',
@@ -65,7 +67,8 @@ const initialState = [
     time: '30 min',
     project: {
       name: 'Home',
-      path: '/home'
+      path: '/home',
+      color: 'orange'
     },
     categories: [
       {
@@ -73,7 +76,7 @@ const initialState = [
         icon: 'home'
       }
     ],
-    date: new Date(),
+    deadline: new Date(),
     repeat: false,
     comments: [],
     holder: 'John Doe',
@@ -89,7 +92,8 @@ const initialState = [
     time: '1 h',
     project: {
       name: 'Home',
-      path: '/home'
+      path: '/home',
+      color: 'blue'
     },
     categories: [
       {
@@ -101,7 +105,7 @@ const initialState = [
         icon: 'directions_run'
       }
     ],
-    date: new Date(),
+    deadline: new Date(),
     repeat: false,
     comments: [],
     holder: 'R R',

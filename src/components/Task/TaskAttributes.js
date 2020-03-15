@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Icon from '@material-ui/core/Icon';
 import moment from 'moment';
 
-function TaskAttributes({ project, comments, repeat, time, date, categories, completion}) {
+function TaskAttributes({ project, comments, repeat, time, deadline, categories, completion}) {
   return (
     <div className="task-attributes">
       {window.location.pathname === '/priority' && 
@@ -21,17 +21,17 @@ function TaskAttributes({ project, comments, repeat, time, date, categories, com
         </div>}
       {repeat && 
         <div>
-          <Icon>replay</Icon>  
+          <Icon className="repeat">replay</Icon>  
         </div>}
       {time && 
         <div>
           <Icon>schedule</Icon>
           {time}
         </div>}
-      {date && 
-        <div className={date < Date.now() && completion === false ? 'danger' : ''}>
+      {deadline && 
+        <div className={deadline < Date.now() && completion === false ? 'danger' : ''}>
         <Icon>today</Icon>
-          {moment(date).calendar()}
+          {moment(deadline).calendar()}
         </div>}
       {categories.length > 0 &&
       <div>

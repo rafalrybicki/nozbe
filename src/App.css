@@ -25,3 +25,7 @@ input[type="checkbox"] {
   border-radius: 3px;
   margin: 0;
 }
+
+.repeat {
+  transform: scaleX(-1)
+}

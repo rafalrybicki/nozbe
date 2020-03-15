@@ -1,14 +1,12 @@
 import React from 'react';
 import './TaskDetailsAttributes.css'
 import Icon from '@material-ui/core/Icon';
+import ProjectPicker from './ProjectPicker';
 
-function TaskDetailsAttributes(props) {
+function TaskDetailsAttributes({ project, deadline, categories, repeat, time }) {
   return (
     <div className="task-details-attributes">
-      <div className="picker">
-        <Icon>fiber_manual_record</Icon>
-        <span>1</span>
-      </div>
+      <ProjectPicker project={project.name} color={project.color} />
       <div className="picker">
         <Icon>schedule</Icon>
         <span>1</span>
@@ -18,7 +16,7 @@ function TaskDetailsAttributes(props) {
         <span>1</span>
       </div>
       <div className="picker">
-        <Icon>replay</Icon>
+        <Icon className="repeat">replay</Icon>
         <span>1</span>
       </div>
       <div className="picker">

@@ -15,11 +15,17 @@
   display: flex;
   margin-bottom: 5px;
   border: 1px solid black;
-  border-radius: 4px;
+  border-radius: 3px;
   width: calc(50% - 3px);
   min-height: 37px;
   padding: 5px 10px;
   align-items: center;
+}
+
+.task-details-attributes .picker.unchecked {
+  background-color: #F4F4F4;
+  color: #999;
+  border-color: rgba(21,21,21,0.2);
 }
 
 .task-details-attributes .picker .material-icons {
