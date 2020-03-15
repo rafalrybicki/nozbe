@@ -76,6 +76,22 @@ const initialState = [
       {
         name: 'Home',
         icon: 'home'
+      },
+      {
+        name: 'Star',
+        icon: 'star'
+      },
+      {
+        name: 'DirectionsRun',
+        icon: 'directions_run'
+      },
+      {
+        name: 'Computer',
+        icon: 'computer'
+      },
+      {
+        name: 'Timer',
+        icon: 'timer'
       }
     ],
     deadline: new Date(),

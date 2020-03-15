@@ -1,10 +1,10 @@
 import React from 'react';
 import './TaskDetailsAttributes.css'
-import Icon from '@material-ui/core/Icon';
 import ProjectPicker from './ProjectPicker';
 import DurationPicker from './DurationPicker';
 import DeadlinePicker from './DeadlinePicker';
 import RepeatPicker from './RepeatPicker';
+import CategoryPicker from './CategoryPicker';
 
 function TaskDetailsAttributes({ project, deadline, categories, repeat, duration }) {
   return (
@@ -13,13 +13,7 @@ function TaskDetailsAttributes({ project, deadline, categories, repeat, duration
       <DurationPicker duration={duration} />
       <DeadlinePicker deadline={deadline} />
       <RepeatPicker repeat={repeat}/>
-      <div className="picker">
-        <Icon>home</Icon>
-        <span>1</span>
-        <div>5</div>
-        5
-        <div>5</div>
-      </div>
+      <CategoryPicker categories={categories} />
     </div>
   );
 }

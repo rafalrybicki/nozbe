@@ -1,0 +1,11 @@
+.category-picker {
+  flex-direction: column;
+}
+
+.category-picker .category {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 5px;
+  padding-left: 0;
+}
