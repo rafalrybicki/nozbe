@@ -3,6 +3,7 @@ import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, COMPLETE_TASKS, ADD_TASK, DELETE_TA
 const initialState = [
   {
     id: 1,
+    author: 'John Doe',
     content: 'content1',
     completion: false,
     priority: true,
@@ -33,6 +34,7 @@ const initialState = [
   },
   {
     id: 2,
+    author: 'John Doe',
     content: 'content2',
     completion: true,
     priority: false,
@@ -56,6 +58,7 @@ const initialState = [
   },
   {
     id: 3,
+    author: 'John Doe',
     content: 'content3',
     completion: false,
     priority: false,
@@ -79,6 +82,7 @@ const initialState = [
   },
   {
     id: 4,
+    author: 'John Doe',
     content: 'content4',
     completion: true,
     priority: true,

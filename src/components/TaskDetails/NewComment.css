@@ -2,6 +2,7 @@
   position: relative;
   padding-top: 10px;
   background-color: #F4F4F4;
+  margin-bottom: 20px;
 }
 
 .new-comment textarea {
@@ -22,7 +23,7 @@
 
 .new-comment .type-icon {
   position: absolute;
-  top: 19px;
+  top: 24px;
   min-height: 22px;
   color: #151515;
   font-size: 20px;

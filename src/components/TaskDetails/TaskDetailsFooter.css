@@ -1,0 +1,9 @@
+.task-details-footer {
+  display: flex;
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.task-details-footer .avatar {
+  margin-right: 10px;
+}
