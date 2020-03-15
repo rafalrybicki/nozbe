@@ -7,7 +7,7 @@ import TaskDetailsContent from './TaskDetailsContent';
 function TaskDetails(props) {
   return (
     <div className="task-details">
-      <TaskBasic {...props} viewMode={true}/>
+      {/* <TaskBasic {...props} viewMode={true}/> task basic header with priority icon */}
       <TaskDetailsContent {...props} />
       <TaskDetailsNavbar />
     </div>

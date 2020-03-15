@@ -10,7 +10,7 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
     <div className="task-attributes">
       {window.location.pathname === '/priority' && 
         <Link to={project.path}>
-          <span>&bull;</span>
+          <span style={{'color': project.name === 'Inbox' ? '' : project.color}}>&bull;</span>
           {project.name}
         </Link>
       }

@@ -8,7 +8,7 @@ function CategoryPicker({categories}) {
     return (
       <div className="picker category-picker">
         {categories.map(category => 
-          <div className="category">
+          <div key={Math.random()} className="category">
             <Icon>{category.icon}</Icon>
             <div>{category.name}</div>
           </div>

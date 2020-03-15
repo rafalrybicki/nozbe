@@ -1,8 +1,7 @@
 import React from 'react';
 import TaskAttributes from './TaskAttributes'
 import './TaskBasic.css'
-
-import Icon from '@material-ui/core/Icon';
+import PriorityIcon from '../shared/PriorityIcon'
 
 function TaskBasic(props) {
   const { completion, viewMode, priority, toggleCompletion, togglePriority } = props
@@ -20,21 +19,12 @@ function TaskBasic(props) {
         <span className="desc">{props.content}</span>
         <TaskAttributes {...props} />
       </div>
-      <Icon
-        style={styles.color}
+      <PriorityIcon 
         onClick={viewMode ? togglePriority : undefined}
-        className="priority"
-      >
-        {priority ? 'star' : 'star_outlined'}
-      </Icon>
+        priority={priority}
+      />
     </div>
   );
-}
-
-const styles = {
-  color: {
-    color: '#28ce63', //project's color for project insted for priority
-  }
 }
 
 export default TaskBasic;

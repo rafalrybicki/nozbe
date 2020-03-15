@@ -6,7 +6,7 @@ import TaskBasic from './TaskBasic'
 import Icon from '@material-ui/core/Icon';
 
 function Task(props) {
-  const { completion, holder, viewMode, addToSelected, toggleDetails} = props
+  const { completion, holder, project, viewMode, addToSelected, toggleDetails} = props
 
   const showDetails = (e) => {
     if (e.target.classList.contains('circle') || e.target.classList.contains('thick')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
@@ -15,6 +15,8 @@ function Task(props) {
       toggleDetails()
     }
   }
+
+  //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
 
   return (
     <div className={completion ? 'task completed' : 'task'} onClick={showDetails}>

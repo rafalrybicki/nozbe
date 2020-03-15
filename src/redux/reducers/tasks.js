@@ -26,10 +26,10 @@ const initialState = [
     deadline: null,
     repeat: 'Every Month',
     comments: [
-      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }, 
-      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
-      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
-      { type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }, 
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
     ],
     holder: 'R R',
     created_at: new Date(),
@@ -111,7 +111,7 @@ const initialState = [
     project: {
       name: 'Home',
       path: '/home',
-      color: 'blue'
+      color: '#51B1FF'
     },
     categories: [
       {

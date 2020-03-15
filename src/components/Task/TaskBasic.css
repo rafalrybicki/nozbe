@@ -15,11 +15,8 @@
 }
 
 .task-basic .priority {
-  height: 28px;
-  width: 28px;
-  font-size: 28px;
   margin-right: -2px;
-  margin-left: 10px;
+  margin-left: 6px;
 }
 
 .task-basic .circle {
