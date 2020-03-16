@@ -8,7 +8,8 @@ import moment from 'moment';
 function TaskAttributes({ project, comments, repeat, time, deadline, categories, completion}) {
   return (
     <div className="task-attributes">
-      {window.location.pathname === '/priority' && 
+      attributes
+      {/* {window.location.pathname === '/priority' && 
         <Link to={project.path}>
           <span style={{'color': project.name === 'Inbox' ? '' : project.color}}>&bull;</span>
           {project.name}
@@ -36,7 +37,7 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
       {categories.length > 0 &&
       <div>
         {categories.map((category, i) => (<Icon key={i} className="category">{category.icon}</Icon>))}  
-      </div>}
+      </div>} */}
     </div>
   );
 }

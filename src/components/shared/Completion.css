@@ -1,3 +1,7 @@
+.edit-mode .task .completion {
+  display: none;
+}
+
 .completion {
   height: 28px;
   width: 28px;
@@ -15,3 +19,4 @@
   margin-top: -2px;
   color: #C7C7C7;
 }
+

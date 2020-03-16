@@ -34,7 +34,7 @@ class Tasks extends Component {
     super(props);
     this.state = {
       project: this.props.location.pathname.split('/')[1],
-      viewMode: true,
+      mode: 'view',
       selectedTask: this.props.tasks[0],
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
@@ -75,10 +75,11 @@ class Tasks extends Component {
   changeMode = () => {
     this.setState(prevState => {
       return {
-        viewMode: !prevState.viewMode,
+        mode: prevState.mode === 'view' ? 'edit' : 'view',
         selectedTasks: []
       }
     })
+    document.querySelector('.tasks').classList.toggle('edit-mode')
   }
 
   selectTask = (id) => {
@@ -146,12 +147,12 @@ class Tasks extends Component {
   }
 
   render() {
-    const { project, viewMode, selectedTask } = this.state
+    const { project, mode, selectedTask } = this.state
     return (
       <div className="tasks show-details" >
         <Toolbar 
           title={project} 
-          viewMode={viewMode} 
+          mode={mode} 
           closeEditMode={this.changeMode}
           selectAll={this.selectAll} 
           quantity={this.state.selectedTasks.length} 
@@ -165,13 +166,13 @@ class Tasks extends Component {
             togglePriority={() => this.props.togglePriority(task.id)}
             toggleCompletion={() => this.props.toggleCompletion(task.id)}
             addToSelected={() => this.selectTask(task.id)}
-            viewMode={viewMode}
+            mode={mode}
             checked={this.state.selectedTasks.length === this.state.allTasks.length }
             toggleDetails={() => this.toggleDetails(task.id)}
           />
         ))}
-        {viewMode && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
-        {!viewMode && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
+        {mode === 'view' && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
+        {mode === 'edit' && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
         <TaskDetails {...selectedTask} />
       </div>
     );

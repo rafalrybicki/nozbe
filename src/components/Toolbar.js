@@ -2,13 +2,13 @@ import React from 'react'
 import Icon from '@material-ui/core/Icon';
 import './Toolbar.css'
 
-function Toolbar({title, viewMode, selectAll, quantity, closeEditMode}) {
+function Toolbar({title, mode, selectAll, quantity, closeEditMode}) {
   const openMenu = () => {
     document.querySelector('nav').classList.add('open')
   }
   return (
     <div className="toolbar">
-      {!viewMode && <div>
+      {mode === 'edit' && <div>
         <input 
           className="select-all" 
           type="checkbox" 
@@ -16,16 +16,18 @@ function Toolbar({title, viewMode, selectAll, quantity, closeEditMode}) {
         />
         <span>{quantity}</span>
       </div>}
-      {viewMode && <Icon className="menu-icon" onClick={openMenu}>menu</Icon>}
-      {viewMode && <Icon className="sync-icon">sync</Icon>}
-
+      {mode === 'view' && 
+      <React.Fragment>
+        <Icon className="menu-icon" onClick={openMenu}>menu</Icon>
+        <Icon className="sync-icon">sync</Icon>
+      </React.Fragment>}
       <p>
         {title[0].toUpperCase() + title.slice(1)}
         <br />
-        {!viewMode && <span>Edit mode</span>}
+        {mode === 'edit' && <span>Edit mode</span>}
       </p>
-      {viewMode && <Icon className="info-icon">info_outlined</Icon>}
-      {!viewMode && <button className="close" onClick={closeEditMode}>Done</button>}
+      {mode === 'view' && <Icon className="info-icon">info_outlined</Icon>}
+      {mode === 'edit' && <button className="close" onClick={closeEditMode}>Done</button>}
     </div>
   );
 }

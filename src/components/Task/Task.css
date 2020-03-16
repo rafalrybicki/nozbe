@@ -1,3 +1,7 @@
+.edit-mode .task {
+  cursor: default;
+}
+
 .task {
   height: 60px;
   border-bottom: 1px solid #dadada;
@@ -7,10 +11,26 @@
   cursor: pointer;
   padding: 0 12px;
   user-select: none;
+  position: relative;
 }
 
-.task .content {
-  height: 100%;
+.task p {
+  margin-top: -2px;
+  flex-grow: 1;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  margin-right: 4px;
+}
+
+.task-attributes {
+  position: absolute;
+  bottom: 5px;
+  left: 50px;
+}
+
+.edit-mode .task-attributes {
+  left: 84px;
 }
 
 .task.completed {
