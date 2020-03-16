@@ -1,9 +1,9 @@
 import React from 'react';
 import './Task.css';
-import Avatar from '../Avatar';
-import Completion from '../shared/Completion';
+import Avatar from '../../shared/Avatar';
+import Completion from '../../shared/Completion';
 import TaskAttributes from './TaskAttributes';
-import Priority from '../shared/Priority';
+import Priority from '../../shared/Priority';
 import Icon from '@material-ui/core/Icon';
 
 function Task(props) {
@@ -47,7 +47,8 @@ function Task(props) {
       className={completion ? 'task completed' : 'task'} 
       onClick={showDetails}
     >
-      {mode === 'edit' && <>
+      {mode === 'edit' && 
+      <>
         <input type="checkbox" onChange={addToSelected} />
         <Avatar userName={author} />
       </>}

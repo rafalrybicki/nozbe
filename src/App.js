@@ -1,5 +1,4 @@
 import React from 'react';
-import Menu from './components/Menu'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -7,6 +6,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import Menu from './components/Menu/Menu'
+import Tasks from './components/Tasks/Tasks'
 import Projects from './components/Projects'
 import Categories from './components/Categories'
 import Calendar from './components/Calendar'
@@ -14,7 +15,6 @@ import Templates from './components/Templates'
 import Team from './components/Team'
 import Search from './components/Search'
 import Settings from './components/Settings'
-import Tasks from './components/Tasks'
 
 function App() {
   return (

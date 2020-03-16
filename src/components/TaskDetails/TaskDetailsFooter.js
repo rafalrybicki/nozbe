@@ -1,6 +1,6 @@
 import React from 'react';
 import './TaskDetailsFooter.css';
-import Avatar from '../Avatar';
+import Avatar from '../shared/Avatar';
 import moment from 'moment';
 
 function TaskDetailsFooter({author, date}) {

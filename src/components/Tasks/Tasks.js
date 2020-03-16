@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Toolbar from './Toolbar'
-import StatusBar from './StatusBar'
-import EditBar from './EditBar'
+import Toolbar from '../Toolbar'
+import StatusBar from '../StatusBar'
+import EditBar from '../EditBar'
 import Task from './Task/Task'
-import TaskDetails from './TaskDetails/TaskDetails';
-import NewTask from './NewTask'
-import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../redux/actions'
+import TaskDetails from '../TaskDetails/TaskDetails';
+import NewTask from '../NewTask'
+import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../../redux/actions'
 import './Tasks.css'
 
 function mapStateToProps(state) {
