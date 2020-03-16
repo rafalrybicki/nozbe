@@ -27,5 +27,9 @@ input[type="checkbox"] {
 }
 
 .repeat {
-  transform: scaleX(-1)
+  transform: rotate(40deg) scaleX(-1)
+}
+
+.danger {
+  color: red;
 }

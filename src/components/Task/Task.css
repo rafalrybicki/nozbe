@@ -15,22 +15,13 @@
 }
 
 .task p {
+  font-size: 15px;
   margin-top: -2px;
   flex-grow: 1;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis; 
   margin-right: 4px;
-}
-
-.task-attributes {
-  position: absolute;
-  bottom: 5px;
-  left: 50px;
-}
-
-.edit-mode .task-attributes {
-  left: 84px;
 }
 
 .task.completed {

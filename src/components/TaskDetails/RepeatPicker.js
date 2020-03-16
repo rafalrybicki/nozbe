@@ -6,7 +6,7 @@ import moment from 'moment';
 function Repeat({ repeat }) {
   return (
     <div className={repeat ? 'picker' : 'picker unchecked'}>
-      <Icon>replay</Icon>
+      <Icon className="repeat">replay</Icon>
       <span>{repeat ? repeat : 'Repeat?'}</span>
     </div>
   );

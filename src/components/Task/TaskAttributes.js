@@ -1,43 +1,57 @@
 import React from 'react';
 import './TaskAttributes.css'
-
 import { Link } from 'react-router-dom';
 import Icon from '@material-ui/core/Icon';
 import moment from 'moment';
 
-function TaskAttributes({ project, comments, repeat, time, deadline, categories, completion}) {
+function TaskAttributes({ project, comments, repeat, time, deadline, categories, duration, completion}) {
+  const delayed = new Date() > deadline && completion === false ? 'danger' : '';
+  
   return (
     <div className="task-attributes">
-      attributes
-      {/* {window.location.pathname === '/priority' && 
-        <Link to={project.path}>
-          <span style={{'color': project.name === 'Inbox' ? '' : project.color}}>&bull;</span>
-          {project.name}
-        </Link>
-      }
+      {window.location.pathname === '/priority' && 
+      <Link to={project.path}>
+        <Icon 
+          style={{'color': project.name === 'Inbox' ? '' : project.color }}
+        >fiber_manual_record</Icon>
+        <span className="text">{project.name}</span>
+      </Link>}
+      
       {comments.length > 0 && 
-        <div>
-          <Icon>sms</Icon>
-          {comments.length}
-        </div>}
-      {repeat && 
-        <div>
-          <Icon className="repeat">replay</Icon>  
-        </div>}
+      <>
+        <Icon className="comments-icon">sms</Icon>
+        <span className="text">{comments.length}</span>
+      </>}
+
+      {repeat && <Icon className="repeat">replay</Icon>}
+
+      {duration && <>
+        <Icon>schedule</Icon>
+      <span className="text">{duration}</span>
+      </>}
+
       {time && 
-        <div>
-          <Icon>schedule</Icon>
-          {time}
-        </div>}
+      <>
+        <Icon>schedule</Icon>
+        <span className="text">{time}</span>
+      </>}
+
       {deadline && 
-        <div className={deadline < Date.now() && completion === false ? 'danger' : ''}>
-        <Icon>today</Icon>
-          {moment(deadline).calendar()}
-        </div>}
+      <>
+        <Icon className={delayed}>today</Icon>
+        <span className={delayed + " text"}>{moment(deadline).calendar()}</span>
+      </>}
+
       {categories.length > 0 &&
-      <div>
-        {categories.map((category, i) => (<Icon key={i} className="category">{category.icon}</Icon>))}  
-      </div>} */}
+      <>
+        {categories.map((category, i) => 
+          <Icon 
+            key={i} 
+            className="category"
+          >
+            {category.icon}
+          </Icon>)}  
+      </>}
     </div>
   );
 }

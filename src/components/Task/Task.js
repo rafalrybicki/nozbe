@@ -6,7 +6,18 @@ import TaskAttributes from './TaskAttributes';
 import Priority from '../shared/Priority';
 import Icon from '@material-ui/core/Icon';
 
-function Task({ completion, author, content, priority, mode, addToSelected, toggleDetails, toggleCompletion, togglePriority  } ) {
+function Task(props) {
+  const { 
+    completion, 
+    author, 
+    content, 
+    priority, 
+    mode, 
+    addToSelected, 
+    toggleDetails, 
+    toggleCompletion, 
+    togglePriority 
+  } = props
 
   const showDetails = (e) => {
     if (e.target.classList.contains('tick') || e.target.classList.contains('completion')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
@@ -15,7 +26,6 @@ function Task({ completion, author, content, priority, mode, addToSelected, togg
       toggleDetails()
     }
   }
-
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
 
   return (
@@ -23,14 +33,13 @@ function Task({ completion, author, content, priority, mode, addToSelected, togg
       className={completion ? 'task completed' : 'task'} 
       onClick={showDetails}
     >
-      {mode === 'edit' && 
-      <React.Fragment>
+      {mode === 'edit' && <>
         <input type="checkbox" onChange={addToSelected} />
         <Avatar userName={author} />
-      </React.Fragment>}
+      </>}
       <Completion completion={completion} onclick={toggleCompletion} />
       <p>{content}</p>
-      <TaskAttributes />
+      <TaskAttributes {...props} />
       <Priority
         onClick={mode === 'view' ? togglePriority : undefined}
         priority={priority}

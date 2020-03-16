@@ -5,7 +5,7 @@ const initialState = [
     id: 1,
     author: 'John Doe',
     content: 'content1',
-    done: false,
+    completion: false,
     priority: true,
     duration: null,
     project: {
@@ -39,7 +39,7 @@ const initialState = [
     id: 2,
     author: 'John Doe',
     content: 'content2',
-    done: true,
+    completion: true,
     priority: false,
     duration: null,
     project: {
@@ -53,7 +53,7 @@ const initialState = [
         icon: 'home'
       }
     ],
-    deadline: new Date(),
+    deadline: new Date(2020,2,16),
     repeat: null,
     comments: [],
     holder: 'John Doe',
@@ -64,7 +64,7 @@ const initialState = [
     id: 3,
     author: 'John Doe',
     content: 'content3',
-    done: false,
+    completion: false,
     priority: false,
     duration: '30 min',
     project: {
@@ -95,8 +95,13 @@ const initialState = [
       }
     ],
     deadline: new Date(),
-    repeat: null,
-    comments: [],
+    repeat: 'Every year',
+    comments: [
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
+      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
+    ],
     holder: 'John Doe',
     created_at: new Date(),
     updated_at: new Date()
@@ -105,7 +110,7 @@ const initialState = [
     id: 4,
     author: 'John Doe',
     content: 'content4',
-    done: true,
+    completion: true,
     priority: true,
     duration: '1 h',
     project: {
