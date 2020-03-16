@@ -18,15 +18,3 @@
 .show-details .task-details {
   transform: translate(0);
 }
-
-.task-details .task-basic {
-  flex-grow: 0;
-  border-bottom: 1px solid #ccc;
-  max-height: 132px;
-  padding: 10px;
-}
-
-.task-details .task-basic .task-attributes {
-  display: none;
-}
-

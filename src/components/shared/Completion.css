@@ -11,6 +11,7 @@
   border: 1.3px #C7C7C7 solid;
   margin-right: 10px;
   color: #C7C7C7;
+  flex-shrink: 0;
 }
 
 .completion .tick {

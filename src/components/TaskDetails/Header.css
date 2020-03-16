@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  flex-grow: 0;
+  border-bottom: 1px solid #ccc;
+  min-height: 60px;
+  max-height: 132px;
+  padding-left: 10px;
+  padding-right: 12px;
+}
+
+.header * {
+  cursor: pointer;
+}
+
+.header p {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  margin: 0;
+  margin-right: 7px;
+  padding-top: 3px;
+}
