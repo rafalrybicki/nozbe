@@ -1,6 +1,19 @@
 .edit-mode .task-attributes {
   left: 84px;
 }
+
+.completed .task-attributes {
+  color: #D3D3D3;
+}
+
+.active .task-attributes {
+  color: #646464;
+}
+
+.active.completed .task-attributes {
+  color: #ACACAC
+}
+
 .task-attributes {
   padding-top: 3px;
   position: absolute;

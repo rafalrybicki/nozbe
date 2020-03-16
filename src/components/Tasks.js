@@ -67,6 +67,7 @@ class Tasks extends Component {
 
       if (hideDetails) {
         tasks.classList.remove('show-details')
+        document.querySelector('.task.active').classList.remove('active')
       }
     }
   }
@@ -149,7 +150,7 @@ class Tasks extends Component {
   render() {
     const { project, mode, selectedTask } = this.state
     return (
-      <div className="tasks show-details" >
+      <div className="tasks" >
         <Toolbar 
           title={project} 
           mode={mode} 

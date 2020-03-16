@@ -20,9 +20,23 @@ function Task(props) {
   } = props
 
   const showDetails = (e) => {
+    if (mode === 'edit') {
+      return
+    }
     if (e.target.classList.contains('tick') || e.target.classList.contains('completion')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
       return
-    } else if (mode === 'view') {
+    } else {
+      const activeTask = document.querySelector('.task.active')
+
+      if (activeTask === e.currentTarget) {
+        activeTask.classList.remove('active')
+      } else if (activeTask) {
+        activeTask.classList.remove('active')
+        e.currentTarget.classList.add('active')
+      } else {
+        e.currentTarget.classList.add('active')
+      }
+      
       toggleDetails()
     }
   }

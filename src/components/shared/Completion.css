@@ -10,6 +10,7 @@
   border-radius: 50%;
   border: 1.3px #C7C7C7 solid;
   margin-right: 10px;
+  color: #C7C7C7;
 }
 
 .completion .tick {
@@ -17,6 +18,13 @@
   margin-left: 1px;
   display: block;
   margin-top: -2px;
-  color: #C7C7C7;
 }
 
+.active .completion {
+  border-color: #646464;
+}
+
+.active.completed .completion {
+  border-color: #ACACAC;
+  color: #ACACAC;
+}

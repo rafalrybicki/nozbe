@@ -14,6 +14,14 @@
   position: relative;
 }
 
+.task.completed {
+  background-color: #F9F9F9
+}
+
+.task.active {
+  background-color: #DADADA;
+}
+
 .task p {
   font-size: 15px;
   margin-top: -2px;
@@ -24,9 +32,16 @@
   margin-right: 4px;
 }
 
-.task.completed {
-  background-color: #FFFFFF;
-  opacity: .5
+.task.completed p {
+  color: #848484;
+}
+
+.task.active p {
+  color: #151515;
+}
+
+.task.active.completed p {
+  color: rgb(68, 65, 65)
 }
 
 .task input[type="checkbox"] {
