@@ -1,0 +1,17 @@
+.completion {
+  height: 28px;
+  width: 28px;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 1.3px #C7C7C7 solid;
+  margin-right: 10px;
+}
+
+.completion .tick {
+  z-index: -1;
+  margin-left: 1px;
+  display: block;
+  margin-top: -2px;
+  color: #C7C7C7;
+}

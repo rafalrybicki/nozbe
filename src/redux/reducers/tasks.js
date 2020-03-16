@@ -5,7 +5,7 @@ const initialState = [
     id: 1,
     author: 'John Doe',
     content: 'content1',
-    completion: false,
+    done: false,
     priority: true,
     duration: null,
     project: {
@@ -39,7 +39,7 @@ const initialState = [
     id: 2,
     author: 'John Doe',
     content: 'content2',
-    completion: true,
+    done: true,
     priority: false,
     duration: null,
     project: {
@@ -64,7 +64,7 @@ const initialState = [
     id: 3,
     author: 'John Doe',
     content: 'content3',
-    completion: false,
+    done: false,
     priority: false,
     duration: '30 min',
     project: {
@@ -105,7 +105,7 @@ const initialState = [
     id: 4,
     author: 'John Doe',
     content: 'content4',
-    completion: true,
+    done: true,
     priority: true,
     duration: '1 h',
     project: {

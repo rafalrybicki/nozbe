@@ -10,39 +10,11 @@
   color: #848484
 }
 
-.task-basic > div {
-  flex-grow: 1;
-}
-
 .task-basic .priority {
   margin-right: -2px;
   margin-left: 6px;
 }
 
-.task-basic .circle {
-  position: relative;
-  padding-left: 1px;
-  margin-right: 12px;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-
-.task-basic .circle span {
-  z-index: -1;
-}
-
 .task-basic .desc {
   font-size: 14px;
-}
-
-.task-basic .circle {
-  line-height: 1;
-  display: block;
-  height: 28px;
-  width: 28px;
-  margin-right: 12px;
-  border-radius: 50%;
-  border: 1.5px #C7C7C7 solid;
-  color: #C7C7C7
 }
