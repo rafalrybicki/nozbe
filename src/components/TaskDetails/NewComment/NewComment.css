@@ -13,13 +13,12 @@
   resize: none;
   font-family: inherit;
   border: 1px solid rgba(21,21,21,0.2);
+  overflow: hidden;
 }
 
 .new-comment textarea:focus {
   outline: none;
   border: 1px solid black;
-  line-height: 1;
-  min-height: 110px;
 }
 
 .new-comment .type-icon {

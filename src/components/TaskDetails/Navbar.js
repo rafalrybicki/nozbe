@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css'
 import Icon from '@material-ui/core/Icon';
 
-function TaskDetailsNavbar(props) {
+function Navbar(props) {
   const hideDetails = () => {
     document.querySelector('.tasks').classList.remove('show-details')
   }
@@ -18,4 +18,4 @@ function TaskDetailsNavbar(props) {
   );
 }
 
-export default TaskDetailsNavbar;
+export default Navbar;

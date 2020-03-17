@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './CommentTypePicker.css'
 import Icon from '@material-ui/core/Icon';
 
-function CommentTypePicker(props) {
+function CommentTypePicker({type, disabled, setType}) {
   const options = [
     { value: 'Text', icon: 'subject' },
     { value: 'Checklist', icon: 'format_list_bulleted' },
     { value: 'Attachment', icon: 'attach_file' },
   ];
 
-  const [currentType, setCurrenValue] = useState(options.find(el => el.value === props.type));
+  const [currentType, setCurrenValue] = useState(options.find(el => el.value === type));
  
   const toggleOptions = (e) => {
     const commentTypePicker = document.querySelector('.options')
@@ -22,7 +22,7 @@ function CommentTypePicker(props) {
       const type = e.currentTarget.getAttribute('data-value')
       setCurrenValue(options[index]);
       commentTypePicker.classList.add('hide');
-      props.setType(type)
+      setType(type)
     }
   }
 
@@ -37,7 +37,7 @@ function CommentTypePicker(props) {
     <div className="comment-type-picker">
       <Icon 
         className="close"
-        onClick={() => props.setType(false)}
+        onClick={() => setType(false)}
       >close</Icon>
       <div className="select" >
         <div className="option" onClick={toggleOptions}>
@@ -60,10 +60,8 @@ function CommentTypePicker(props) {
             </div>
           )}
         </div>
+
       </div>
-      <button 
-        
-      >Save</button>
     </div>
   );
 }

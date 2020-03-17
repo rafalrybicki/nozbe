@@ -3,7 +3,7 @@ import './Footer.css';
 import Avatar from '../shared/Avatar';
 import moment from 'moment';
 
-function TaskDetailsFooter({author, date}) {
+function Footer({author, date}) {
   return (
     <div className="task-details-footer">
       <Avatar userName={author} />
@@ -16,4 +16,4 @@ function TaskDetailsFooter({author, date}) {
   );
 }
 
-export default TaskDetailsFooter;
+export default Footer;

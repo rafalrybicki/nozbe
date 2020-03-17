@@ -49,4 +49,6 @@
 
 .edit-form button:disabled {
   cursor: not-allowed;
+  background: #f6f6f6;
+  color: #ccc;
 }
