@@ -38,8 +38,8 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
 
       {deadline && 
       <>
-        <Icon className={delayed}>today</Icon>
-        <span className={delayed + " text"}>{moment(deadline).calendar()}</span>
+        <Icon className={delayed}>{delayed ? 'whatshot' : 'today'}</Icon>
+        <span className={delayed + " text"}>{moment(deadline).format("MMM D LT") }</span>
       </>}
 
       {categories.length > 0 &&
