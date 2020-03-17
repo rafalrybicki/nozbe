@@ -13,20 +13,6 @@
   background: #FAFAFA;
 }
 
-.toolbar .close {
-  background: #28ce63;
-  border: 1px solid rgba(21,21,21,0.1);
-  color: #fff;
-  display: block;
-  width: 67px;
-  height: 31px;
-  font-weight: bold;
-  top: 6px;
-  right: 10px;
-  z-index: 100;
-  border-radius: 3px;
-}
-
 .toolbar p {
   margin: 0;
   cursor: default;

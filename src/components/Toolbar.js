@@ -27,7 +27,7 @@ function Toolbar({title, mode, selectAll, quantity, closeEditMode}) {
         {mode === 'edit' && <span>Edit mode</span>}
       </p>
       {mode === 'view' && <Icon className="info-icon">info_outlined</Icon>}
-      {mode === 'edit' && <button className="close" onClick={closeEditMode}>Done</button>}
+      {mode === 'edit' && <button className="btn-green" onClick={closeEditMode}>Done</button>}
     </div>
   );
 }

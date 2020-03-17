@@ -40,15 +40,3 @@
   border: 1px solid rgba(21,21,21,0.2);
   background-color: white;
 }
-
-.edit-form button[type="submit"] {
-  background: #28ce63;
-  border: 1px solid rgba(21,21,21,0.1);
-  color: white;
-}
-
-.edit-form button:disabled {
-  cursor: not-allowed;
-  background: #f6f6f6;
-  color: #ccc;
-}

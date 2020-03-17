@@ -37,3 +37,22 @@ input[type="checkbox"] {
 button:focus {
   outline: none;
 }
+
+.btn-green {
+  display: inline-block;
+  height: 34px;
+  color: white;
+  border-radius: 3px;
+  background-color: #28ce63;
+  border: 1px solid rgba(21,21,21,0.1);
+  padding: 8px 16px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-green:disabled {
+  background: #f6f6f6;
+  color: #ccc;
+  cursor: not-allowed;
+}

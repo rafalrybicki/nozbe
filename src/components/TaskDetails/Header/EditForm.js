@@ -39,6 +39,7 @@ function EditForm({oldContent}) {
       <button 
         type="submit" 
         disabled={disabled}
+        className="btn-green"
       >Save</button>
     </form>
   );
