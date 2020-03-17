@@ -1,7 +1,7 @@
 .task-details-footer {
   display: flex;
   font-size: 13px;
-  padding-bottom: 10px;
+  padding: 5px 0;
 }
 
 .task-details-footer .avatar {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskDetailsNavbar.css'
+import './Navbar.css'
 import Icon from '@material-ui/core/Icon';
 
 function TaskDetailsNavbar(props) {

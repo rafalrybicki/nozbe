@@ -1,7 +1,7 @@
 import React from 'react';
 import './Comment.css'
 import Icon from '@material-ui/core/Icon';
-import Avatar from '../shared/Avatar';
+import Avatar from '../../shared/Avatar';
 
 function Comment({type, content, author, created_at}) {
   return (

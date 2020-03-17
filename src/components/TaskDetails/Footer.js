@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskDetailsFooter.css';
+import './Footer.css';
 import Avatar from '../shared/Avatar';
 import moment from 'moment';
 

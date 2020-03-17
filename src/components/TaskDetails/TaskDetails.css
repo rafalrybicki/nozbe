@@ -15,6 +15,11 @@
   transition: transform 0.2s;
 }
 
+.task-details .main {
+  padding: 10px;
+  margin-bottom: 43px;
+}
+
 .show-details .task-details {
   transform: translate(0);
 }

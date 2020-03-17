@@ -1,16 +1,35 @@
 import React from 'react';
 import './TaskDetails.css';
-import Header from './Header/Header'
-import TaskDetailsNavbar from './TaskDetailsNavbar';
-import TaskDetailsContent from './TaskDetailsContent';
+import Header from './Header/Header';
+import Attributes from './Attributes';
+import NewComment from './NewComment';
+import Comments from './Comments/Comments'
+import Footer from './Footer';
+import Navbar from './Navbar';
 
-function TaskDetails(props) {
+function TaskDetails({content, project, deadline, completion, categories, repeat, duration, comments, author, created_at }) {
   return (
     <div className="task-details">
-      {/* <TaskBasic {...props} viewMode={true}/> task basic header with priority icon0-= */}
-      <Header content={props.content} />
-      <TaskDetailsContent {...props} />
-      <TaskDetailsNavbar />
+      <Header content={content} />
+      <div className="main">
+        <Attributes
+          project={project}
+          deadline={deadline}
+          categories={categories}
+          repeat={repeat}
+          duration={duration}
+          completion={completion}
+        />
+        <NewComment />
+        <Comments
+          comments={comments}
+        />
+        <Footer
+          author={author}
+          date={created_at} 
+        />
+      </div>
+      <Navbar />
     </div>
   );
 }

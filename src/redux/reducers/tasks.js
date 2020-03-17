@@ -97,9 +97,6 @@ const initialState = [
     deadline: new Date(),
     repeat: 'Every year',
     comments: [
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
       { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
     ],
     holder: 'John Doe',
