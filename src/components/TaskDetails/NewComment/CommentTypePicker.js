@@ -35,10 +35,6 @@ function CommentTypePicker({type, disabled, setType}) {
 
   return (
     <div className="comment-type-picker">
-      <Icon 
-        className="close"
-        onClick={() => setType(false)}
-      >close</Icon>
       <div className="select" >
         <div className="option" onClick={toggleOptions}>
           <Icon className="down">expand_more</Icon>
@@ -60,7 +56,6 @@ function CommentTypePicker({type, disabled, setType}) {
             </div>
           )}
         </div>
-
       </div>
     </div>
   );

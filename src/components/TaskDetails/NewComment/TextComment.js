@@ -7,12 +7,15 @@ function TextComment(props) {
 
   return (
     <>
+      <button 
+        disabled={value === ''}
+        className="btn-green"
+      >Save</button>
       <TextareaAutosize
         onChange={(e) => setValue(e.target.value.trim())}
         minRows={7}
         placeholder="Add comment (ENTER)"
       />
-      <button className="btn-green">Save</button>
     </>
   );
 }

@@ -5,7 +5,7 @@
   justify-content: space-between;
 }
 
-.task-details-attributes.hide {
+.hide-attributes .task-details-attributes {
   display: none;
 }
 

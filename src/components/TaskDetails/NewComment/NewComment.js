@@ -9,12 +9,12 @@ import TextComment from './TextComment'
 function NewComment(props) {
   const [type, setType] = useState(false)
   const selectType = (type) => {
+    console.log(true)
     setType(type)
     if (type) {
-      document.querySelector('.task-details-attributes').classList.add('hide')
+      document.querySelector('.task-details .main').classList.add('hide-attributes')
     } else {
-      document.querySelector('.task-details-attributes').classList.remove('hide')
-    }
+      document.querySelector('.task-details .main').classList.remove('hide-attributes')    }
   }
 
   return (
@@ -37,6 +37,15 @@ function NewComment(props) {
           className="type-icon"
           onClick={() => selectType('Checklist')}
         >format_list_bulleted</Icon>
+      </>}
+
+      {type && 
+      <>
+        <Icon
+          className="close"
+          onClick={() => selectType(false)}
+        >close</Icon>
+        <CommentTypePicker type={type} />
       </>}
     </div>
   );
