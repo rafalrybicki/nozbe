@@ -8,12 +8,9 @@ function Deadline({ deadline, completion }) {
 
   return (
     <div className={deadline ? 'picker' : 'picker unchecked'}>
-      {/* <Icon>today</Icon>
-      <span>{deadline ? moment(deadline).format("MMM Do YY LT") : 'Date?'}</span> */}
-
       <Icon className={delayed}>{delayed ? 'whatshot' : 'today'}</Icon>
       <span className={delayed + " text"}>
-        {deadline ? moment(deadline).format("MMM D YY LT") : 'Date?'}
+        {deadline ? moment(deadline).format("MMM D LT") : 'Date?'}
         </span>
     </div>
   );

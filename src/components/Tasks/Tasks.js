@@ -5,7 +5,7 @@ import StatusBar from '../StatusBar'
 import EditBar from '../EditBar'
 import Task from './Task/Task'
 import TaskDetails from '../TaskDetails/TaskDetails';
-import NewTask from '../NewTask'
+import NewTask from './NewTask'
 import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../../redux/actions'
 import './Tasks.css'
 

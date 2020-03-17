@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './NewTask.css'
 import Icon from '@material-ui/core/Icon';
-import { addTask } from '../redux/actions';
+import { addTask } from '../../redux/actions';
 
 let NewTask = ({dispatch, project}) => {
   let input
   const [direction, setDirection] = useState(false);
+  
   const toogleDirection = () => {
     if (direction) {
       setDirection(false)
@@ -14,6 +15,7 @@ let NewTask = ({dispatch, project}) => {
       setDirection(true)
     }
   }
+
   const addNewTask = (e) => {
     e.preventDefault()
     if(input.value.trim() === '') return
@@ -21,6 +23,7 @@ let NewTask = ({dispatch, project}) => {
     dispatch(addTask(input.value.trim(), project))
     input.value = ''
   }
+
   return (
     <div className='new-task'>
       <Icon>close</Icon>

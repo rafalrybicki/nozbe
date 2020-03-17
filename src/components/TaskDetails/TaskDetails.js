@@ -1,6 +1,6 @@
 import React from 'react';
 import './TaskDetails.css';
-import Header from './Header'
+import Header from './Header/Header'
 import TaskDetailsNavbar from './TaskDetailsNavbar';
 import TaskDetailsContent from './TaskDetailsContent';
 

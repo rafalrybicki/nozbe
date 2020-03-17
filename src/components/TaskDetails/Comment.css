@@ -17,8 +17,8 @@
 
 .comment-header .date {
   position: absolute;
-  bottom: 12px;
-  left: 50px;
+  bottom: 11px;
+  left: 48px;
   color: rgba(21,21,21,0.5);
   font-size: 11px;
 }
@@ -37,4 +37,8 @@
 
 .comment-body {
   padding: 20px 10px;
+}
+
+.comment .avatar {
+  margin-right: 10px;
 }

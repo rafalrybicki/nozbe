@@ -33,3 +33,7 @@ input[type="checkbox"] {
 .danger {
   color: red;
 }
+
+button:focus {
+  outline: none;
+}
