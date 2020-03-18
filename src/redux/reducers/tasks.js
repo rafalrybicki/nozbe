@@ -26,10 +26,31 @@ const initialState = [
     deadline: null,
     repeat: 'Every Month',
     comments: [
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }, 
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' },
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
+      {
+        id: Math.random(),
+        type: 'text',
+        content: 'random comment',
+        created_at: new Date(),
+        author: 'John Doe'
+      },
+      {
+        id: Math.random(),
+        type: 'checklist',
+        content: [
+          {
+            value: 'some text',
+            completion: false,
+            id: Math.random()
+          },
+          {
+            value: 'some text',
+            completion: true,
+            id: Math.random()
+          }
+        ],
+        created_at: new Date(),
+        author: 'Jown Wayne'
+      }
     ],
     holder: 'R R',
     created_at: new Date(),
@@ -97,7 +118,30 @@ const initialState = [
     deadline: new Date(),
     repeat: 'Every year',
     comments: [
-      { id: Math.random(), type: 'text', content: 'random comment', created_at: new Date(), author: 'John Doe' }
+      { 
+        id: Math.random(), 
+        type: 'text', 
+        content: 'random comment', 
+        created_at: new Date(), 
+        author: 'John Doe' 
+      },
+      { id: Math.random(), 
+        type: 'checklist', 
+        content: [
+          {
+            value: 'some text',
+            completion: false,
+            id: Math.random()
+          },
+          {
+            value: 'some text',
+            completion: true,
+            id: Math.random()
+          }
+        ],
+        created_at: new Date(),
+        author: 'Jown Wayne'
+      }
     ],
     holder: 'John Doe',
     created_at: new Date(),

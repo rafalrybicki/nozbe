@@ -16,8 +16,8 @@
 }
 
 .new-checklist .completed .toggler {
-background-color: black;
-border: 0;
+  background-color: black;
+  border: 0;
 }
 
 .new-checklist .toggler .tick{

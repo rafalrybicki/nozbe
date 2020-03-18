@@ -1,0 +1,26 @@
+.checklist-comment-item {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.checklist-comment-item .toggler {
+  height: 20px;
+  width: 20px;
+  color: white;
+  margin-right: 8px;
+}
+
+.checklist-comment-item.completed .toggler {
+  background-color: black;
+  border: 0;
+}
+
+.checklist-comment-item .toggler .tick{
+  font-size: 20px;
+}
+
+.checklist-comment-item p {
+  margin: 0;
+  font-size: 14px;
+  padding-top: 2px;
+}

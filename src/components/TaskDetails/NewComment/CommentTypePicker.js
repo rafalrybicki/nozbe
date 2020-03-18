@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './CommentTypePicker.css'
 import Icon from '@material-ui/core/Icon';
 
-function CommentTypePicker({type, disabled, setType}) {
+function CommentTypePicker({type, setType}) {
   const options = [
     { value: 'Text', icon: 'subject' },
     { value: 'Checklist', icon: 'format_list_bulleted' },

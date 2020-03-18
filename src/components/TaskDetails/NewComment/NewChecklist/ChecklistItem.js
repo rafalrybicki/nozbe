@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ChecklistItem.css'
 import Toggler from '../../../shared/Toggler';
 import TextareaAutosize from 'react-textarea-autosize';
