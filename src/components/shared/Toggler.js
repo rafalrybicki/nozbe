@@ -1,10 +1,10 @@
 import React from 'react';
-import './Completion.css'
+import './Toggler.css'
 
-function Completion({completion, onclick}) {
+function Toggler({completion, onclick}) {
   return (
     <div 
-      className="completion" 
+      className="toggler" 
       onClick={onclick}
     >
       {completion && <span className="tick">&#10003;</span>}
@@ -12,4 +12,4 @@ function Completion({completion, onclick}) {
   );
 }
 
-export default Completion;
+export default Toggler;

@@ -2,7 +2,7 @@
   display: none;
 }
 
-.completion {
+.toggler {
   height: 28px;
   width: 28px;
   font-size: 28px;
@@ -12,20 +12,21 @@
   margin-right: 10px;
   color: #C7C7C7;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
-.completion .tick {
+.toggler .tick {
   z-index: -1;
   margin-left: 1px;
   display: block;
   margin-top: -2px;
 }
 
-.active .completion {
+.active .toggler {
   border-color: #646464;
 }
 
-.active.completed .completion {
+.active.completed .toggler {
   border-color: #ACACAC;
   color: #ACACAC;
 }

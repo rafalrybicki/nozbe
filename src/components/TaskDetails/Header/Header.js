@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import Completion from '../../shared/Completion';
+import Toggler from '../../shared/Toggler';
 import Priority from '../../shared/Priority';
 import EditForm from './EditForm';
 
@@ -11,7 +11,7 @@ function Header({content}) {
   
   return (
     <div className="header">
-      <Completion />
+      <Toggler />
       <p onClick={showEditForm}>{content}</p>
       <Priority />
       <EditForm oldContent={content} />

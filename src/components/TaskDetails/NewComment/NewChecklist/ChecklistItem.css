@@ -1,0 +1,25 @@
+.new-checklist .checklist-item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.new-checklist .checklist-item:last-of-type {
+  margin-bottom: 15px;
+}
+
+.new-checklist .checklist-item textarea {
+  padding: 8px;
+  padding-right: 45px;
+  height: 35px;
+  flex-grow: 1;
+}
+
+.new-checklist .completed .toggler {
+background-color: black;
+border: 0;
+}
+
+.new-checklist .toggler .tick{
+  font-size: 20px;
+}

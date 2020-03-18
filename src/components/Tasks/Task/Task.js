@@ -1,7 +1,7 @@
 import React from 'react';
 import './Task.css';
 import Avatar from '../../shared/Avatar';
-import Completion from '../../shared/Completion';
+import Toggler from '../../shared/Toggler';
 import TaskAttributes from './TaskAttributes';
 import Priority from '../../shared/Priority';
 import Icon from '@material-ui/core/Icon';
@@ -52,7 +52,7 @@ function Task(props) {
         <input type="checkbox" onChange={addToSelected} />
         <Avatar userName={author} />
       </>}
-      <Completion completion={completion} onclick={toggleCompletion} />
+      <Toggler completion={completion} onclick={toggleCompletion} />
       <p>{content}</p>
       <TaskAttributes {...props} />
       <Priority

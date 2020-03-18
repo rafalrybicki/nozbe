@@ -4,12 +4,12 @@ import Icon from '@material-ui/core/Icon';
 import CommentTypePicker from './CommentTypePicker'
 import TextareaAutosize from 'react-textarea-autosize';
 import TextComment from './TextComment'
+import NewChecklist from './NewChecklist/NewChecklist';
 
 
 function NewComment(props) {
   const [type, setType] = useState(false)
   const selectType = (type) => {
-    console.log(true)
     setType(type)
     if (type) {
       document.querySelector('.task-details .main').classList.add('hide-attributes')
@@ -26,6 +26,8 @@ function NewComment(props) {
       />}
 
       {type === 'Text' && <TextComment />}
+
+      {type === 'Checklist' && <NewChecklist />}
 
       {type === false && 
       <>
