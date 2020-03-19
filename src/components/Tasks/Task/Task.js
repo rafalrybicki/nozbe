@@ -8,7 +8,7 @@ import Icon from '@material-ui/core/Icon';
 
 function Task(props) {
   const { 
-    index,
+    active,
     completion, 
     author, 
     content, 
@@ -43,9 +43,19 @@ function Task(props) {
   }
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
 
+  let className = "task";
+  
+  if (completion) {
+    className += " completed"
+  } 
+
+  if (active) {
+    className += " active"
+  }
+
   return (
     <div 
-      className={completion ? 'task completed' : 'task'} 
+      className={className} 
       onClick={showDetails}
     >
       {mode === 'edit' && 

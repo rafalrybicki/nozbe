@@ -171,6 +171,7 @@ class Tasks extends Component {
           <Task 
             {...task} 
             index={i}
+            active={i === this.state.selectedTask}
             key={task.id} 
             togglePriority={() => this.props.togglePriority(task.id)}
             toggleCompletion={() => this.props.toggleCompletion(task.id)}
