@@ -27,6 +27,6 @@
   padding-right: 10px;
 }
 
-.show-form p, .show-form .completion, .show-form .priority {
+.show-form p, .show-form .toggler, .show-form .priority {
   display: none;
 }

@@ -2,19 +2,20 @@ import React, {useState} from 'react';
 import './EditForm.css'
 import TextareaAutosize from 'react-textarea-autosize';
 
-function EditForm({oldContent}) {
-  const [newContent, setNewContent] = useState(oldContent)
+function EditForm({prevContent, onSave}) {
+  const [newContent, setNewContent] = useState(prevContent)
   const [disabled, setDisabled] = useState(true) 
 
   const handleSubmit = (e) => {
-    e.preventDefault() 
-    hideEditForm()
+    e.preventDefault();
+    hideEditForm();
+    onSave({content: newContent})
   } 
 
   const handleChange = (e) => {
     setNewContent(e.target.value.trim())
     
-    if (newContent === oldContent) {
+    if (newContent === prevContent) {
       setDisabled(true)
     } else {
       setDisabled(false)
