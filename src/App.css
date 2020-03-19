@@ -56,3 +56,7 @@ button:focus {
   color: #ccc;
   cursor: not-allowed;
 }
+
+.hide {
+  display: none !important;
+}

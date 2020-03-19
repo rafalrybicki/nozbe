@@ -1,34 +1,23 @@
 import React from 'react';
 import './NavbarOptions.css';
 import Icon from '@material-ui/core/Icon';
-
+import OptionListItem from '../../shared/OptionListItem'
 
 function NavbarOptions(props) {
 
+  const toggleOptions = () => {
+    document.querySelector('.task-details-navbar .option-list').classList.toggle('hide')
+  }
+
   return (
     <div>
-      <Icon>more_horiz</Icon>
-      <div className="option-list">
-        <div className="option-list-item">
-          <Icon>link</Icon>
-          <span>Copy task ref link</span>
-        </div>
-        <div className="option-list-item">
-          <Icon>library_add</Icon>
-          <span>Clone</span>
-        </div>
-        <div className="option-list-item">
-          <Icon>assignment</Icon>
-          <span>Convert to project</span>
-        </div>
-        <div className="option-list-item">
-          <Icon>exit_to_app</Icon>
-          <span>Show in project</span>
-        </div>
-        <div className="option-list-item">
-          <Icon>delete</Icon>
-          <span>Delete</span>
-        </div>
+      <Icon onClick={toggleOptions}>more_horiz</Icon>
+      <div className="option-list hide">
+        <OptionListItem icon={'link'} text={'Copy task ref link'} />
+        <OptionListItem icon={'library_add'} text={'Clone'} />
+        <OptionListItem icon={'assignment'} text={'Convert to project'} />
+        <OptionListItem icon={'exit_to_app'} text={'Show in project'} />
+        <OptionListItem icon={'delete'} text={'Delete'} />
       </div>
     </div>
   );
