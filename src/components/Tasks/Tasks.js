@@ -35,7 +35,8 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       mode: 'view',
-      activeTask: 0,
+      activeTask: 0
+      ,
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };

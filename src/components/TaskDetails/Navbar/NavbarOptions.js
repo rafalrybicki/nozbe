@@ -1,13 +1,16 @@
 import React from 'react';
 import './NavbarOptions.css';
+import { connect } from 'react-redux';
+import { deleteTasks } from '../../../redux/actions';
 import Icon from '@material-ui/core/Icon';
-import OptionListItem from '../../shared/OptionListItem'
+import OptionListItem from '../../shared/OptionListItem';
 
-function NavbarOptions(props) {
+function NavbarOptions({id, dispatch}) {
 
   const toggleOptions = () => {
     document.querySelector('.task-details-navbar .option-list').classList.toggle('hide')
   }
+
 
   return (
     <div>
@@ -17,10 +20,14 @@ function NavbarOptions(props) {
         <OptionListItem icon={'library_add'} text={'Clone'} />
         <OptionListItem icon={'assignment'} text={'Convert to project'} />
         <OptionListItem icon={'exit_to_app'} text={'Show in project'} />
-        <OptionListItem icon={'delete'} text={'Delete'} />
+        <OptionListItem 
+        icon={'delete'} 
+        text={'Delete'} 
+        onClick={() => dispatch(deleteTasks([id]))}
+        />
       </div>
     </div>
   );
 }
 
-export default NavbarOptions;
+export default connect()(NavbarOptions);
