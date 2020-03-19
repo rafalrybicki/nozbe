@@ -13,9 +13,9 @@ function EditForm({prevContent, onSave}) {
   } 
 
   const handleChange = (e) => {
-    setNewContent(e.target.value.trim())
+    setNewContent(e.target.value)
     
-    if (newContent === prevContent) {
+    if (newContent === prevContent || e.target.value.trim() === '') {
       setDisabled(true)
     } else {
       setDisabled(false)
@@ -24,6 +24,7 @@ function EditForm({prevContent, onSave}) {
 
   const hideEditForm = () => {
     document.querySelector('.header').classList.remove('show-form')
+    setNewContent(prevContent)
   }
 
   return (

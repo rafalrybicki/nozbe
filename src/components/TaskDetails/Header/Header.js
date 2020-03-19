@@ -6,15 +6,16 @@ import Toggler from '../../shared/Toggler';
 import Priority from '../../shared/Priority';
 import EditForm from './EditForm';
 
-function Header({ content, id, priority, toggleCompletion, togglePriority, editTask}) {
+function Header({ content, completion, id, priority, toggleCompletion, togglePriority, editTask}) {
   const showEditForm = () => {
     document.querySelector('.header').classList.add('show-form')
   }
   // this.props.dispatch(completeTasks(this.state.selectedTasks))
   
   return (
-    <div className="header">
+    <div className={completion ? "header task-completed" : "header"}>
       <Toggler 
+        completion={completion}
         onclick={() => toggleCompletion(id)}
       />
       <p 

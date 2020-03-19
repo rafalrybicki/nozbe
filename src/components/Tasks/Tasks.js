@@ -35,7 +35,7 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       mode: 'view',
-      selectedTask: this.props.tasks[0],
+      selectedTask: 0,
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };
@@ -71,7 +71,6 @@ class Tasks extends Component {
       }
     }
   }
-
 
   changeMode = () => {
     this.setState(prevState => {
@@ -121,20 +120,28 @@ class Tasks extends Component {
     this.setState({ selectedTasks: [] })
   }
 
-  toggleDetails = (id) => {
-    const detailsShown = document.querySelector('.tasks').classList.contains('show-details')
+  toggleDetails = (index) => {
+    const tasks = document.querySelector('.tasks')
 
-    if (this.state.selectedTask.id === id ) {
-      if (detailsShown) {
-        document.querySelector('.tasks').classList.remove('show-details')
-      } else {
-        document.querySelector('.tasks').classList.add('show-details')
-      }
-    } else {
-      const newTask = this.props.tasks.find(task => task.id === id)
-      this.setState({selectedTask: newTask})
-      document.querySelector('.tasks').classList.add('show-details')
+    this.setState({ selectedTask: index })
+
+    if (tasks.classList.contains('show-details') && this.state.selectedTask === index) {
+      tasks.classList.remove('show-details')
+    } else if (!tasks.classList.contains('show-details')) {
+      tasks.classList.add('show-details')
     }
+
+    // if (this.state.selectedTask === id ) {
+    //   if (detailsShown) {
+    //     document.querySelector('.tasks').classList.remove('show-details')
+    //   } else {
+    //     document.querySelector('.tasks').classList.add('show-details')
+    //   }
+    // } else {
+    //   const newTask = this.props.tasks.find(task => task.id === id)
+    //   this.setState({selectedTask: newTask})
+    //   document.querySelector('.tasks').classList.add('show-details')
+    // }
   }
 
   deleteTasks = () => {
@@ -160,21 +167,22 @@ class Tasks extends Component {
           checked={this.state.selectedTasks.length === this.state.allTasks.length}
         />
         <NewTask project={project} />
-        {this.props.tasks.map(task => (
+        {this.props.tasks.map((task,i) => (
           <Task 
             {...task} 
+            index={i}
             key={task.id} 
             togglePriority={() => this.props.togglePriority(task.id)}
             toggleCompletion={() => this.props.toggleCompletion(task.id)}
             addToSelected={() => this.selectTask(task.id)}
             mode={mode}
             checked={this.state.selectedTasks.length === this.state.allTasks.length }
-            toggleDetails={() => this.toggleDetails(task.id)}
+            toggleDetails={() => this.toggleDetails(i)}
           />
         ))}
         {mode === 'view' && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
         {mode === 'edit' && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
-        <TaskDetails {...selectedTask} />
+        <TaskDetails {...this.props.tasks[selectedTask]} />
       </div>
     );
   }

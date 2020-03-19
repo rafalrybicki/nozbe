@@ -7,13 +7,27 @@ import Comments from './Comments/Comments'
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-function TaskDetails({id,content, project, deadline, priority, completion, categories, repeat, duration, comments, author, created_at }) {
+function TaskDetails({
+  id,
+  content, 
+  project, 
+  deadline, 
+  priority, 
+  completion, 
+  categories, 
+  repeat, 
+  duration, 
+  comments, 
+  author, 
+  created_at 
+}) {
   return (
     <div className="task-details">
       <Header 
         content={content} 
         id={id}
         priority={priority} 
+        completion={completion}
       />
       <div className="main">
         <Attributes

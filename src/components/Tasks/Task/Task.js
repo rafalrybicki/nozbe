@@ -8,6 +8,7 @@ import Icon from '@material-ui/core/Icon';
 
 function Task(props) {
   const { 
+    index,
     completion, 
     author, 
     content, 
@@ -23,7 +24,7 @@ function Task(props) {
     if (mode === 'edit') {
       return
     }
-    if (e.target.classList.contains('tick') || e.target.classList.contains('completion')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
+    if (e.target.classList.contains('tick') || e.target.classList.contains('toggler')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
       return
     } else {
       const activeTask = document.querySelector('.task.active')

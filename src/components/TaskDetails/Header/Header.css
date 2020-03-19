@@ -12,6 +12,10 @@
   z-index: 10;
 }
 
+.header.task-completed {
+  background-color: #F9F9F9;
+}
+
 .header * {
   cursor: pointer;
 }
