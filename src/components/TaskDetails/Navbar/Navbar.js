@@ -1,11 +1,13 @@
 import React from 'react';
 import './Navbar.css'
 import Icon from '@material-ui/core/Icon';
+import NavbarOptions from './NavbarOptions';
 
-function Navbar({ index, changeTask,lastTask }) {
+function Navbar({ index, id, changeTask,lastTask }) {
   const hideDetails = () => {
     document.querySelector('.tasks').classList.remove('show-details')
   }
+  
   return (
     <div className="task-details-navbar">
       <Icon 
@@ -25,7 +27,7 @@ function Navbar({ index, changeTask,lastTask }) {
       >
         <Icon>keyboard_arrow_down</Icon>
       </button>
-      <Icon>more_horiz</Icon>
+      <NavbarOptions id={id} />
     </div>
   );
 }

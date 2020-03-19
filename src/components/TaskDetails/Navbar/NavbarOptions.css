@@ -1,0 +1,29 @@
+.option-list {
+  position: absolute;
+  background-color: white;
+  top: -190px;
+  right: 45px;
+  box-shadow: 0 3px 10px rgba(21,21,21,0.3);
+  border: 1px solid #ccc;
+  border-bottom: none ;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.option-list-item {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 14px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.option-list-item:last-of-type {
+  color: red;
+}
+
+.option-list-item .material-icons {
+  margin-right: 10px;
+}

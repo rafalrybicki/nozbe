@@ -25,7 +25,7 @@ class Menu extends React.Component {
         <div className="menu">
           <MenuItem icon='star' path='priority' amount={this.props.priority} />
           <MenuItem icon='inbox' path='inbox' amount={this.props.inbox} />
-          <MenuItem icon='assignmentnbox' path='projects' />
+          <MenuItem icon='assignment' path='projects' />
           <MenuItem icon='flag' path='categories' />
           <MenuItem icon='event_note' path='calendar' />
           <MenuItem icon='work' path='templates' />

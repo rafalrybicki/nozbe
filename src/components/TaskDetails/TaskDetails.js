@@ -5,7 +5,7 @@ import Attributes from './Attributes';
 import NewComment from './NewComment/NewComment';
 import Comments from './Comments/Comments'
 import Footer from './Footer';
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar';
 
 function TaskDetails({
   index,
@@ -50,7 +50,12 @@ function TaskDetails({
           date={created_at} 
         />
       </div>
-      <Navbar index={index} changeTask={changeTask} lastTask={lastTask} />
+      <Navbar 
+        id={id}
+        index={index} 
+        changeTask={changeTask} 
+        lastTask={lastTask} 
+      />
     </div>
   );
 }
