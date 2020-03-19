@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 function TaskDetails({
+  index,
   id,
   content, 
   project, 
@@ -19,7 +20,9 @@ function TaskDetails({
   duration, 
   comments, 
   author, 
-  created_at 
+  created_at,
+  changeTask,
+  lastTask
 }) {
   return (
     <div className="task-details">
@@ -47,7 +50,7 @@ function TaskDetails({
           date={created_at} 
         />
       </div>
-      <Navbar />
+      <Navbar index={index} changeTask={changeTask} lastTask={lastTask} />
     </div>
   );
 }

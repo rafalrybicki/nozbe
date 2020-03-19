@@ -5,22 +5,35 @@
   height: 43px;
   border-top: 1px solid #ccc;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 10px;
   background: #FAFAFA;
   padding-right: 14px;
 }
 
-.task-details-navbar .material-icons {
+.task-details-navbar button {
+  height: 35px;
+  border: 0;
+  outline: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.task-details-navbar:first-child {
-  border-right: 2px solid black;
+.task-details-navbar button .material-icons {
+  font-size: 35px;
+  color: inherit;
 }
 
-.task-details-navbar .navbar-buttons span {
-  font-size: 30px;
-  display: inline-block;
-  margin: -3px 25px 0
+.task-details-navbar button:disabled {
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.prev {
+  margin-left: 30px;
+}
+
+.next {
+  margin-right: 30px;
 }

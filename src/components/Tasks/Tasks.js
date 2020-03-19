@@ -35,7 +35,7 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       mode: 'view',
-      selectedTask: 0,
+      activeTask: 0,
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };
@@ -123,15 +123,15 @@ class Tasks extends Component {
   toggleDetails = (index) => {
     const tasks = document.querySelector('.tasks')
 
-    this.setState({ selectedTask: index })
+    this.setState({ activeTask: index })
 
-    if (tasks.classList.contains('show-details') && this.state.selectedTask === index) {
+    if (tasks.classList.contains('show-details') && this.state.activeTask === index) {
       tasks.classList.remove('show-details')
     } else if (!tasks.classList.contains('show-details')) {
       tasks.classList.add('show-details')
     }
 
-    // if (this.state.selectedTask === id ) {
+    // if (this.state.activeTask === id ) {
     //   if (detailsShown) {
     //     document.querySelector('.tasks').classList.remove('show-details')
     //   } else {
@@ -139,7 +139,7 @@ class Tasks extends Component {
     //   }
     // } else {
     //   const newTask = this.props.tasks.find(task => task.id === id)
-    //   this.setState({selectedTask: newTask})
+    //   this.setState({activeTask: newTask})
     //   document.querySelector('.tasks').classList.add('show-details')
     // }
   }
@@ -155,7 +155,7 @@ class Tasks extends Component {
   }
 
   render() {
-    const { project, mode, selectedTask } = this.state
+    const { project, mode, activeTask } = this.state
     return (
       <div className="tasks" >
         <Toolbar 
@@ -171,7 +171,7 @@ class Tasks extends Component {
           <Task 
             {...task} 
             index={i}
-            active={i === this.state.selectedTask}
+            active={i === activeTask}
             key={task.id} 
             togglePriority={() => this.props.togglePriority(task.id)}
             toggleCompletion={() => this.props.toggleCompletion(task.id)}
@@ -183,7 +183,12 @@ class Tasks extends Component {
         ))}
         {mode === 'view' && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
         {mode === 'edit' && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
-        <TaskDetails {...this.props.tasks[selectedTask]} />
+        <TaskDetails 
+          index={activeTask}
+          {...this.props.tasks[activeTask]} 
+          changeTask={(index) => this.setState({activeTask: index})}
+          lastTask={activeTask === this.props.tasks.length -1} 
+        />
       </div>
     );
   }
