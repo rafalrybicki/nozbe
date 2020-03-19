@@ -8,7 +8,22 @@ import OptionListItem from '../../shared/OptionListItem';
 function NavbarOptions({id, dispatch}) {
 
   const toggleOptions = () => {
-    document.querySelector('.task-details-navbar .option-list').classList.toggle('hide')
+    document.querySelector('.task-details-navbar .option-list').classList.toggle('hide');
+    document.addEventListener('click', hideOptions)
+  }
+
+  const hideOptions = (e) => {
+    //scenario delete popup are you sure???
+
+    const target = e.target.classList.contains('.option-list-item');
+    const parent = e.target.parentElement.classList.contains('.option-list-item');
+
+    if (target || parent) {
+      return // do something
+    } else {
+      document.querySelector('.task-details-navbar .option-list').classList.add('hide')
+      document.removeEventListener('click', hideOptions)
+    }
   }
 
 
