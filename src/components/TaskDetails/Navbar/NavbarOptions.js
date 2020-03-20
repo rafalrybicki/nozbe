@@ -23,6 +23,12 @@ function NavbarOptions({id, dispatch}) {
     }, 0)
   } 
 
+  const handleConvertAction = () => {
+    setTimeout(() => {
+      alert('Coming soon')
+    }, 0)
+  }
+
   const handleShowAction = () => {
     setTimeout(() => {
       alert('Coming soon')
@@ -37,17 +43,10 @@ function NavbarOptions({id, dispatch}) {
     }, 0)
   }
 
-
   return (
     <div>
       <Icon onClick={toggleOptions}>more_horiz</Icon>
       <div className="option-list hide">
-        <OptionListItem 
-          icon={'link'} 
-          text={'Copy task ref link'} 
-          // onClick={handleAction}
-          action={'copy'} 
-        />
         <OptionListItem 
           icon={'library_add'} 
           text={'Clone'} 
@@ -57,7 +56,7 @@ function NavbarOptions({id, dispatch}) {
         <OptionListItem 
           icon={'assignment'} 
           text={'Convert to project'}
-          // onClick={handleAction} 
+          onClick={handleConvertAction} 
           action={'convert'} 
         />
         <OptionListItem 

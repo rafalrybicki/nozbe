@@ -41,7 +41,7 @@ function TaskDetails({
           duration={duration}
           completion={completion}
         />
-        <NewComment />
+        <NewComment taskId={id} />
         <Comments
           comments={comments}
         />

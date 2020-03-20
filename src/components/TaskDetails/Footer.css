@@ -4,6 +4,10 @@
   padding: 5px 0;
 }
 
+.hide-attributes .task-details-footer {
+  display: none;
+}
+
 .task-details-footer .avatar {
   margin-right: 10px;
 }

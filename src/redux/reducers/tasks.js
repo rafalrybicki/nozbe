@@ -6,7 +6,8 @@ import {
   DELETE_TASK, 
   DELETE_TASKS, 
   EDIT_TASK ,
-  CLONE_TASK
+  CLONE_TASK,
+  ADD_COMMENT
 } from '../actions/actionTypes'
 
 const initialState = [
@@ -231,10 +232,31 @@ const tasks = (state = initialState, action) => {
       return state.filter(
         task => !action.tasks.includes(task.id)
       );
+
+    case ADD_COMMENT:
+      return addComment(state, action.id, action.newComment)
     default:
       return state;
   }
 }
+
+//state.find(task => task.id === action.id).comments.push(action.newComment)
+const addComment = (state, id, newComment) => {
+  return state.map(task => {
+    if (task.id === id) {
+      return {
+        ...task,
+        comments: [
+          ...task.comments,
+          newComment
+        ]
+      }
+    } else {
+      return task
+    }
+  })
+}
+
 
 const cloneTask = (state, id) => {
   const oldTask = state.find(task => task.id === id);

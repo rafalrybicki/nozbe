@@ -6,7 +6,8 @@ import {
   DELETE_TASKS,
   DELETE_TASK,
   COMPLETE_TASKS,
-  CLONE_TASK
+  CLONE_TASK,
+  ADD_COMMENT
 } from './actionTypes'
 
 export const addTask = (content, project) => ({
@@ -51,4 +52,12 @@ export const completeTasks = tasks => ({
 export const deleteTasks = array => ({
   type: DELETE_TASKS,
   array
+})
+
+// others
+
+export const addComment = (id, newComment) => ({
+  type: ADD_COMMENT,
+  id,
+  newComment
 })
