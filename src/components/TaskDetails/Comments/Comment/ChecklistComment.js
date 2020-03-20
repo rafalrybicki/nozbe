@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChecklistComment.css'
-import Toggler from '../../shared/Toggler'
+import Toggler from '../../../shared/Toggler'
 
 function ChecklistComment({content}) {
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Comment.css'
-import Icon from '@material-ui/core/Icon';
-import Avatar from '../../shared/Avatar';
+import Avatar from '../../../shared/Avatar';
 import ChecklistComment from './ChecklistComment';
+import CommentOptions from './CommentOptions';
 
 function Comment({id, type, content, author, created_at}) {
   let commentBody;
@@ -13,13 +13,14 @@ function Comment({id, type, content, author, created_at}) {
   } else {
     //attachment
   }
+
   return (
     <div className="comment">
       <div className="comment-header">
         <Avatar userName={author} />
         <span className="author">{author}</span>
         <span className="date">{created_at.toDateString()}</span>
-        <Icon>more_horiz</Icon>{/*dismissible popover  */}
+        <CommentOptions />
       </div>
       <div className="comment-body">
         {commentBody}

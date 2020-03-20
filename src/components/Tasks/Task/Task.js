@@ -63,7 +63,7 @@ function Task(props) {
         <input type="checkbox" onChange={addToSelected} />
         <Avatar userName={author} />
       </>}
-      <Toggler completion={completion} onclick={toggleCompletion} />
+      {mode === 'view' && <Toggler completion={completion} onclick={toggleCompletion} />}
       <p>{content}</p>
       <TaskAttributes {...props} />
       <Priority

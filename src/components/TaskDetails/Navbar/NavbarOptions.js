@@ -18,19 +18,17 @@ function NavbarOptions({id, dispatch}) {
   }
 
   const handleCloneAction = () => {
-    setTimeout(() => {
-      dispatch(cloneTask(id))
-    }, 0)
+    dispatch(cloneTask(id))
   } 
 
   const handleConvertAction = () => {
-    setTimeout(() => {
+    setTimeout(() => {   //delete timeout if not window confirm
       alert('Coming soon')
     }, 0)
   }
 
   const handleShowAction = () => {
-    setTimeout(() => {
+    setTimeout(() => {     //delete timeout if not window confirm
       alert('Coming soon')
     }, 0)
   }
@@ -44,35 +42,31 @@ function NavbarOptions({id, dispatch}) {
   }
 
   return (
-    <div>
+    <>
       <Icon onClick={toggleOptions}>more_horiz</Icon>
       <div className="option-list hide">
         <OptionListItem 
           icon={'library_add'} 
           text={'Clone'} 
           onClick={handleCloneAction}
-          action={'clone'} 
         />
         <OptionListItem 
           icon={'assignment'} 
           text={'Convert to project'}
           onClick={handleConvertAction} 
-          action={'convert'} 
         />
         <OptionListItem 
           icon={'exit_to_app'} 
           text={'Show in project'}
           onClick={handleShowAction} 
-          action={'show'} 
         />
         <OptionListItem 
           icon={'delete'} 
           text={'Delete'} 
           onClick={handleDeleteAction}
-          action={'delete'}
         />
       </div>
-    </div>
+    </>
   );
 }
 
