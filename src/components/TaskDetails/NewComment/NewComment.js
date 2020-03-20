@@ -22,7 +22,6 @@ function NewComment({taskId, dispatch}) {
   }
 
   const addNewComment = (newComment) => {
-    console.log(newComment);
     setType(false);
     document.querySelector('.task-details .main').classList.remove('hide-attributes');
     dispatch(addComment(taskId, newComment));
@@ -42,7 +41,10 @@ function NewComment({taskId, dispatch}) {
         close
       />}
 
-      {type === 'Checklist' && <NewChecklist />}
+      {type === 'Checklist' && 
+      <NewChecklist 
+        addComment={addNewComment}
+      />}
 
       {type === false && 
       <>

@@ -29,8 +29,20 @@ function NewChecklist(props) {
   }
 
   const addComment = () => {
-    console.log(items)
-    //redux here
+    const date = new Date();
+
+    items.map(item => item.value.trim())
+
+    const newComment = {
+      type: 'checklist',
+      content: items.filter(item => item.value !== ''),
+      author: 'ThisCode ShouldBeChanged',
+      created_at: date,
+      updated_at: date,
+      id: Math.random()
+    }
+
+    props.addComment(newComment)
   }
 
   return (
@@ -38,6 +50,7 @@ function NewChecklist(props) {
       <button
         onClick={addComment}
         className="btn-green"
+        disabled={items[items.length-1].value.trim() === ''}
       >Save</button>
 
       {items.map( (item,i) => 
