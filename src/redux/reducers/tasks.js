@@ -1,4 +1,13 @@
-import { TOGGLE_PRIORITY, TOGGLE_COMPLETION, COMPLETE_TASKS, ADD_TASK, DELETE_TASKS, EDIT_TASK } from '../actions/actionTypes'
+import { 
+  TOGGLE_PRIORITY, 
+  TOGGLE_COMPLETION, 
+  COMPLETE_TASKS, 
+  ADD_TASK, 
+  DELETE_TASK, 
+  DELETE_TASKS, 
+  EDIT_TASK ,
+  CLONE_TASK
+} from '../actions/actionTypes'
 
 const initialState = [
   {
@@ -207,18 +216,93 @@ const tasks = (state = initialState, action) => {
           repeat: false,
           comments: []
         }
-      ]
+      ];
     case EDIT_TASK:
       return state.map(
         task => task.id === action.id ? {...task, ...action.newValues} : task
-      )
+      );
+    case CLONE_TASK:
+      return cloneTask(state, action.id);
+    case DELETE_TASK:
+      return state.filter(
+        task => task.id !== action.id
+      );
     case DELETE_TASKS:
       return state.filter(
         task => !action.tasks.includes(task.id)
-      )
+      );
     default:
-      return state
+      return state;
   }
 }
+
+const cloneTask = (state, id) => {
+  const oldTask = state.find(task => task.id === id);
+  const date = new Date();
+  const clonedTask = {}
+
+  clonedTask.id = Math.random();
+  clonedTask.content = oldTask.content;
+  clonedTask.author = oldTask.author;
+  clonedTask.completion = false;
+  clonedTask.priority = oldTask.priority;
+  clonedTask.duration = oldTask.duration;
+  clonedTask.project = {...oldTask.project};
+  clonedTask.deadline = new Date(+oldTask.deadline);
+  clonedTask.repeat = oldTask.repeat;
+  clonedTask.holder = oldTask.holder;
+  clonedTask.created_at = date;
+  clonedTask.updated_at = date;
+  clonedTask.categories = [];
+  clonedTask.comments = [];
+
+  oldTask.categories.map(
+    category => clonedTask.categories.push({...category})
+  )
+
+  oldTask.comments.map(
+    oldComment => {
+      if (oldComment.type === 'text') {
+
+        const newComment = {
+          id: Math.random(),
+          type: 'text',
+          content: oldComment.content,
+          created_at: date,
+          author: oldComment.author
+        }
+
+        clonedTask.comments.push(newComment)
+
+      } else if (oldComment.type === 'checklist') {
+
+        const newComment = {
+          id: Math.random(),
+          type: 'checklist',
+          created_at: date,
+          author: oldComment.author,
+          content: []
+        }
+
+        oldComment.content.map(
+          oldItem => {
+            const newItem = {
+              id: Math.random(),
+              completion: oldItem.completion,
+              value: oldItem.value
+            }
+            return newComment.content.push(newItem)
+          }
+        )
+
+        clonedTask.comments.push(newComment)
+      }
+      return false
+    }
+  )
+
+  return [...state, clonedTask]
+}
+
 
 export default tasks

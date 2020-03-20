@@ -2,7 +2,7 @@ import React from 'react';
 import './OptionListItem.css';
 import Icon from '@material-ui/core/Icon';
 
-function OptionListItem({icon, text, onClick}) {
+function OptionListItem({ icon, text, onClick}) {
   return (
     <div 
       className="option-list-item"

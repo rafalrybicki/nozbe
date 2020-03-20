@@ -14,12 +14,12 @@
   position: relative;
 }
 
-.task.active {
-  background-color: #DADADA;
-}
-
 .task.completed {
   background-color: #F9F9F9
+}
+
+.task.active {
+  background-color: #DADADA;
 }
 
 .task p {
