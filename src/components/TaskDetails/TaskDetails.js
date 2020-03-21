@@ -1,7 +1,7 @@
 import React from 'react';
 import './TaskDetails.css';
 import Header from './Header/Header';
-import Attributes from './Attributes';
+import Attributes from './Attributes/Attributes';
 import NewComment from './NewComment/NewComment';
 import Comments from './Comments/Comments'
 import Footer from './Footer';

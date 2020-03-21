@@ -6,7 +6,7 @@ import Icon from '@material-ui/core/Icon';
 function CategoryPicker({categories}) {
   if (categories.length > 0) {
     return (
-      <div className="picker category-picker">
+      <div className="picker-btn category-picker">
         {categories.map(category => 
           <div key={Math.random()} className="category">
             <Icon>{category.icon}</Icon>
@@ -17,7 +17,7 @@ function CategoryPicker({categories}) {
     )
   } else {
     return (
-      <div className="picker unchecked">
+      <div className="picker-btn unchecked">
         <Icon>flag</Icon>
         <div>5</div>
       </div>

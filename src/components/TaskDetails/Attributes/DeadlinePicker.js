@@ -7,7 +7,7 @@ function Deadline({ deadline, completion }) {
   const delayed = new Date() > deadline && completion === false ? 'danger' : '';
 
   return (
-    <div className={deadline ? 'picker' : 'picker unchecked'}>
+    <div className={deadline ? 'picker-btn' : 'picker-btn unchecked'}>
       <Icon className={delayed}>{delayed ? 'whatshot' : 'today'}</Icon>
       <span className={delayed + " text"}>
         {deadline ? moment(deadline).format("MMM D LT") : 'Date?'}

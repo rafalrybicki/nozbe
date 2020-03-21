@@ -1,0 +1,64 @@
+.picker .header {
+  background-color: #F6F6F6;
+  padding: 8px 10px;
+  height: 30px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+}
+
+.picker .search {
+  height: 56px;
+  padding: 10px;
+  position: relative;
+}
+
+.picker .search .material-icons {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.picker .search input {
+  height: 32px;
+  padding: 8px 35px;
+  background-color: #f4f4f4;
+  border: 0;
+  outline: none;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.picker .search input:focus {
+  background-color: #E5E5E5;
+}
+
+.picker .list {
+  height: auto;
+  max-height: 434px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+}
+
+.picker .list .item {
+  height: 44px;
+  padding: 0 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.picker .list .item .material-icons {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.picker button {
+  height: 40px;
+  border: 0;
+  outline: none;
+  width: 100%;
+  background-color: inherit;
+}

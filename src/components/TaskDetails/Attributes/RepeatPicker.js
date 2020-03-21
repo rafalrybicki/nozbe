@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 
 function Repeat({ repeat }) {
   return (
-    <div className={repeat ? 'picker' : 'picker unchecked'}>
+    <div className={repeat ? 'picker-btn' : 'picker-btn unchecked'}>
       <Icon className="repeat">replay</Icon>
       <span>{repeat ? repeat : 'Repeat?'}</span>
     </div>

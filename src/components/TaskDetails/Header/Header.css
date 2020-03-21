@@ -1,4 +1,4 @@
-.header {
+.task-details > .header {
   position: relative;
   display: flex;
   align-items: center;
@@ -12,25 +12,25 @@
   z-index: 10;
 }
 
-.header.task-completed {
+.task-details .header.task-completed {
   background-color: #F9F9F9;
 }
 
-.header * {
+.task-details  .header * {
   cursor: pointer;
 }
 
-.header p {
+.task-details .header p {
   flex-grow: 1;
   margin: 0;
   margin-right: 7px;
   padding: 7px 0
 }
 
-.show-form {
+.task-details .show-form {
   padding-right: 10px;
 }
 
-.show-form p, .show-form .toggler, .show-form .priority {
+.task-details .show-form p, .show-form .toggler, .show-form .priority {
   display: none;
 }
