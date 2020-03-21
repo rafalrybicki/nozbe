@@ -1,5 +1,7 @@
 import {
-  ADD_COMMENT
+  CREATE_KEY,
+  ADD_COMMENT,
+  CLONE_COMMENTS
 } from '../actions/actionTypes'
 
 const initialState = {
@@ -61,6 +63,11 @@ const initialState = {
 
 const taskComments = (state = initialState, action) => {
   switch (action.type) {
+    case CREATE_KEY:
+      return {
+        ...state,
+        [action.taskId]: []
+      }
     case ADD_COMMENT:
       return {
         ...state,
@@ -69,9 +76,46 @@ const taskComments = (state = initialState, action) => {
           action.newComment
         ]
       }
+    case CLONE_COMMENTS:
+      return {
+        ...state,
+        [action.newTaskId]: cloneTaskComments(state[action.originalTaskId], action.date)
+      }
     default:
       return state;
   }
+}
+
+const cloneTaskComments = (originalTaskComments, date) => {
+  if (!originalTaskComments) {
+    return []
+  }
+  const clonedComments = [];
+
+  originalTaskComments.map(originalComment => {
+    const newComment = {
+      ...originalComment,
+      id: Math.random(),
+      created_at: date,
+      updated_at: date
+    };
+
+    if (originalComment.type === 'checklist') {
+      newComment.content = originalComment.content.map(
+        item => (
+          { 
+            ...item, 
+            id: Math.random(),
+            created_at: date,
+            updated_at: date
+          }
+        )
+      )
+    }
+    return clonedComments.push(newComment)
+  })
+
+  return clonedComments
 }
 
 export default taskComments

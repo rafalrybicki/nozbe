@@ -153,7 +153,7 @@ const tasks = (state = initialState, action) => {
       return [
         ...state,
         {
-          id: Math.random(),
+          id: action.id,
           content: action.content,
           completion: false,
           priority: action.project === 'priority' ? true : false,
@@ -170,7 +170,7 @@ const tasks = (state = initialState, action) => {
         task => task.id === action.id ? {...task, ...action.newValues} : task
       );
     case CLONE_TASK:
-      return cloneTask(state, action.id);
+      return cloneTask(state, action.originalTaskId, action.newTaskId, action.date);
     case DELETE_TASK:
       return state.filter(
         task => task.id !== action.id
@@ -184,19 +184,18 @@ const tasks = (state = initialState, action) => {
   }
 }
 
-const cloneTask = (state, id) => {
-  const oldTask = state.find(task => task.id === id);
-  const date = new Date();
+const cloneTask = (state, originalTaskId, newTaskId, date) => {
+  const oldTask = state.find(task => task.id === originalTaskId);
   const clonedTask = {}
 
-  clonedTask.id = Math.random();
+  clonedTask.id = newTaskId;
   clonedTask.content = oldTask.content;
   clonedTask.author = oldTask.author;
   clonedTask.completion = false;
   clonedTask.priority = oldTask.priority;
   clonedTask.duration = oldTask.duration;
   clonedTask.project = {...oldTask.project};
-  clonedTask.deadline = new Date(+oldTask.deadline);
+  clonedTask.deadline = oldTask.deadline ? new Date(+oldTask.deadline) : null;
   clonedTask.repeat = oldTask.repeat;
   clonedTask.holder = oldTask.holder;
   clonedTask.created_at = date;

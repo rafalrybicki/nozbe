@@ -7,7 +7,9 @@ import {
   DELETE_TASK,
   COMPLETE_TASKS,
   CLONE_TASK,
-  ADD_COMMENT
+  CREATE_KEY,
+  ADD_COMMENT,
+  CLONE_COMMENTS
 } from './actionTypes'
 
 export const addTask = (content, project) => ({
@@ -16,9 +18,11 @@ export const addTask = (content, project) => ({
   project
 })
 
-export const cloneTask = id => ({
+export const cloneTask = (originalTaskId, newTaskId, date) => ({
   type: CLONE_TASK,
-  id
+  originalTaskId,
+  newTaskId,
+  date
 })
 
 export const deleteTask = id => ({
@@ -54,10 +58,23 @@ export const deleteTasks = array => ({
   array
 })
 
-// others
+// comments
+
+export const createTaskCommentsKey = taskId => ({
+  type: CREATE_KEY,
+  taskId
+})
+
 
 export const addComment = (taskId, newComment) => ({
   type: ADD_COMMENT,
   taskId,
   newComment
+})
+
+export const cloneTaskComments = (originalTaskId, newTaskId, date) => ({
+  type: CLONE_COMMENTS,
+  originalTaskId,
+  newTaskId,
+  date
 })

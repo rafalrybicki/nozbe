@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavbarOptions.css';
 import { connect } from 'react-redux';
-import { deleteTask, cloneTask } from '../../../redux/actions';
+import { deleteTask, cloneTask, cloneTaskComments } from '../../../redux/actions';
 import Icon from '@material-ui/core/Icon';
 import OptionListItem from '../../shared/OptionListItem';
 
@@ -18,7 +18,11 @@ function NavbarOptions({id, dispatch}) {
   }
 
   const handleCloneAction = () => {
-    dispatch(cloneTask(id))
+    const newTaskId = Math.random();
+    const date = new Date();
+
+    dispatch(cloneTaskComments(id, newTaskId, date))
+    dispatch(cloneTask(id, newTaskId, date))
   } 
 
   const handleConvertAction = () => {
