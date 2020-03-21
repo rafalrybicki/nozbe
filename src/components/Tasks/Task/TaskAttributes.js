@@ -17,11 +17,11 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
         <span className="text">{project.name}</span>
       </Link>}
       
-      {comments.length > 0 && 
+      {/* {comments.length > 0 && 
       <>
         <Icon className="comments-icon">sms</Icon>
         <span className="text">{comments.length}</span>
-      </>}
+      </>} */}
 
       {repeat && <Icon className="repeat">replay</Icon>}
 

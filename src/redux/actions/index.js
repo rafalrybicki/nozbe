@@ -56,8 +56,8 @@ export const deleteTasks = array => ({
 
 // others
 
-export const addComment = (id, newComment) => ({
+export const addComment = (taskId, newComment) => ({
   type: ADD_COMMENT,
-  id,
+  taskId,
   newComment
 })

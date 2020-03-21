@@ -6,8 +6,7 @@ import {
   DELETE_TASK, 
   DELETE_TASKS, 
   EDIT_TASK ,
-  CLONE_TASK,
-  ADD_COMMENT
+  CLONE_TASK
 } from '../actions/actionTypes'
 
 const initialState = [
@@ -35,33 +34,7 @@ const initialState = [
     ],
     deadline: null,
     repeat: 'Every Month',
-    comments: [
-      {
-        id: Math.random(),
-        type: 'text',
-        content: 'random comment',
-        created_at: new Date(),
-        author: 'John Doe'
-      },
-      {
-        id: Math.random(),
-        type: 'checklist',
-        content: [
-          {
-            value: 'some text',
-            completion: false,
-            id: Math.random()
-          },
-          {
-            value: 'some text',
-            completion: true,
-            id: Math.random()
-          }
-        ],
-        created_at: new Date(),
-        author: 'Jown Wayne'
-      }
-    ],
+    
     holder: 'R R',
     created_at: new Date(),
     updated_at: new Date()
@@ -86,7 +59,6 @@ const initialState = [
     ],
     deadline: new Date(2020,2,16),
     repeat: null,
-    comments: [],
     holder: 'John Doe',
     created_at: new Date(),
     updated_at: new Date()
@@ -127,32 +99,7 @@ const initialState = [
     ],
     deadline: new Date(),
     repeat: 'Every year',
-    comments: [
-      { 
-        id: Math.random(), 
-        type: 'text', 
-        content: 'random comment', 
-        created_at: new Date(), 
-        author: 'John Doe' 
-      },
-      { id: Math.random(), 
-        type: 'checklist', 
-        content: [
-          {
-            value: 'some text',
-            completion: false,
-            id: Math.random()
-          },
-          {
-            value: 'some text',
-            completion: true,
-            id: Math.random()
-          }
-        ],
-        created_at: new Date(),
-        author: 'Jown Wayne'
-      }
-    ],
+
     holder: 'John Doe',
     created_at: new Date(),
     updated_at: new Date()
@@ -232,31 +179,10 @@ const tasks = (state = initialState, action) => {
       return state.filter(
         task => !action.tasks.includes(task.id)
       );
-
-    case ADD_COMMENT:
-      return addComment(state, action.id, action.newComment)
     default:
       return state;
   }
 }
-
-//state.find(task => task.id === action.id).comments.push(action.newComment)
-const addComment = (state, id, newComment) => {
-  return state.map(task => {
-    if (task.id === id) {
-      return {
-        ...task,
-        comments: [
-          ...task.comments,
-          newComment
-        ]
-      }
-    } else {
-      return task
-    }
-  })
-}
-
 
 const cloneTask = (state, id) => {
   const oldTask = state.find(task => task.id === id);
@@ -276,51 +202,9 @@ const cloneTask = (state, id) => {
   clonedTask.created_at = date;
   clonedTask.updated_at = date;
   clonedTask.categories = [];
-  clonedTask.comments = [];
 
   oldTask.categories.map(
     category => clonedTask.categories.push({...category})
-  )
-
-  oldTask.comments.map(
-    oldComment => {
-      if (oldComment.type === 'text') {
-
-        const newComment = {
-          id: Math.random(),
-          type: 'text',
-          content: oldComment.content,
-          created_at: date,
-          author: oldComment.author
-        }
-
-        clonedTask.comments.push(newComment)
-
-      } else if (oldComment.type === 'checklist') {
-
-        const newComment = {
-          id: Math.random(),
-          type: 'checklist',
-          created_at: date,
-          author: oldComment.author,
-          content: []
-        }
-
-        oldComment.content.map(
-          oldItem => {
-            const newItem = {
-              id: Math.random(),
-              completion: oldItem.completion,
-              value: oldItem.value
-            }
-            return newComment.content.push(newItem)
-          }
-        )
-
-        clonedTask.comments.push(newComment)
-      }
-      return false
-    }
   )
 
   return [...state, clonedTask]
