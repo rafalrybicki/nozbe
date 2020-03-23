@@ -3,11 +3,12 @@ import './Task.css';
 import Avatar from '../../shared/Avatar';
 import Toggler from '../../shared/Toggler';
 import TaskAttributes from './TaskAttributes';
-import Priority from '../../shared/Priority';
+import PriorityToggler from '../../shared/PriorityToggler';
 import Icon from '@material-ui/core/Icon';
 
 function Task(props) {
   const { 
+    id,
     active,
     completion, 
     author, 
@@ -17,7 +18,6 @@ function Task(props) {
     addToSelected, 
     toggleDetails, 
     toggleCompletion, 
-    togglePriority 
   } = props
 
   const showDetails = (e) => {
@@ -66,8 +66,8 @@ function Task(props) {
       {mode === 'view' && <Toggler completion={completion} onclick={toggleCompletion} />}
       <p>{content}</p>
       <TaskAttributes {...props} />
-      <Priority
-        onClick={mode === 'view' ? togglePriority : undefined}
+      <PriorityToggler
+        id={id}
         priority={priority}
       />
       {mode === 'edit' && <Icon className="handler">menu</Icon>}

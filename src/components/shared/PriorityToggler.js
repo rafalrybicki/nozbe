@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Icon from '@material-ui/core/Icon';
+import { togglePriority } from '../../redux/actions';
 
-function PriorityIcon({color, priority, onClick}) {
+function PriorityToggler({id, priority, dispatch, color}) {
   const style = {
     color: color || '#28ce63',
     height: '28px',
@@ -13,11 +15,11 @@ function PriorityIcon({color, priority, onClick}) {
     <Icon 
       style={style}
       className="priority"
-      onClick={onClick}
+      onClick={() => dispatch(togglePriority(id))}
     >
       {priority ? 'star' : 'star_outlined'}
     </Icon>
   );
 }
 
-export default PriorityIcon;
+export default connect()(PriorityToggler);

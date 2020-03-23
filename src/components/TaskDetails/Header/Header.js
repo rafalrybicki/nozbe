@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { togglePriority, toggleCompletion, editTask } from '../../../redux/actions';
+import { toggleCompletion, editTask } from '../../../redux/actions';
 import './Header.css';
 import Toggler from '../../shared/Toggler';
-import Priority from '../../shared/Priority';
+import PriorityToggler from '../../shared/PriorityToggler';
 import EditForm from './EditForm';
 
 function Header({ content, completion, id, priority, toggleCompletion, togglePriority, editTask}) {
@@ -21,9 +21,9 @@ function Header({ content, completion, id, priority, toggleCompletion, togglePri
       <p 
         onClick={showEditForm}
       >{content}</p>
-      <Priority 
+      <PriorityToggler 
         priority={priority}
-        onClick={() =>togglePriority(id)}
+        id={id}
       />
       <EditForm 
         prevContent={content} 
@@ -35,7 +35,6 @@ function Header({ content, completion, id, priority, toggleCompletion, togglePri
 
 function mapDispachToprops(dispatch) {
   return {
-    togglePriority: (id) => dispatch(togglePriority(id)),
     toggleCompletion: (id) => dispatch(toggleCompletion(id)),
     editTask: (id, newValues) => dispatch(editTask(id, newValues))
   }
