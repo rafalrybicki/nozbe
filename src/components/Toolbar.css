@@ -2,10 +2,9 @@
   position: relative;
   z-index: 100;
   width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
-  display: flex;
   height: 43px;
+  padding: 0 10px;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -30,20 +29,16 @@
   opacity: .5;
 }
 
-.toolbar input {
-  display: inline-block;
-  margin-right: 22px;
+.toolbar input+span {
+  position: absolute;
+  left: 52px;
+  font-size: 15px;
+  padding-top: 2px;
 }
 
-.toolbar div {
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-}
-
-.menu-icon, .info-icon {
+.info-icon, .menu-icon {
   cursor: pointer;
-}
+} 
 
 .toolbar .material-icons {
   font-size: 28px;
