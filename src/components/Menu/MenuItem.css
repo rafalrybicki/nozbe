@@ -1,9 +1,11 @@
 .menu-item {
-  display: block;
+  display: flex;
+  align-items: center;
   height: 44px;
   font-size: 14px;
   color: #C7C7C7;
   position: relative;
+  padding-top: 2px;
 }
 
 .active.menu-item  {
@@ -12,18 +14,17 @@
 }
 
 .menu-item .material-icons {
-  display: inline-block;
-  padding: 8px 10px;
-  margin-bottom: -17px;
   font-size: 28px;
+  padding: 0 11px;
+  width: 50px;
+  margin-top: -1px;
 }
 
-.menu-item .amount {
+.menu-item .quantity {
   display: inline-block;
-  box-sizing: border-box;
   position: absolute;
-  left: 24px;
-  top: 5px;
+  left: 25px;
+  top: 4px;
   font-size: 12px;
   font-weight: bold;
   padding: 3px;

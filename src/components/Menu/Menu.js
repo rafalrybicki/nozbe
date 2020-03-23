@@ -11,20 +11,11 @@ function mapStateToProps(state) {
 }
 
 class Menu extends React.Component {
-  closeMenu = (e) => {
-    if (window.innerWidth < 734) {
-      if (e.clientX > 320 || (e.clientX < 320 && e.clientY < 88)) {
-        document.querySelector('nav').classList.remove('open')
-      }
-    }
-  }
-
   render() {
     return (
-      <nav onClick={this.closeMenu}>
         <div className="menu">
-          <MenuItem icon='star' path='priority' amount={this.props.priority} />
-          <MenuItem icon='inbox' path='inbox' amount={this.props.inbox} />
+          <MenuItem icon='star' path='priority' quantity={this.props.priority} />
+          <MenuItem icon='inbox' path='inbox' quantity={this.props.inbox} />
           <MenuItem icon='assignment' path='projects' />
           <MenuItem icon='flag' path='categories' />
           <MenuItem icon='event_note' path='calendar' />
@@ -33,7 +24,6 @@ class Menu extends React.Component {
           <MenuItem icon='search' path='search' />
           <MenuItem icon='settings' path='settings' />
         </div>
-      </nav>
       )
   }
 }

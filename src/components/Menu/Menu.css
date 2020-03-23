@@ -1,43 +1,25 @@
-nav {
-  z-index: 1000;
-  height: 100vh;
-  background-color: transparent;
-  transition: background-color 0.2s ;
-}
-
-nav.open {
-  width: 100vw;
-  background-color: rgba(21,21,21,0.3);
-}
-
 .menu {
   background: #2C2D32;
-  height: 100vh;
-  width: 320px;
-}
-
-nav.open .menu {
-  transform: translateX(0);
+  height: 100%;  
+  z-index: 101;
 }
 
 @media (max-width: 734px) {
-  nav {
-    width: 0;
-    position: absolute;
-  }
   .menu {
+    width: 320px;
+    position: absolute;
     transform: translateX(-320px);
     transition: transform 0.15s ease-in-out;
   }
 
+  .menu.open {
+    transform: translateX(0);
+  } 
 }
 
 @media (min-width: 734px) {
-  nav {
-    display: block;
-  }
   .menu {
-    width: 270px;
+    min-width: 270px;
   }
 }
 

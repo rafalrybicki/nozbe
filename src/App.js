@@ -21,20 +21,20 @@ function App() {
     <Router >
       <Menu />
       <div className="main">
-          <Switch>
-            <Route path="/priority" component={Tasks} />
-            <Route path="/inbox" component={Tasks} />
-            <Route path="/projects" component={Projects} />  {/* /projects/:project */}
-            <Route path="/categories" component={Categories} />
-            <Route path="/calendar" component={Calendar} />
-            <Route path="/templates" component={Templates} />
-            <Route path="/team" component={Team} />
-            <Route path="/search" component={Search} />
-            <Route path="/settings" component={Settings} />
-            <Redirect exact from="/" to="priority" />
-          </Switch>
-        </div>
-      {/* </div> */}
+        <Switch>
+          <Route path="/priority" component={Tasks} />
+          <Route path="/inbox" component={Tasks} />
+          <Route path="/projects" component={Projects} />  {/* /projects/:project */}
+          <Route path="/categories" component={Categories} />
+          <Route path="/calendar" component={Calendar} />
+          <Route path="/templates" component={Templates} />
+          <Route path="/team" component={Team} />
+          <Route path="/search" component={Search} />
+          <Route path="/settings" component={Settings} />
+          <Redirect exact from="/" to="priority" />
+        </Switch>
+      </div>
+      <div className="filter"/>
     </Router>  
   );
 }

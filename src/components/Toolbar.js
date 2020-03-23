@@ -3,9 +3,23 @@ import Icon from '@material-ui/core/Icon';
 import './Toolbar.css'
 
 function Toolbar({title, mode, selectAll, quantity, closeEditMode}) {
-  const openMenu = () => {
-    document.querySelector('nav').classList.add('open')
+  const openMenu = (e) => {
+    console.log(e.target)
+
+    document.querySelector('.filter').classList.add('active');
+    document.querySelector('.menu').classList.add('open');
+    document.body.addEventListener('click', closeMenu);
   }
+
+  const closeMenu = (e) => {
+    console.log(e.target)
+    if (e.target.classList.contains('filter')) {
+      e.target.classList.remove('active');
+      document.querySelector('.menu').classList.remove('open');
+      document.body.removeEventListener('click', closeMenu);
+    }
+  }
+
   return (
     <div className="toolbar">
       {mode === 'edit' && <div>
