@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChecklistItem.css'
-import Toggler from '../../../shared/Toggler';
+import Toggler from '../../../../shared/Toggler';
 import TextareaAutosize from 'react-textarea-autosize';
 
 function ChecklistItem({index, completion, updateItemValue, toggleCompletion}) {

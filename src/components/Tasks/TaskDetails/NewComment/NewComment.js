@@ -6,7 +6,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import TextComment from './TextComment';
 import NewChecklist from './NewChecklist/NewChecklist';
 import { connect } from 'react-redux';
-import { addComment } from '../../../redux/actions'
+import { addComment } from '../../../../redux/actions'
 
 
 function NewComment({taskId, dispatch}) {

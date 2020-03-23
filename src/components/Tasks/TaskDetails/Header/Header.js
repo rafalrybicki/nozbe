@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {  editTask } from '../../../redux/actions';
+import {  editTask } from '../../../../redux/actions';
 import './Header.css';
-import CompletionToggler from '../../shared/CompletionToggler';
-import PriorityToggler from '../../shared/PriorityToggler';
+import CompletionToggler from '../../../shared/CompletionToggler';
+import PriorityToggler from '../../../shared/PriorityToggler';
 import EditForm from './EditForm';
 
 function Header({ content, completion, id, priority, toggleCompletion, togglePriority, editTask}) {

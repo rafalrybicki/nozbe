@@ -10,7 +10,10 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
   return (
     <div className="task-attributes">
       {window.location.pathname === '/priority' && 
-      <Link to={project.path}>
+      <Link 
+        to={project.path}
+        className="project-link"
+      >
         <Icon 
           style={{'color': project.name === 'Inbox' ? '' : project.color }}
         >fiber_manual_record</Icon>

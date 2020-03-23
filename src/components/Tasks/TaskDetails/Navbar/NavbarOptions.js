@@ -1,9 +1,9 @@
 import React from 'react';
 import './NavbarOptions.css';
 import { connect } from 'react-redux';
-import { deleteTask, cloneTask, cloneTaskComments } from '../../../redux/actions';
+import { deleteTask, cloneTask, cloneTaskComments } from '../../../../redux/actions';
 import Icon from '@material-ui/core/Icon';
-import OptionListItem from '../../shared/OptionListItem';
+import OptionListItem from '../../../shared/OptionListItem';
 
 function NavbarOptions({id, dispatch}) {
 

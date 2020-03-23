@@ -1,6 +1,6 @@
 import React from 'react';
 import './Comment.css'
-import Avatar from '../../../shared/Avatar';
+import Avatar from '../../../../shared/Avatar';
 import ChecklistComment from './ChecklistComment';
 import CommentOptions from './CommentOptions';
 

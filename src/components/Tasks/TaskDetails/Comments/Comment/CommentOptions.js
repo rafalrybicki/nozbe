@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CommentOptions.css';
 import Icon from '@material-ui/core/Icon';
-import OptionListItem from '../../../shared/OptionListItem';
+import OptionListItem from '../../../../shared/OptionListItem';
 
 function CommentOptions(props) {
   const [optionsVisible, showOptions] = useState(false);

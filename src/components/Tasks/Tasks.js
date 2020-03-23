@@ -4,9 +4,9 @@ import Toolbar from '../Toolbar'
 import StatusBar from '../StatusBar'
 import EditBar from '../EditBar'
 import Task from './Task/Task'
-import TaskDetails from '../TaskDetails/TaskDetails';
+import TaskDetails from './TaskDetails/TaskDetails';
 import NewTask from './NewTask'
-import { togglePriority, toggleCompletion, completeTasks, deleteTasks} from '../../redux/actions'
+import { completeTasks, deleteTasks} from '../../redux/actions'
 import './Tasks.css'
 
 function mapStateToProps(state) {
@@ -17,8 +17,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    togglePriority: (id) => dispatch(togglePriority(id)),
-    toggleCompletion: (id) => dispatch(toggleCompletion(id)),
     dispatch: (func) => dispatch(func)
     // deleteTasks: (tasks) => dispatch(deleteTasks(tasks))
   };
@@ -35,43 +33,12 @@ class Tasks extends Component {
     this.state = {
       project: this.props.location.pathname.split('/')[1],
       mode: 'view',
-      activeTask: 0
-      ,
+      activeTask: null,
       selectedTasks: [],
       allTasks: this.props.tasks.map(task => task.id)
     };
   };
  
-  componentDidMount() {
-    document.querySelector('#root').addEventListener('click', this.hideTaskDetails)
-  }
-
-  componentWillUnmount() {
-    document.querySelector('#root').removeEventListener('click', this.hideTaskDetails)
-  }
-
-  hideTaskDetails = (e) => {
-    const tasks = document.querySelector('.show-details')
-
-    if (tasks) {
-      const path = [...e.path]
-      path.length = path.length - 5
-
-      let hideDetails = true
-      
-      for (let i = 0; i < path.length; i++) {
-        if (path[i].classList.contains('task-details') || path[i].classList.contains('task')) {
-          hideDetails = false
-          break
-        }
-      }
-
-      if (hideDetails) {
-        tasks.classList.remove('show-details')
-        document.querySelector('.task.active').classList.remove('active')
-      }
-    }
-  }
 
   changeMode = () => {
     this.setState(prevState => {
@@ -121,30 +88,6 @@ class Tasks extends Component {
     this.setState({ selectedTasks: [] })
   }
 
-  toggleDetails = (index) => {
-    const tasks = document.querySelector('.tasks')
-
-    this.setState({ activeTask: index })
-
-    if (tasks.classList.contains('show-details') && this.state.activeTask === index) {
-      tasks.classList.remove('show-details')
-    } else if (!tasks.classList.contains('show-details')) {
-      tasks.classList.add('show-details')
-    }
-
-    // if (this.state.activeTask === id ) {
-    //   if (detailsShown) {
-    //     document.querySelector('.tasks').classList.remove('show-details')
-    //   } else {
-    //     document.querySelector('.tasks').classList.add('show-details')
-    //   }
-    // } else {
-    //   const newTask = this.props.tasks.find(task => task.id === id)
-    //   this.setState({activeTask: newTask})
-    //   document.querySelector('.tasks').classList.add('show-details')
-    // }
-  }
-
   deleteTasks = () => {
     if(this.state.selectedTasks.length === 0) {
       alert(false)
@@ -153,6 +96,14 @@ class Tasks extends Component {
     this.props.dispatch(deleteTasks(this.state.selectedTasks))
     document.querySelector('.select-all').checked = false;
     this.setState({ selectedTasks: [] })
+  }
+
+  setActiveTask = (index) => {
+    if (this.state.activeTask === index) {
+      this.setState({ activeTask: null})
+    } else {
+      this.setState({ activeTask: index })
+    }
   }
 
   render() {
@@ -167,23 +118,36 @@ class Tasks extends Component {
           quantity={this.state.selectedTasks.length} 
           checked={this.state.selectedTasks.length === this.state.allTasks.length}
         />
+
         <NewTask project={project} />
+
         {this.props.tasks.map((task,i) => (
           <Task 
+            key={task.id} 
             {...task} 
             index={i}
             active={i === activeTask}
-            key={task.id} 
-            togglePriority={() => this.props.togglePriority(task.id)}
-            toggleCompletion={() => this.props.toggleCompletion(task.id)}
-            addToSelected={() => this.selectTask(task.id)}
             mode={mode}
+            addToSelected={() => this.selectTask(task.id)}
             checked={this.state.selectedTasks.length === this.state.allTasks.length }
-            toggleDetails={() => this.toggleDetails(i)}
+            setActiveTask={this.setActiveTask}
           />
         ))}
-        {mode === 'view' && <StatusBar done={1} left={4} changeMode={this.changeMode} completeTasks={this.completeTasks} />}
-        {mode === 'edit' && <EditBar deleteTasks={this.deleteTasks} completeTasks={this.completeTasks} />}
+
+        {mode === 'view' && 
+        <StatusBar 
+          done={1} 
+          left={4} 
+          changeMode={this.changeMode} 
+          completeTasks={this.completeTasks} 
+        />}
+
+        {mode === 'edit' && 
+        <EditBar 
+          deleteTasks={this.deleteTasks} 
+          completeTasks={this.completeTasks} 
+        />}
+
         <TaskDetails 
           index={activeTask}
           {...this.props.tasks[activeTask]} 

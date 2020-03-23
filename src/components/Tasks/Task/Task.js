@@ -9,6 +9,7 @@ import Icon from '@material-ui/core/Icon';
 function Task(props) {
   const { 
     id,
+    index,
     active,
     completion, 
     author, 
@@ -16,30 +17,21 @@ function Task(props) {
     priority, 
     mode, 
     addToSelected, 
-    toggleDetails, 
+    setActiveTask, 
   } = props
 
-  const showDetails = (e) => {
-    if (mode === 'edit') {
-      return
-    }
-    if (e.target.classList.contains('tick') || e.target.classList.contains('completion-toggler')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
-      return
-    } else {
-      const activeTask = document.querySelector('.task.active')
+  const toggleTask = (e) => {
+    const notPermited = ['tick', 'completion-toggler', 'priority', 'project-link', 'material-icons MuiIcon-root priority']; // creates array each time???
 
-      if (activeTask === e.currentTarget) {
-        activeTask.classList.remove('active')
-      } else if (activeTask) {
-        activeTask.classList.remove('active')
-        e.currentTarget.classList.add('active')
-      } else {
-        e.currentTarget.classList.add('active')
-      }
-      
-      toggleDetails()
+    const wrongTarget = notPermited.find(el => el === e.target.classList.value);
+
+    if (wrongTarget) {
+      return
     }
+
+    setActiveTask(index)
   }
+
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
 
   let className = "task";
@@ -55,7 +47,7 @@ function Task(props) {
   return (
     <div 
       className={className} 
-      onClick={showDetails}
+      onClick={mode === 'view' ? toggleTask : undefined}
     >
       {mode === 'edit' && 
       <>

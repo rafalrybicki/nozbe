@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import Avatar from '../shared/Avatar';
+import Avatar from '../../shared/Avatar';
 import moment from 'moment';
 
 function Footer({author, date}) {
