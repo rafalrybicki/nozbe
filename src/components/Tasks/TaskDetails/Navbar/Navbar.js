@@ -3,15 +3,12 @@ import './Navbar.css'
 import Icon from '@material-ui/core/Icon';
 import NavbarOptions from './NavbarOptions';
 
-function Navbar({ index, id, changeTask,lastTask }) {
-  const hideDetails = () => {
-    document.querySelector('.tasks').classList.remove('show-details')
-  }
-  
+function Navbar({ index, id, changeTask, lastTask, closeDetails }) {
+
   return (
     <div className="task-details-navbar">
       <Icon 
-        onClick={hideDetails}
+        onClick={closeDetails}
       >arrow_forward</Icon>
       <button 
         className="prev" 

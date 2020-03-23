@@ -22,7 +22,8 @@ function TaskDetails({
   author, 
   created_at,
   changeTask,
-  lastTask
+  lastTask,
+  closeDetails
 }) {
   return (
     <div className={typeof index === "number" ? "task-details show" : "task-details"}>
@@ -53,6 +54,7 @@ function TaskDetails({
           />
         </div>
         <Navbar 
+          closeDetails={closeDetails}
           id={id}
           index={index} 
           changeTask={changeTask} 

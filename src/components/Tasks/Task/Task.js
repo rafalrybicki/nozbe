@@ -10,7 +10,7 @@ function Task(props) {
   const { 
     id,
     index,
-    active,
+    activeTask,
     completion, 
     author, 
     content, 
@@ -29,7 +29,27 @@ function Task(props) {
       return
     }
 
+    if (activeTask === false) {
+      document.addEventListener('click', hideTaskDetails)
+    }
+
     setActiveTask(index)
+  }
+
+  const hideTaskDetails = (e) => {
+    const path = [...e.path].reverse().slice(5)
+    const keepDetails = path.find(el => el.classList.contains('task') || el.classList.contains('task-details'));
+
+    if (e.target.textContent === 'arrow_forward') { 
+      document.removeEventListener('click', hideTaskDetails)
+    }
+
+    if (keepDetails) {
+      return
+    } 
+
+    setActiveTask(null)
+    document.removeEventListener('click', hideTaskDetails)
   }
 
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
@@ -40,7 +60,7 @@ function Task(props) {
     className += " completed"
   } 
 
-  if (active) {
+  if (activeTask) {
     className += " active"
   }
 

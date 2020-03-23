@@ -104,6 +104,10 @@ class Tasks extends Component {
     } else {
       this.setState({ activeTask: index })
     }
+
+    // if (typeof index !== "number") {
+    //   document.removeEventListener('click', hideTaskDetails)
+    // }
   }
 
   render() {
@@ -126,7 +130,7 @@ class Tasks extends Component {
             key={task.id} 
             {...task} 
             index={i}
-            active={i === activeTask}
+            activeTask={i === activeTask}
             mode={mode}
             addToSelected={() => this.selectTask(task.id)}
             checked={this.state.selectedTasks.length === this.state.allTasks.length }
@@ -153,6 +157,7 @@ class Tasks extends Component {
           {...this.props.tasks[activeTask]} 
           changeTask={(index) => this.setState({activeTask: index})}
           lastTask={activeTask === this.props.tasks.length -1} 
+          closeDetails={() => this.setActiveTask(null)}
         />
       </div>
     );
