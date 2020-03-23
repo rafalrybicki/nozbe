@@ -1,7 +1,7 @@
 import React from 'react';
 import './Task.css';
 import Avatar from '../../shared/Avatar';
-import Toggler from '../../shared/Toggler';
+import CompletionToggler from '../../shared/CompletionToggler';
 import TaskAttributes from './TaskAttributes';
 import PriorityToggler from '../../shared/PriorityToggler';
 import Icon from '@material-ui/core/Icon';
@@ -17,14 +17,13 @@ function Task(props) {
     mode, 
     addToSelected, 
     toggleDetails, 
-    toggleCompletion, 
   } = props
 
   const showDetails = (e) => {
     if (mode === 'edit') {
       return
     }
-    if (e.target.classList.contains('tick') || e.target.classList.contains('toggler')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
+    if (e.target.classList.contains('tick') || e.target.classList.contains('completion-toggler')|| e.target.classList.contains('priority') || e.target.tagName === 'A') {
       return
     } else {
       const activeTask = document.querySelector('.task.active')
@@ -63,7 +62,7 @@ function Task(props) {
         <input type="checkbox" onChange={addToSelected} />
         <Avatar userName={author} />
       </>}
-      {mode === 'view' && <Toggler completion={completion} onclick={toggleCompletion} />}
+      {mode === 'view' && <CompletionToggler completion={completion} id={id} />}
       <p>{content}</p>
       <TaskAttributes {...props} />
       <PriorityToggler

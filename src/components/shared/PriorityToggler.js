@@ -6,9 +6,11 @@ import { togglePriority } from '../../redux/actions';
 function PriorityToggler({id, priority, dispatch, color}) {
   const style = {
     color: color || '#28ce63',
-    height: '28px',
-    width: '28px',
-    fontSize: '28px'
+    height: '35px',
+    width: '35px',
+    fontSize: '28px',
+    padding: '4px',
+    marginRight: '-5px'
   }
 
   return (
