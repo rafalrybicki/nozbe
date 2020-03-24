@@ -148,13 +148,14 @@ class Tasks extends Component {
           completeTasks={this.completeTasks} 
         />}
 
+        {typeof activeTask === "number" && 
         <TaskDetails 
           index={activeTask}
           {...this.props.tasks[activeTask]} 
           changeTask={(index) => this.setState({activeTask: index})}
           lastTask={activeTask === this.props.tasks.length -1} 
           closeDetails={() => this.setActiveTask(null)}
-        />
+        />}
       </div>
     );
   }

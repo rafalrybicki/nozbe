@@ -16,7 +16,7 @@ function PriorityToggler({id, priority, dispatch, color}) {
   return (
     <Icon 
       style={style}
-      className="priority"
+      className="priority-toggler"
       onClick={() => dispatch(togglePriority(id))}
     >
       {priority ? 'star' : 'star_outlined'}

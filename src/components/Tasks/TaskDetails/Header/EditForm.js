@@ -1,31 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './EditForm.css'
 import TextareaAutosize from 'react-textarea-autosize';
 
-function EditForm({prevContent, onSave}) {
+function EditForm({prevContent, onSave, closeForm}) {
   const [newContent, setNewContent] = useState(prevContent)
   const [disabled, setDisabled] = useState(true) 
 
+  useEffect(() => {
+    setDisabled(newContent.trim() === prevContent || newContent === '')
+  }, [newContent, prevContent])
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    hideEditForm();
+    closeForm();
     onSave({content: newContent})
   } 
 
   const handleChange = (e) => {
     setNewContent(e.target.value)
-    
-    if (newContent === prevContent || e.target.value.trim() === '') {
-      setDisabled(true)
-    } else {
-      setDisabled(false)
-    }
+    console.log(newContent === prevContent)
+    console.log(newContent === e.target.value)
   }
 
-  const hideEditForm = () => {
-    document.querySelector('.header').classList.remove('show-form')
-    setNewContent(prevContent)
-  }
 
   return (
     <form className="edit-form" onSubmit={handleSubmit}>
@@ -36,7 +32,7 @@ function EditForm({prevContent, onSave}) {
       />
       <button 
         type="button" 
-        onClick={hideEditForm} 
+        onClick={() => closeForm()} 
       >Cancel</button>
       <button 
         type="submit" 

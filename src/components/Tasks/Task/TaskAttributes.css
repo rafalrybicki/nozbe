@@ -24,6 +24,8 @@
   display: flex;
   align-items: center;
   height: 25px;
+  width: calc(100% - 95px);
+  overflow-x: hidden;
 }
 
 .task-attributes a {

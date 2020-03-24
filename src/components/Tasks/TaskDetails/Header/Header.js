@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import {  editTask } from '../../../../redux/actions';
+import { editTask } from '../../../../redux/actions';
 import './Header.css';
 import CompletionToggler from '../../../shared/CompletionToggler';
 import PriorityToggler from '../../../shared/PriorityToggler';
 import EditForm from './EditForm';
 
 function Header({ content, completion, id, priority, toggleCompletion, togglePriority, editTask}) {
-  const showEditForm = () => {
-    document.querySelector('.header').classList.add('show-form')
-  }
-  // this.props.dispatch(completeTasks(this.state.selectedTasks))
+  const [editForm, showEditForm] = useState(false);
+
+  let className = completion ? "header task-completed" : "header";
   
+  if (editForm) {
+    className += " show-form"
+  }
+
   return (
-    <div className={completion ? "header task-completed" : "header"}>
+    <div className={className}>
       <CompletionToggler 
         completion={completion}
         id={id}
@@ -25,10 +28,12 @@ function Header({ content, completion, id, priority, toggleCompletion, togglePri
         priority={priority}
         id={id}
       />
+      {editForm && 
       <EditForm 
         prevContent={content} 
-        onSave={(newValues) => editTask(id, newValues)}
-      />
+        closeForm={() => showEditForm(false)}
+        onSave={(newContent) => editTask(id, newContent)}
+      />}
     </div>
   );
 }

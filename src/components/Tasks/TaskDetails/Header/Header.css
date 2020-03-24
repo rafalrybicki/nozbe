@@ -31,6 +31,6 @@
   padding-right: 10px;
 }
 
-.task-details .show-form p, .show-form .toggler, .show-form .priority {
+.task-details .show-form p, .show-form .completion-toggler, .show-form .priority-toggler {
   display: none;
 }
