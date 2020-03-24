@@ -1,3 +1,7 @@
+.edit-mode .edit-bar {
+  z-index: 3;
+}
+
 .edit-bar {
   padding: 10px;
   position: absolute;

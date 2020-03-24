@@ -22,14 +22,28 @@
   background-color: #DADADA;
 }
 
+.task >* {
+  z-index: 2;
+}
+
 .task p {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
   font-size: 15px;
-  margin-top: -2px;
-  flex-grow: 1;
+  padding-top: 10px;
+  padding-left: 53px;
+  padding-right: 50px;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis; 
-  margin-right: 4px;
+  z-index: 1;
+}
+
+.edit-mode .task p {
+  padding-left: 86px;
+  padding-right: 80px;
 }
 
 .task.active p {
@@ -42,6 +56,23 @@
 
 .task input[type="checkbox"] {
   margin-right: 12px;
+  display: none;
+}
+
+.edit-mode .task input[type="checkbox"] {
+  display: block;
+}
+
+.edit-mode .task .completion-toggler {
+  display: none;
+}
+
+.task .avatar {
+  display: none
+}
+
+.edit-mode .task .avatar {
+  display: block;
 }
 
 .task .handler {
@@ -52,4 +83,8 @@
   padding: 10px;
   margin-right: -11px;
   margin-left: 5px;
+}
+
+.task .priority-toggler {
+  margin-left: auto;
 }

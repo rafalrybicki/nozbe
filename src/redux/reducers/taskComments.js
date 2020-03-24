@@ -58,7 +58,9 @@ const initialState = {
       created_at: new Date(),
       author: 'Jown Wayne'
     }
-  ]
+  ],
+  3: [],
+  4: []
 }
 
 const taskComments = (state = initialState, action) => {

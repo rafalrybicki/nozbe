@@ -15,17 +15,12 @@
 }
 
 .task-attributes {
-  padding-top: 3px;
-  position: absolute;
-  bottom: 5px;
-  left: 49px;
+  margin-top: 16px;
   font-size: 12px;
   color: #B2B2B2;
   display: flex;
   align-items: center;
   height: 25px;
-  width: calc(100% - 95px);
-  overflow-x: hidden;
 }
 
 .task-attributes a {

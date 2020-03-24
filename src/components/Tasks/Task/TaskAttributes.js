@@ -9,7 +9,7 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
   
   return (
     <div className="task-attributes">
-      {window.location.pathname === '/priority' && 
+      {window.location.pathname.match('/priority') && 
       <Link 
         to={project.path}
         className="project-link"

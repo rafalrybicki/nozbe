@@ -9,47 +9,21 @@ import Icon from '@material-ui/core/Icon';
 function Task(props) {
   const { 
     id,
-    index,
-    activeTask,
+    active,
     completion, 
     author, 
     content, 
     priority, 
-    mode, 
     addToSelected, 
-    setActiveTask, 
+    editMode
   } = props
 
   const toggleTask = (e) => {
-    const notPermited = ['tick', 'completion-toggler', 'priority', 'project-link', 'material-icons MuiIcon-root priority']; // creates array each time???
-
-    const wrongTarget = notPermited.find(el => el === e.target.classList.value);
-
-    if (wrongTarget) {
-      return
+    if (active) {
+      props.history.push('/priority')
+    } else {
+      props.history.push('/priority/' + id)
     }
-
-    if (activeTask === false) {
-      document.addEventListener('click', hideTaskDetails)
-    }
-
-    setActiveTask(index)
-  }
-
-  const hideTaskDetails = (e) => {
-    const path = [...e.path].reverse().slice(5)
-    const keepDetails = path.find(el => el.classList.contains('task') || el.classList.contains('task-details'));
-
-    if (e.target.textContent === 'arrow_forward') { 
-      document.removeEventListener('click', hideTaskDetails)
-    }
-
-    if (keepDetails) {
-      return
-    } 
-
-    setActiveTask(null)
-    document.removeEventListener('click', hideTaskDetails)
   }
 
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
@@ -60,28 +34,33 @@ function Task(props) {
     className += " completed"
   } 
 
-  if (activeTask) {
+  if (active) {
     className += " active"
   }
 
   return (
     <div 
-      className={className} 
-      onClick={mode === 'view' ? toggleTask : undefined}
+      className={editMode ? "task edit-mode" : className} 
     >
-      {mode === 'edit' && 
-      <>
-        <input type="checkbox" onChange={addToSelected} />
-        <Avatar userName={author} />
-      </>}
-      {mode === 'view' && <CompletionToggler completion={completion} id={id} />}
-      <p>{content}</p>
+      <input 
+        type="checkbox" 
+        onChange={addToSelected} 
+      />
+      <Avatar userName={author} />
+      <CompletionToggler 
+        completion={completion} 
+        id={id} 
+      />
+      <p onClick={editMode === false ? toggleTask : undefined }
+      >{content}</p>
       <TaskAttributes {...props} />
       <PriorityToggler
         id={id}
         priority={priority}
       />
-      {mode === 'edit' && <Icon className="handler">menu</Icon>}
+      <Icon 
+        className={editMode ? "handler" : "handler hide"}
+      >menu</Icon>
     </div>
   );
 }

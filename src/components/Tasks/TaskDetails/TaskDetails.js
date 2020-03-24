@@ -26,41 +26,38 @@ function TaskDetails({
   closeDetails
 }) {
   return (
-    <div className={typeof index === "number" ? "task-details show" : "task-details"}>
-      {typeof index === "number" && 
-      <>
-        <Header 
-          content={content} 
-          id={id}
-          priority={priority} 
+    <div className="task-details"> 
+      <Header 
+        content={content}        
+        id={id}
+        priority={priority} 
+        completion={completion}
+      />
+      <div className="main">
+        <Attributes
+          project={project}
+          deadline={deadline}
+          categories={categories}
+          repeat={repeat}
+          duration={duration}
           completion={completion}
         />
-        <div className="main">
-          <Attributes
-            project={project}
-            deadline={deadline}
-            categories={categories}
-            repeat={repeat}
-            duration={duration}
-            completion={completion}
-          />
-          <NewComment taskId={id} />
-          <Comments
-            taskId={id}
-          />
-          <Footer
-            author={author}
-            date={created_at} 
-          />
-        </div>
-        <Navbar 
-          closeDetails={closeDetails}
-          id={id}
-          index={index} 
-          changeTask={changeTask} 
-          lastTask={lastTask} 
+        <NewComment taskId={id} />
+        <Comments
+          taskId={id}
         />
-      </>}
+        <Footer
+          author={author}
+          date={created_at} 
+        />
+      </div>
+      <Navbar 
+        closeDetails={closeDetails}
+        id={id}
+        index={index} 
+        changeTask={changeTask} 
+        lastTask={lastTask} 
+      />
     </div>
   );
 }

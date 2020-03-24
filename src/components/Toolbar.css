@@ -27,13 +27,11 @@
   font-weight: 400;
   font-size: 12px;
   opacity: .5;
+  display: none;
 }
 
-.toolbar input+span {
-  position: absolute;
-  left: 52px;
-  font-size: 15px;
-  padding-top: 2px;
+.edit-mode .toolbar p span {
+  display: block
 }
 
 .info-icon, .menu-icon {
@@ -48,6 +46,39 @@
   display: none;
   transform: scaleX(-1) rotate(110deg);
 }
+
+.edit-mode .toolbar .material-icons {
+  display: none;
+}
+
+.toolbar input {
+  display: none;
+}
+
+.edit-mode .toolbar input {
+  display: block;
+}
+
+.toolbar input+span {
+  display: none;
+  position: absolute;
+  left: 52px;
+  font-size: 15px;
+  padding-top: 2px;
+}
+
+.edit-mode .toolbar input+span {
+  display: block;
+}
+
+.toolbar button {
+  display: none;
+}
+
+.edit-mode .toolbar button {
+  display: block;
+}
+
 
 @media (min-width: 734px) {
   .menu-icon {

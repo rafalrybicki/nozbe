@@ -11,7 +11,6 @@
   margin-top: 43px;
   overflow-x: hidden;
   box-shadow: 0 0 25px rgba(21,21,21,0.35);
-  transform: translateX(430px);
   transition: transform 0.1s;
   overflow: hidden;
 }
@@ -20,8 +19,4 @@
   padding: 10px;
   margin-bottom: 43px;
   flex-grow: 1;
-}
-
-.task-details.show {
-  transform: translate(0);
 }

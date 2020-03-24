@@ -6,6 +6,10 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+
+
 import Menu from './components/Menu/Menu'
 import Tasks from './components/Tasks/Tasks'
 import Projects from './components/Projects'
@@ -22,8 +26,8 @@ function App() {
       <Menu />
       <div className="main">
         <Switch>
-          <Route path="/priority/:id" component={Tasks} />
-          <Route path="/inbox" component={Tasks} />
+          <Route path="/priority/:id?" component={Tasks} />
+          <Route path="/inbox/:id?" component={Tasks} />
           <Route path="/projects" component={Projects} />  {/* /projects/:project */}
           <Route path="/categories" component={Categories} />
           <Route path="/calendar" component={Calendar} />
@@ -31,7 +35,6 @@ function App() {
           <Route path="/team" component={Team} />
           <Route path="/search" component={Search} />
           <Route path="/settings" component={Settings} />
-          <Redirect exact from="/" to="priority" />
         </Switch>
       </div>
       <div className="filter"/>
