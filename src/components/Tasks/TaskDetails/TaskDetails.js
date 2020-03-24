@@ -45,9 +45,9 @@ function TaskDetails({
             completion={completion}
           />
           <NewComment taskId={id} />
-          {/* <Comments
-            comments={comments}
-          /> */}
+          <Comments
+            taskId={id}
+          />
           <Footer
             author={author}
             date={created_at} 

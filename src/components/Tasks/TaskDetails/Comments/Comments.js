@@ -1,12 +1,21 @@
 import React from 'react';
 import Comment from './Comment/Comment'
+import { connect } from 'react-redux'
 
-function Comments(props) {
+function Comments({comments}) {
+  
   return (
     <div className="comments">
-      {props.comments && props.comments.map(comment => <Comment {...comment} key={comment.id}/> )}
+      {comments.map(comment => <Comment {...comment} key={comment.id}/> )}
     </div>
   );
 }
 
-export default Comments;
+function mapStateToProps(state) {
+  const id = window.location.pathname.split('/')[2];
+  return {
+    comments: state.taskComments[id]
+  }
+}
+
+export default connect(mapStateToProps)(Comments);

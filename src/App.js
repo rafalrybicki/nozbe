@@ -22,7 +22,7 @@ function App() {
       <Menu />
       <div className="main">
         <Switch>
-          <Route path="/priority" component={Tasks} />
+          <Route path="/priority/:id" component={Tasks} />
           <Route path="/inbox" component={Tasks} />
           <Route path="/projects" component={Projects} />  {/* /projects/:project */}
           <Route path="/categories" component={Categories} />
