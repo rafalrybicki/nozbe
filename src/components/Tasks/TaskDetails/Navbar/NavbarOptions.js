@@ -5,7 +5,7 @@ import { deleteTask, cloneTask, cloneTaskComments } from '../../../../redux/acti
 import Icon from '@material-ui/core/Icon';
 import OptionListItem from '../../../shared/OptionListItem';
 
-function NavbarOptions({id, dispatch}) {
+function NavbarOptions({id, closeDetails, dispatch}) {
 
   const toggleOptions = () => {
     document.querySelector('.task-details-navbar .option-list').classList.toggle('hide');
@@ -13,7 +13,10 @@ function NavbarOptions({id, dispatch}) {
   }
 
   const hideOptions = () => {
-    document.querySelector('.task-details-navbar .option-list').classList.add('hide')
+    const optionList = document.querySelector('.task-details-navbar .option-list');
+    if (optionList) {
+      optionList.classList.add('hide')
+    }
     document.removeEventListener('click', hideOptions)
   }
 
@@ -38,6 +41,7 @@ function NavbarOptions({id, dispatch}) {
   }
 
   const handleDeleteAction = () => {
+    closeDetails()
     setTimeout(() => {
       if (window.confirm('Are you sure?')) {
         dispatch(deleteTask(id))

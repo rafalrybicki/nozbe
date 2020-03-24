@@ -10,7 +10,7 @@ function PriorityToggler({id, priority, dispatch, color}) {
     width: '35px',
     fontSize: '28px',
     padding: '4px',
-    marginRight: '-5px'
+    marginRight: '-3px'
   }
 
   return (

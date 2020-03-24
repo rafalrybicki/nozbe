@@ -24,7 +24,7 @@ function Navbar({ index, id, changeTask, lastTask, closeDetails }) {
       >
         <Icon>keyboard_arrow_down</Icon>
       </button>
-      <NavbarOptions id={id} />
+      <NavbarOptions id={id} closeDetails={closeDetails}/>
     </div>
   );
 }

@@ -50,8 +50,8 @@ function Repeat({ repeat }) {
             <Icon>block</Icon>
             <span>Do not repeat</span>
           </div>
-          {options.map(item =>
-            <div className="item">
+          {options.map((item,i)=>
+            <div className="item" key={i}>
               <Icon className="repeat">replay</Icon>
               <span>{item.text}</span>
             </div>

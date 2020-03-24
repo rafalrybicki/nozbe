@@ -3,10 +3,10 @@
   position: absolute;
   background-color: white;
   bottom: 5px;
-  right: 40px;
+  right: 45px;
   box-shadow: 0 3px 10px rgba(21,21,21,0.3);
   border: 1px solid #ccc;
-  border-bottom: none ;
+  border-bottom: none;
   border-radius: 3px;
   font-size: 13px;
 }

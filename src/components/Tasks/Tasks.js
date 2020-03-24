@@ -104,10 +104,6 @@ class Tasks extends Component {
     } else {
       this.setState({ activeTask: index })
     }
-
-    // if (typeof index !== "number") {
-    //   document.removeEventListener('click', hideTaskDetails)
-    // }
   }
 
   render() {

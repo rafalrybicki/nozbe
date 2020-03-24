@@ -54,8 +54,8 @@ function DurationPicker({duration}) {
             <Icon>block</Icon>
             <span>Time not set</span>
           </div>
-            {options.map(item => 
-              <div className="item">
+            {options.map((item,i) => 
+              <div className="item" key={i}>
                 <Icon>schedule</Icon>
                 <span>{item.text}</span>
               </div> 
