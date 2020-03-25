@@ -79,7 +79,7 @@ class Tasks extends Component {
 
 function mapStateToProps(state) {
   return {
-    tasks: state.tasks//.filter(task => task.priority === true)
+    tasks: Object.values(state.tasks)
   };
 }
 

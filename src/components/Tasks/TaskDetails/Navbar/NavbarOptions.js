@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { deleteTask, cloneTask, cloneTaskComments } from '../../../../redux/actions';
 import Icon from '@material-ui/core/Icon';
 import OptionListItem from '../../../shared/OptionListItem';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux'
 
-function NavbarOptions({id, closeDetails, dispatch}) {
+function NavbarOptions({id, dispatch, pathName, history}) {
 
   const toggleOptions = () => {
     document.querySelector('.task-details-navbar .option-list').classList.toggle('hide');
@@ -41,10 +43,11 @@ function NavbarOptions({id, closeDetails, dispatch}) {
   }
 
   const handleDeleteAction = () => {
-    closeDetails()
+    hideOptions()
     setTimeout(() => {
       if (window.confirm('Are you sure?')) {
-        dispatch(deleteTask(id))
+        history.push(pathName)
+        dispatch(deleteTask(id));
       }
     }, 0)
   }
@@ -78,4 +81,7 @@ function NavbarOptions({id, closeDetails, dispatch}) {
   );
 }
 
-export default connect()(NavbarOptions);
+export default compose(
+  withRouter,
+  connect()
+)(NavbarOptions);

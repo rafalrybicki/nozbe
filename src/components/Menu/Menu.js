@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    priority: state.tasks.filter(task => task.priority === true).length,
-    inbox: state.tasks.filter(task => task.project.name === 'Inbox').length,
+    // priority: state.tasks.filter(task => task.priority === true).length,
+    // inbox: state.tasks.filter(task => task.project.name === 'Inbox').length,
   };
 }
 

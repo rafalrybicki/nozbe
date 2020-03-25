@@ -1,16 +1,16 @@
 import { 
   TOGGLE_PRIORITY, 
   TOGGLE_COMPLETION, 
-  COMPLETE_TASKS, 
   ADD_TASK, 
+  // COMPLETE_TASKS, 
   DELETE_TASK, 
-  DELETE_TASKS, 
+  // DELETE_TASKS, 
   EDIT_TASK ,
   CLONE_TASK
 } from '../actions/actionTypes'
 
-const initialState = [
-  {
+const initialState = {
+  1 : {
     id: 1,
     author: 'John Doe',
     content: 'content1',
@@ -39,7 +39,7 @@ const initialState = [
     created_at: new Date(),
     updated_at: new Date()
   },
-  {
+  2: {
     id: 2,
     author: 'John Doe',
     content: 'content2',
@@ -63,7 +63,7 @@ const initialState = [
     created_at: new Date(),
     updated_at: new Date()
   },
-  {
+  3: {
     id: 3,
     author: 'John Doe',
     content: 'content3',
@@ -104,7 +104,7 @@ const initialState = [
     created_at: new Date(),
     updated_at: new Date()
   },
-  {
+  4: {
     id: 4,
     author: 'John Doe',
     content: 'content4',
@@ -133,26 +133,34 @@ const initialState = [
     created_at: new Date(),
     updated_at: new Date()
   }
-]
+}
 
 const tasks = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_PRIORITY:
-      return state.map(
-        task => task.id === action.id ? { ...task, priority: !task.priority } : task
-      );
-    case TOGGLE_COMPLETION:
-      return state.map(
-        task => task.id === action.id ? { ...task, completion: !task.completion } : task
-      );
-    case COMPLETE_TASKS:
-      return state.map(
-        task => action.tasks.includes(task.id) ? { ...task, completion:  true } : task
-      );
-    case ADD_TASK:
-      return [
+      return {
         ...state,
-        {
+        [action.id]: {
+          ...state[action.id],
+          priority: !state[action.id].priority
+        }
+      };
+    case TOGGLE_COMPLETION:
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          completion: !state[action.id].completion
+        }
+      };
+    // case COMPLETE_TASKS:
+    //   return state.map(
+    //     task => action.tasks.includes(task.id) ? { ...task, completion:  true } : task
+    //   );
+    case ADD_TASK:
+      return {
+        ...state,
+        [action.id]: {
           id: action.id,
           content: action.content,
           completion: false,
@@ -164,24 +172,32 @@ const tasks = (state = initialState, action) => {
           repeat: false,
           comments: []
         }
-      ];
+      };
     case EDIT_TASK:
-      return state.map(
-        task => task.id === action.id ? {...task, ...action.newValues} : task
-      );
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          ...action.newValues
+        }
+      };
     case CLONE_TASK:
       return cloneTask(state, action.originalTaskId, action.newTaskId, action.date);
     case DELETE_TASK:
-      return state.filter(
-        task => task.id !== action.id
-      );
-    case DELETE_TASKS:
-      return state.filter(
-        task => !action.tasks.includes(task.id)
-      );
+      return deleteTask(state, action.id);
+    // case DELETE_TASKS:
+    //   return state.filter(
+    //     task => !action.tasks.includes(task.id)
+    //   );
     default:
       return state;
   }
+}
+
+const deleteTask = (state, id) => {
+  const newState = {...state};
+  delete newState[id]
+  return newState
 }
 
 const cloneTask = (state, originalTaskId, newTaskId, date) => {

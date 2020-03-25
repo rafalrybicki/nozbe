@@ -25,7 +25,7 @@ function Navbar({id, nextTaskId, prevTaskId, pathName}) {
       >
         <Icon>keyboard_arrow_down</Icon>
       </Link>
-      <NavbarOptions id={id} />
+      <NavbarOptions id={id} pathName={pathName} />
     </div>
   );
 }
