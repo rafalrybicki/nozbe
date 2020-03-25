@@ -2,29 +2,30 @@ import React from 'react';
 import './Navbar.css'
 import Icon from '@material-ui/core/Icon';
 import NavbarOptions from './NavbarOptions';
+import { Link } from 'react-router-dom';
 
-function Navbar({ index, id, changeTask, lastTask, closeDetails }) {
+function Navbar({id, nextTaskId, prevTaskId, pathName}) {
+  const nextTaskPath = pathName + '/' + (nextTaskId ? nextTaskId : id);
+  const prevTaskPath = pathName + '/' + (prevTaskId ? prevTaskId : id);
 
   return (
     <div className="task-details-navbar">
-      <Icon 
-        onClick={closeDetails}
-      >arrow_forward</Icon>
-      <button 
-        className="prev" 
-        disabled={index === 0} 
-        onClick={() => changeTask(index - 1)}
+      <Link to={pathName}>
+        <Icon>arrow_forward</Icon>
+      </Link>
+      <Link 
+        to={prevTaskPath}
+        className={prevTaskId ? "prev" : "prev disabled"}
       >
         <Icon>keyboard_arrow_up</Icon>
-      </button>
-      <button 
-        className="next" 
-        disabled={lastTask} 
-        onClick={() => changeTask(index + 1)}
+      </Link>
+      <Link 
+        to={nextTaskPath}
+        className={nextTaskId ? "next" : "next disabled"}
       >
         <Icon>keyboard_arrow_down</Icon>
-      </button>
-      <NavbarOptions id={id} closeDetails={closeDetails}/>
+      </Link>
+      <NavbarOptions id={id} />
     </div>
   );
 }

@@ -22,9 +22,11 @@ function TaskDetails({
   author, 
   created_at,
   changeTask,
-  lastTask,
-  closeDetails
+  nextTaskId,
+  prevTaskId,
+  pathName
 }) {
+
   return (
     <div className="task-details"> 
       <Header 
@@ -52,11 +54,11 @@ function TaskDetails({
         />
       </div>
       <Navbar 
-        closeDetails={closeDetails}
         id={id}
-        index={index} 
         changeTask={changeTask} 
-        lastTask={lastTask} 
+        prevTaskId={prevTaskId}
+        nextTaskId={nextTaskId}
+        pathName={pathName}
       />
     </div>
   );

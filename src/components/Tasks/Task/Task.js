@@ -5,6 +5,8 @@ import CompletionToggler from '../../shared/CompletionToggler';
 import TaskAttributes from './TaskAttributes';
 import PriorityToggler from '../../shared/PriorityToggler';
 import Icon from '@material-ui/core/Icon';
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 function Task(props) {
   const { 
@@ -15,16 +17,9 @@ function Task(props) {
     content, 
     priority, 
     addToSelected, 
-    editMode
+    editMode,
+    pathName
   } = props
-
-  const toggleTask = (e) => {
-    if (active) {
-      props.history.push('/priority')
-    } else {
-      props.history.push('/priority/' + id)
-    }
-  }
 
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
 
@@ -40,7 +35,7 @@ function Task(props) {
 
   return (
     <div 
-      className={editMode ? "task edit-mode" : className} 
+      className={className} 
     >
       <input 
         type="checkbox" 
@@ -51,8 +46,10 @@ function Task(props) {
         completion={completion} 
         id={id} 
       />
-      <p onClick={editMode === false ? toggleTask : undefined }
-      >{content}</p>
+      <Link 
+        className="task-link"
+        to={active ? pathName : pathName + '/' + id}
+      >{content}</Link>
       <TaskAttributes {...props} />
       <PriorityToggler
         id={id}
@@ -66,4 +63,4 @@ function Task(props) {
 }
 
 
-export default Task;
+export default withRouter(Task);

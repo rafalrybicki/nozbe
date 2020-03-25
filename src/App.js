@@ -6,9 +6,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import { createBrowserHistory } from "history";
-
-
 
 import Menu from './components/Menu/Menu'
 import Tasks from './components/Tasks/Tasks'
@@ -35,6 +32,7 @@ function App() {
           <Route path="/team" component={Team} />
           <Route path="/search" component={Search} />
           <Route path="/settings" component={Settings} />
+          <Redirect to="/priority" />
         </Switch>
       </div>
       <div className="filter"/>

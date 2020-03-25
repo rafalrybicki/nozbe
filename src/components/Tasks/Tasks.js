@@ -8,7 +8,6 @@ import TaskDetails from './TaskDetails/TaskDetails';
 // import { completeTasks, deleteTasks} from '../../redux/actions'
 import './Tasks.css'
 
-
 class Tasks extends Component {
   constructor(props) {
     super(props);
@@ -22,15 +21,18 @@ class Tasks extends Component {
     document.querySelector('.tasks').classList.toggle('edit-mode');
     this.setState(prevState => {
       return {
-        editMode: !prevState.mode
+        editMode: !prevState.editMode
       }
     })
   }
 
   render() {
-    const {tasks} = this.props;
-    const activeId = +this.props.match.params.id
+    const {tasks, match} = this.props;
+    const activeId = +match.params.id
     const activeTaskIndex = tasks.findIndex(el => el.id === activeId);
+    const pathName = '/' + match.url.split('/')[1];
+    const prevTaskId = tasks[activeTaskIndex - 1] ? tasks[activeTaskIndex - 1].id : false;
+    const nextTaskId = tasks[activeTaskIndex + 1] ? tasks[activeTaskIndex + 1].id : false;
 
     return (
       <div className="tasks" >
@@ -45,10 +47,8 @@ class Tasks extends Component {
             {...task} 
             index={i}
             active={activeId === task.id}
-            history={this.props.history}
+            pathName={pathName}
             editMode={this.state.editMode}
-            prevTaskId={tasks[i-1]}
-            nexTaskId={tasks[i+1]}
           />
         ))}
 
@@ -56,7 +56,8 @@ class Tasks extends Component {
           done={1} 
           left={4} 
           changeMode={this.changeMode} 
-          completeTasks={this.completeTasks} 
+          completeTasks={this.completeTasks}
+          history={this.props.history} 
         />
 
         <EditBar 
@@ -64,12 +65,12 @@ class Tasks extends Component {
           completeTasks={this.completeTasks} 
         />
 
-        {this.props.match.params.id && 
+        {match.params.id && 
         <TaskDetails 
           {...tasks[activeTaskIndex]} 
-          changeTask={(index) => this.setState({activeTask: index})}
-          lastTaskId={tasks[tasks.length -1].id} 
-          closeDetails={() => this.setActiveTask(null)}
+          prevTaskId={prevTaskId}
+          nextTaskId={nextTaskId}
+          pathName={pathName}
         />}
       </div>
     );

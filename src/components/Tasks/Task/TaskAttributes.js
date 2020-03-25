@@ -8,7 +8,7 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
   const delayed = new Date() > deadline && completion === false ? 'danger' : '';
   
   return (
-    <div className="task-attributes">
+    <>
       {window.location.pathname.match('/priority') && 
       <Link 
         to={project.path}
@@ -19,43 +19,44 @@ function TaskAttributes({ project, comments, repeat, time, deadline, categories,
         >fiber_manual_record</Icon>
         <span className="text">{project.name}</span>
       </Link>}
-      
-      {/* {comments.length > 0 && 
-      <>
-        <Icon className="comments-icon">sms</Icon>
-        <span className="text">{comments.length}</span>
-      </>} */}
+      <div className="task-attributes">      
+        {/* {comments.length > 0 && 
+        <>
+          <Icon className="comments-icon">sms</Icon>
+          <span className="text">{comments.length}</span>
+        </>} */}
 
-      {repeat && <Icon className="repeat">replay</Icon>}
+        {repeat && <Icon className="repeat">replay</Icon>}
 
-      {duration && <>
-        <Icon>schedule</Icon>
-      <span className="text">{duration}</span>
-      </>}
+        {duration && <>
+          <Icon>schedule</Icon>
+        <span className="text">{duration}</span>
+        </>}
 
-      {time && 
-      <>
-        <Icon>schedule</Icon>
-        <span className="text">{time}</span>
-      </>}
+        {time && 
+        <>
+          <Icon>schedule</Icon>
+          <span className="text">{time}</span>
+        </>}
 
-      {deadline && 
-      <>
-        <Icon className={delayed}>{delayed ? 'whatshot' : 'today'}</Icon>
-        <span className={delayed + " text"}>{moment(deadline).format("MMM D LT") }</span>
-      </>}
+        {deadline && 
+        <>
+          <Icon className={delayed}>{delayed ? 'whatshot' : 'today'}</Icon>
+          <span className={delayed + " text"}>{moment(deadline).format("MMM D LT") }</span>
+        </>}
 
-      {categories.length > 0 &&
-      <>
-        {categories.map((category, i) => 
-          <Icon 
-            key={i} 
-            className="category"
-          >
-            {category.icon}
-          </Icon>)}  
-      </>}
-    </div>
+        {categories.length > 0 &&
+        <>
+          {categories.map((category, i) => 
+            <Icon 
+              key={i} 
+              className="category"
+            >
+              {category.icon}
+            </Icon>)}  
+        </>}
+      </div>
+    </>
   );
 }
 

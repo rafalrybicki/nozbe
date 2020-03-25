@@ -10,6 +10,7 @@
   align-items: center;
   border-bottom: 1px solid rgba(21,21,21,0.2);
   background: #FAFAFA;
+  z-index: 4;
 }
 
 .toolbar p {

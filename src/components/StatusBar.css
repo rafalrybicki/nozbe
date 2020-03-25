@@ -2,7 +2,6 @@
   padding: 10px;
   position: absolute;
   bottom: 0;
-  z-index: 2;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -12,6 +11,7 @@
   height: 43px;
   font-size: 12px;
   cursor: default;
+  z-index: 5;
 }
 
 .status-bar .material-icons {

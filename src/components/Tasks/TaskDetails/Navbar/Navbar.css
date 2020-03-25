@@ -11,22 +11,9 @@
   padding-right: 14px;
 }
 
-.task-details-navbar button {
-  height: 35px;
-  border: 0;
-  outline: none;
-  background-color: transparent;
-}
-
 .task-details-navbar .material-icons {
   cursor: pointer;
   line-height: 1;
-}
-
-.task-details-navbar button .material-icons {
-  font-size: 35px;
-  color: inherit;
-  cursor: pointer;
 }
 
 .task-details-navbar > .material-icons {
@@ -35,11 +22,14 @@
   width: 30px;
 }
 
-.task-details-navbar > .material-icons:first-of-type {
+.task-details-navbar a:first-of-type {
   position: relative;
+  padding: 4px 3px;
+  height: 32px;
+  width: 30px;
 }
 
-.task-details-navbar > .material-icons:first-of-type::after {
+.task-details-navbar a:first-of-type::after {
   position: absolute;
   top: 6px;
   left: 26px;
@@ -51,7 +41,12 @@
   background-color: black;
 }
 
-.task-details-navbar button:disabled .material-icons  {
+.prev span, .next span {
+  padding-top: 3px;
+  font-size: 35px;
+}
+
+.task-details-navbar a.disabled .material-icons  {
   opacity: .2;
   cursor: not-allowed;
 }

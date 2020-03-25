@@ -22,11 +22,11 @@
   background-color: #DADADA;
 }
 
-.task >* {
-  z-index: 2;
+.task .completion-toggler, .task .priority-toggler {
+  z-index: 3;
 }
 
-.task p {
+.task .task-link {
   position: absolute;
   left: 0;
   height: 100%;
@@ -38,7 +38,7 @@
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis; 
-  z-index: 1;
+  z-index: 2;
 }
 
 .edit-mode .task p {
