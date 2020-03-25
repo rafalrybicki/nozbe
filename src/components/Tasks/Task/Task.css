@@ -32,7 +32,7 @@
   height: 100%;
   width: 100%;
   font-size: 15px;
-  padding-top: 10px;
+  padding-top: 12px;
   padding-left: 53px;
   padding-right: 50px;
   white-space: nowrap; 
@@ -41,16 +41,16 @@
   z-index: 2;
 }
 
-.edit-mode .task p {
+.edit-mode .task-link  {
   padding-left: 86px;
   padding-right: 80px;
 }
 
-.task.active p {
+.task.active .task-link  {
   color: #151515;
 }
 
-.task.completed p {
+.task.completed .task-link  {
   color: #848484;
 }
 
@@ -63,7 +63,7 @@
   display: block;
 }
 
-.edit-mode .task .completion-toggler {
+.edit-mode .task .completion-toggler, .edit-mode .task .priority-toggler {
   display: none;
 }
 
@@ -81,10 +81,11 @@
   color: rgb(199, 199, 199);
   cursor: move;
   padding: 10px;
-  margin-right: -11px;
+  margin-right: 12px;
   margin-left: 5px;
+  z-index: 4;
 }
 
-.task .priority-toggler {
+.task .priority-toggler, .task .handler {
   margin-left: auto;
 }

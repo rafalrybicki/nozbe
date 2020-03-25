@@ -21,6 +21,12 @@ function Task(props) {
     pathName
   } = props
 
+  const onTaskToggle = (e) => {
+    if (editMode) {
+      e.preventDefault()
+    }
+  }
+
   //const activeColor = project.color !== 'black' ? project.color : '#DADADA'
 
   let className = "task";
@@ -47,6 +53,7 @@ function Task(props) {
         id={id} 
       />
       <Link 
+        onClick={onTaskToggle}
         className="task-link"
         to={active ? pathName : pathName + '/' + id}
       >{content}</Link>

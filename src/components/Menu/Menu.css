@@ -4,7 +4,7 @@
   z-index: 101;
 }
 
-@media (max-width: 734px) {
+@media (max-width: 768px) {
   .menu {
     width: 320px;
     position: absolute;
@@ -17,7 +17,7 @@
   } 
 }
 
-@media (min-width: 734px) {
+@media (min-width: 768px) {
   .menu {
     min-width: 270px;
   }
