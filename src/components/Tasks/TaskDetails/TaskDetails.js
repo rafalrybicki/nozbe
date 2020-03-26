@@ -46,7 +46,6 @@ function TaskDetails({
         <NewComment taskId={id} />
         <Comments
           taskId={id}
-          comments={comments}
         />
         <Footer
           author={author}

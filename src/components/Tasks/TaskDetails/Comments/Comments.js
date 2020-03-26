@@ -1,7 +1,8 @@
 import React from 'react';
 import Comment from './Comment/Comment';
+import { connect } from 'react-redux';
 
-function Comments({comments}) {
+function Comments({taskId, comments}) {
   
   return (
     <div className="comments">
@@ -10,4 +11,10 @@ function Comments({comments}) {
   );
 }
 
-export default Comments;
+function mapStateToProps(state, ownProps) {
+  return {
+    comments: state.comments[ownProps.taskId]
+  };
+}
+
+export default connect(mapStateToProps)(Comments);
