@@ -1,7 +1,7 @@
 import { 
   TOGGLE_PRIORITY, 
   TOGGLE_COMPLETION, 
-  ADD_TASK, 
+  CREATE_TASK, 
   // COMPLETE_TASKS, 
   DELETE_TASK, 
   // DELETE_TASKS, 
@@ -22,16 +22,7 @@ const initialState = {
       path: '/inbox',
       color: 'black'
     },
-    categories: [
-      {
-        name: 'Home',
-        icon: 'home'
-      },
-      {
-        name: 'Important',
-        icon: 'directions_run'
-      }
-    ],
+    categories: [],
     deadline: null,
     repeat: 'Every Month',
     
@@ -157,19 +148,27 @@ const tasks = (state = initialState, action) => {
     //   return state.map(
     //     task => action.tasks.includes(task.id) ? { ...task, completion:  true } : task
     //   );
-    case ADD_TASK:
+    case CREATE_TASK:
       return {
         ...state,
         [action.id]: {
           id: action.id,
+          author: 'Current User',
           content: action.content,
           completion: false,
           priority: action.project === 'priority' ? true : false,
-          time: null,
-          project: action.project === 'priority' ? 'inbox' : action.project,
-          date: null,
-          category: [],
+          duration: null,
+          project: {
+            name: 'Inbox',
+            path: '/inbox',
+            color: 'black'
+          },
+          deadline: null,
+          categories: [],
           repeat: false,
+          created_at: action.date,
+          updated_at: action.date,
+          holder: 'Current User',
           comments: []
         }
       };

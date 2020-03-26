@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './NewTask.css'
 import Icon from '@material-ui/core/Icon';
-import { addTask, createTaskCommentsKey } from '../../redux/actions';
+import { createTask, createCommentsKey } from '../../redux/actions';
 
 let NewTask = ({dispatch, project}) => {
   let input
@@ -21,8 +21,8 @@ let NewTask = ({dispatch, project}) => {
     if(input.value.trim() === '') return;
     const id = Math.random();
 
-    dispatch(addTask(id, input.value.trim(), project));
-    dispatch(createTaskCommentsKey(id))
+    dispatch(createTask(id, input.value.trim(), project));
+    dispatch(createCommentsKey(id))
 
     input.value = '';
   }

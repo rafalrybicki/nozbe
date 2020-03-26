@@ -3,10 +3,10 @@ import './Comment.css'
 import Avatar from '../../../../shared/Avatar';
 import ChecklistComment from './ChecklistComment';
 import CommentOptions from './CommentOptions';
-import { deleteComment } from '../../../../../redux/actions';
+import { deleteComment, createTask, createCommentsKey } from '../../../../../redux/actions';
 import { connect } from 'react-redux';
 
-function Comment({id, taskId, type, content, author, created_at, dispatch}) {
+function Comment({id, taskId, type, content, author, project, created_at, dispatch}) {
   let commentBody;
   if (type === 'text') {
     commentBody = content;
@@ -16,6 +16,32 @@ function Comment({id, taskId, type, content, author, created_at, dispatch}) {
     //attachment
   }
 
+  const addTask = () => {
+    const id = Math.random();
+    const date = new Date();
+    const contentForTask = type === 'text' ? content : content[0].value;
+    const contentForComment = type === 'text' ? content : 
+      content.map(item => (
+        { 
+          value: item.value, 
+          id: Math.random(), 
+          completion: false
+        }
+      ))
+
+    dispatch(createTask(id, contentForTask, 'inbox', date));
+    dispatch(createCommentsKey(id, [
+      {
+        type,
+        content: contentForComment,
+        author: 'GuyWhoCreated TaskByComment',
+        created_at: date,
+        updated_at: date,
+        id: Math.random()
+      }
+    ]))
+  }
+
   return (
     <div className="comment">
       <div className="comment-header">
@@ -23,6 +49,7 @@ function Comment({id, taskId, type, content, author, created_at, dispatch}) {
         <span className="author">{author}</span>
         <span className="date">{created_at.toDateString()}</span>
         <CommentOptions 
+          createTask={addTask}
           deleteComment={() => dispatch(deleteComment(taskId, id))}
         />
       </div>

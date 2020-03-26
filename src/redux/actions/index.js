@@ -1,5 +1,5 @@
 import { 
-  ADD_TASK, 
+  CREATE_TASK, 
   EDIT_TASK,
   TOGGLE_PRIORITY, 
   TOGGLE_COMPLETION,
@@ -13,10 +13,12 @@ import {
   CLONE_COMMENTS
 } from './actionTypes'
 
-export const addTask = (content, project) => ({
-  type: ADD_TASK,
+export const createTask = (id, content, project, date) => ({
+  type: CREATE_TASK,
+  id,
   content,
-  project
+  project,
+  date
 })
 
 export const cloneTask = (originalTaskId, newTaskId, date) => ({
@@ -61,9 +63,10 @@ export const deleteTasks = array => ({
 
 // comments
 
-export const createTaskCommentsKey = taskId => ({
+export const createCommentsKey = (taskId, comments) => ({
   type: CREATE_KEY,
-  taskId
+  taskId,
+  comments
 })
 
 export const addComment = (taskId, newComment) => ({

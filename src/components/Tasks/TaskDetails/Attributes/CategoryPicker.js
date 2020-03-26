@@ -19,7 +19,7 @@ function CategoryPicker({categories}) {
     return (
       <div className="picker-btn unchecked">
         <Icon>flag</Icon>
-        <div>5</div>
+        <div>Category?</div>
       </div>
     )
   }
