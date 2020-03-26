@@ -201,7 +201,7 @@ const deleteTask = (state, id) => {
 }
 
 const cloneTask = (state, originalTaskId, newTaskId, date) => {
-  const oldTask = state.find(task => task.id === originalTaskId);
+  const oldTask = {...state[originalTaskId]}
   const clonedTask = {}
 
   clonedTask.id = newTaskId;
@@ -222,7 +222,10 @@ const cloneTask = (state, originalTaskId, newTaskId, date) => {
     category => clonedTask.categories.push({...category})
   )
 
-  return [...state, clonedTask]
+  return {
+    ...state, 
+    [newTaskId]: clonedTask
+  }
 }
 
 
