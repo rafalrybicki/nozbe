@@ -1,6 +1,7 @@
 import {
   CREATE_KEY,
   ADD_COMMENT,
+  DELETE_COMMENT,
   CLONE_COMMENTS
 } from '../actions/actionTypes'
 
@@ -68,7 +69,7 @@ const comments = (state = initialState, action) => {
     case CREATE_KEY:
       return {
         ...state,
-        [action.taskId]: []
+        [action.taskId]: action.comments || []
       }
     case ADD_COMMENT:
       return {
@@ -77,6 +78,11 @@ const comments = (state = initialState, action) => {
           ...state[action.taskId],
           action.newComment
         ]
+      }
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        [action.taskId]: [...state[action.taskId].filter(el => el.id !== action.commentId)]
       }
     case CLONE_COMMENTS:
       return {
@@ -119,5 +125,7 @@ const cloneComments = (originalTaskComments, date) => {
 
   return clonedComments
 }
+
+
 
 export default comments

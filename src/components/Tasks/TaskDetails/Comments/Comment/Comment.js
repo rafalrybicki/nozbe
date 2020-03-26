@@ -3,8 +3,10 @@ import './Comment.css'
 import Avatar from '../../../../shared/Avatar';
 import ChecklistComment from './ChecklistComment';
 import CommentOptions from './CommentOptions';
+import { deleteComment } from '../../../../../redux/actions';
+import { connect } from 'react-redux';
 
-function Comment({id, type, content, author, created_at}) {
+function Comment({id, taskId, type, content, author, created_at, dispatch}) {
   let commentBody;
   if (type === 'text') {
     commentBody = content;
@@ -20,7 +22,9 @@ function Comment({id, type, content, author, created_at}) {
         <Avatar userName={author} />
         <span className="author">{author}</span>
         <span className="date">{created_at.toDateString()}</span>
-        <CommentOptions />
+        <CommentOptions 
+          deleteComment={() => dispatch(deleteComment(taskId, id))}
+        />
       </div>
       <div className="comment-body">
         {commentBody}
@@ -30,4 +34,4 @@ function Comment({id, type, content, author, created_at}) {
   );
 }
 
-export default Comment;
+export default connect()(Comment);

@@ -3,7 +3,8 @@ import './CommentOptions.css';
 import Icon from '@material-ui/core/Icon';
 import OptionListItem from '../../../../shared/OptionListItem';
 
-function CommentOptions(props) {
+
+function CommentOptions({deleteComment}) {
   const [optionsVisible, showOptions] = useState(false);
 
   const toggleOptions = () => {
@@ -25,16 +26,14 @@ function CommentOptions(props) {
     }, 0)
   }
 
-  const handleAddAction = () => {
-    setTimeout(() => {
-      alert('Coming soon')
-    }, 0)
+  const handleCreateTaskAction = () => {
+    
   }
 
   const handleDeleteAction = () => {
     setTimeout(() => {
       if (window.confirm('Are you sure?')) {
-        
+        deleteComment()
       }
     }, 0)
   }
@@ -62,7 +61,7 @@ function CommentOptions(props) {
         <OptionListItem
           icon={'add'}
           text={'Create a task with this comment'}
-          onClick={handleAddAction}
+          onClick={handleCreateTaskAction}
         />
         <OptionListItem
           icon={'delete'}

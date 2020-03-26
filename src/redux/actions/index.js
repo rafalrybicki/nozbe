@@ -9,6 +9,7 @@ import {
   CLONE_TASK,
   CREATE_KEY,
   ADD_COMMENT,
+  DELETE_COMMENT,
   CLONE_COMMENTS
 } from './actionTypes'
 
@@ -65,11 +66,16 @@ export const createTaskCommentsKey = taskId => ({
   taskId
 })
 
-
 export const addComment = (taskId, newComment) => ({
   type: ADD_COMMENT,
   taskId,
   newComment
+})
+
+export const deleteComment = (taskId, commentId) => ({
+  type: DELETE_COMMENT,
+  taskId,
+  commentId
 })
 
 export const cloneTaskComments = (originalTaskId, newTaskId, date) => ({
