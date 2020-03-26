@@ -8,7 +8,6 @@ import Footer from './Footer';
 import Navbar from './Navbar/Navbar';
 
 function TaskDetails({
-  index,
   id,
   content, 
   project, 
@@ -47,6 +46,7 @@ function TaskDetails({
         <NewComment taskId={id} />
         <Comments
           taskId={id}
+          comments={comments}
         />
         <Footer
           author={author}

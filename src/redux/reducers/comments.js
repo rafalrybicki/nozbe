@@ -63,7 +63,7 @@ const initialState = {
   4: []
 }
 
-const taskComments = (state = initialState, action) => {
+const comments = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_KEY:
       return {
@@ -81,14 +81,14 @@ const taskComments = (state = initialState, action) => {
     case CLONE_COMMENTS:
       return {
         ...state,
-        [action.newTaskId]: cloneTaskComments(state[action.originalTaskId], action.date)
+        [action.newTaskId]: cloneComments(state[action.originalTaskId], action.date)
       }
     default:
       return state;
   }
 }
 
-const cloneTaskComments = (originalTaskComments, date) => {
+const cloneComments = (originalTaskComments, date) => {
   if (!originalTaskComments) {
     return []
   }
@@ -120,4 +120,4 @@ const cloneTaskComments = (originalTaskComments, date) => {
   return clonedComments
 }
 
-export default taskComments
+export default comments

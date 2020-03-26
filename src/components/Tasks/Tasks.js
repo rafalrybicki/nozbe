@@ -27,9 +27,9 @@ class Tasks extends Component {
   }
 
   render() {
-    const {tasks, match} = this.props;
-    const activeId = +match.params.id
-    const activeTaskIndex = tasks.findIndex(el => el.id === activeId);
+    const {tasks, comments, match} = this.props;
+    const activeId = +match.params.id;
+    const activeTaskIndex = tasks.findIndex(el => el.id === activeId)
     const pathName = '/' + match.url.split('/')[1];
     const prevTaskId = tasks[activeTaskIndex - 1] ? tasks[activeTaskIndex - 1].id : false;
     const nextTaskId = tasks[activeTaskIndex + 1] ? tasks[activeTaskIndex + 1].id : false;
@@ -41,7 +41,7 @@ class Tasks extends Component {
           closeEditMode={this.changeMode}
         />
 
-        {this.props.tasks.map((task,i) => (
+        {tasks.map((task,i) => (
           <Task 
             key={task.id} 
             {...task} 
@@ -71,6 +71,7 @@ class Tasks extends Component {
           prevTaskId={prevTaskId}
           nextTaskId={nextTaskId}
           pathName={pathName}
+          comments={comments[activeId]}
         />}
       </div>
     );
@@ -79,7 +80,8 @@ class Tasks extends Component {
 
 function mapStateToProps(state) {
   return {
-    tasks: Object.values(state.tasks)
+    tasks: Object.values(state.tasks),
+    comments: state.comments
   };
 }
 

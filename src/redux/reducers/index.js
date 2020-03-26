@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import tasks from './tasks'
-import taskComments from './taskComments'
+import comments from './comments'
 
 export default combineReducers({
   tasks,
-  taskComments
+  comments
 })
