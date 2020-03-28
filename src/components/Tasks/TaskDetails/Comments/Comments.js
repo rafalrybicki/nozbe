@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 function Comments({taskId, comments}) {
   return (
     <div className="comments">
-      {comments.map(comment => 
+      {comments.map((comment,i) => 
         <Comment 
           {...comment} 
           key={comment.id}
           taskId={taskId}
+          index={i}
         /> 
       )}
     </div>

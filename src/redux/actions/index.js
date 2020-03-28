@@ -10,7 +10,8 @@ import {
   CREATE_KEY,
   ADD_COMMENT,
   DELETE_COMMENT,
-  CLONE_COMMENTS
+  CLONE_COMMENTS,
+  CHECK_ALL,
 } from './actionTypes'
 
 export const createTask = (id, content, project, date) => ({
@@ -79,6 +80,13 @@ export const deleteComment = (taskId, commentId) => ({
   type: DELETE_COMMENT,
   taskId,
   commentId
+})
+
+export const checkAll = (taskId, index, value) => ({
+  type: CHECK_ALL,
+  taskId,
+  index,
+  value
 })
 
 export const cloneTaskComments = (originalTaskId, newTaskId, date) => ({

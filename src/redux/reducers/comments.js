@@ -2,7 +2,8 @@ import {
   CREATE_KEY,
   ADD_COMMENT,
   DELETE_COMMENT,
-  CLONE_COMMENTS
+  CLONE_COMMENTS,
+  CHECK_ALL
 } from '../actions/actionTypes'
 
 const initialState = {
@@ -21,6 +22,11 @@ const initialState = {
         {
           value: 'some text',
           completion: false,
+          id: Math.random()
+        },
+        {
+          value: 'some text',
+          completion: true,
           id: Math.random()
         },
         {
@@ -84,6 +90,11 @@ const comments = (state = initialState, action) => {
         ...state,
         [action.taskId]: [...state[action.taskId].filter(el => el.id !== action.commentId)]
       }
+    case CHECK_ALL:
+      return {
+        ...state,
+        [action.taskId]: checkAll(state[action.taskId], action.index, action.value) 
+      }
     case CLONE_COMMENTS:
       return {
         ...state,
@@ -92,6 +103,15 @@ const comments = (state = initialState, action) => {
     default:
       return state;
   }
+}
+
+const checkAll = (taskComments, index, value) => {
+  const newTaskComments = [...taskComments];
+  newTaskComments[index] = {
+    ...taskComments[index],
+    content: taskComments[index].content.map(item => ({...item, completion: value}))
+  }
+  return newTaskComments 
 }
 
 const cloneComments = (originalTaskComments, date) => {

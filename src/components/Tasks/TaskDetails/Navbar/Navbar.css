@@ -11,15 +11,16 @@
   padding-right: 14px;
 }
 
-.task-details-navbar .material-icons {
-  cursor: pointer;
-  line-height: 1;
-}
-
 .task-details-navbar > .material-icons {
   padding: 4px 3px;
   height: 32px;
   width: 30px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.task-details-navbar .material-icons:last-of-type {
+  margin-right: -2px;
 }
 
 .task-details-navbar a:first-of-type {

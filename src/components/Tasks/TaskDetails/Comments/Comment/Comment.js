@@ -7,12 +7,12 @@ import { deleteComment, createTask, createCommentsKey } from '../../../../../red
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-function Comment({id, taskId, type, content, author, project, created_at, dispatch}) {
+function Comment({id, index, taskId, type, content, author, project, created_at, dispatch}) {
   let commentBody;
   if (type === 'text') {
     commentBody = content;
   } else if (type === 'checklist') {
-    commentBody = <ChecklistComment content={content} />
+    commentBody = <ChecklistComment content={content} taskId={taskId} index={index} />
   } else {
     //attachment
   }

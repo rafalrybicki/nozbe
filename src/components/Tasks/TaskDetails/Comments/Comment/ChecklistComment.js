@@ -1,17 +1,27 @@
-import React from 'react';
-import './ChecklistComment.css'
-import Toggler from '../../../../shared/Toggler'
+import React, { useEffect } from 'react';
+import './ChecklistComment.css';
+import Toggler from '../../../../shared/Toggler';
+import { connect } from 'react-redux';
+import { checkAll } from '../../../../../redux/actions'
 
-function ChecklistComment({content}) {
+function ChecklistComment({content, taskId, index, dispatch}) {
+  const allCompleted = content.every(item => item.completion === true);
+  const completed = content.filter(item => item.completion === true).length;
+  const allItems = content.length;
+
+  useEffect(() => {})
+
   return (
     <>
-      <div className={"checklist-comment-item check-all"}>
+      <div className={allCompleted ? "checklist-comment-item completed" : "checklist-comment-item"}>
         <Toggler
           className={"checklist-toggler"}
-          completion={false}
+          onClick={() => dispatch(checkAll(taskId, index, !allCompleted))}
         />
         <p>Check all</p>
-        <span className="stats">0/2 (0%)</span>
+        <span className="stats">
+          {completed}/{allItems} {Math.floor(completed/allItems * 100)}%
+        </span>
       </div> 
       {content.map((item, index) => 
         <div
@@ -20,7 +30,6 @@ function ChecklistComment({content}) {
         >
           <Toggler
             className={"checklist-toggler"}
-            completion={item.completion}
           />
           <p>{item.value}</p>
         </div> 
@@ -29,4 +38,4 @@ function ChecklistComment({content}) {
   );
 }
 
-export default ChecklistComment;
+export default connect()(ChecklistComment);
