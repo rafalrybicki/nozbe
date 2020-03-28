@@ -3,7 +3,8 @@ import {
   ADD_COMMENT,
   DELETE_COMMENT,
   CLONE_COMMENTS,
-  CHECK_ALL
+  CHECK_ALL,
+  TOGGLE_CHECKLIST_ITEM
 } from '../actions/actionTypes'
 
 const initialState = {
@@ -95,6 +96,11 @@ const comments = (state = initialState, action) => {
         ...state,
         [action.taskId]: checkAll(state[action.taskId], action.index, action.value) 
       }
+    case TOGGLE_CHECKLIST_ITEM:
+      return {
+        ...state,
+        [action.taskId]: toggleChecklistItem(state[action.taskId], action.index, action.itemId)
+      }
     case CLONE_COMMENTS:
       return {
         ...state,
@@ -110,6 +116,17 @@ const checkAll = (taskComments, index, value) => {
   newTaskComments[index] = {
     ...taskComments[index],
     content: taskComments[index].content.map(item => ({...item, completion: value}))
+  }
+  return newTaskComments 
+}
+
+const toggleChecklistItem = (taskComments, index, itemId) => {
+  const newTaskComments = [...taskComments];
+  newTaskComments[index] = {
+    ...taskComments[index],
+    content: taskComments[index].content.map(
+      item => item.id === itemId ? ({...item, completion: !item.completion }): item
+    )
   }
   return newTaskComments 
 }

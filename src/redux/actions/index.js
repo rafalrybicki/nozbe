@@ -12,6 +12,7 @@ import {
   DELETE_COMMENT,
   CLONE_COMMENTS,
   CHECK_ALL,
+  TOGGLE_CHECKLIST_ITEM,
 } from './actionTypes'
 
 export const createTask = (id, content, project, date) => ({
@@ -87,6 +88,13 @@ export const checkAll = (taskId, index, value) => ({
   taskId,
   index,
   value
+})
+
+export const toggleChecklistItem = (taskId, index, itemId) => ({
+  type: TOGGLE_CHECKLIST_ITEM,
+  taskId,
+  index,
+  itemId
 })
 
 export const cloneTaskComments = (originalTaskId, newTaskId, date) => ({
