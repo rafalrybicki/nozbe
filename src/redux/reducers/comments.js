@@ -99,7 +99,7 @@ const comments = (state = initialState, action) => {
     case TOGGLE_CHECKLIST_ITEM:
       return {
         ...state,
-        [action.taskId]: toggleChecklistItem(state[action.taskId], action.index, action.itemId)
+        [action.taskId]: toggleChecklistItem(state[action.taskId], action.commentIndex, action.itemIndex)
       }
     case CLONE_COMMENTS:
       return {
@@ -120,15 +120,21 @@ const checkAll = (taskComments, index, value) => {
   return newTaskComments 
 }
 
-const toggleChecklistItem = (taskComments, index, itemId) => {
-  const newTaskComments = [...taskComments];
-  newTaskComments[index] = {
-    ...taskComments[index],
-    content: taskComments[index].content.map(
-      item => item.id === itemId ? ({...item, completion: !item.completion }): item
-    )
+const toggleChecklistItem = (oldComments, commentIndex, itemIndex) => {
+  const newComments = [...oldComments];
+
+  newComments[commentIndex] = {
+    ...oldComments[commentIndex]
   }
-  return newTaskComments 
+
+  newComments[commentIndex].content = [...oldComments[commentIndex].content]
+
+  newComments[commentIndex].content[itemIndex] = {
+    ...oldComments[commentIndex].content[itemIndex],
+    completion: !oldComments[commentIndex].content[itemIndex].completion
+  }
+
+  return newComments
 }
 
 const cloneComments = (originalTaskComments, date) => {

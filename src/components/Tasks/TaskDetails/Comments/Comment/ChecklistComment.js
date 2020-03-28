@@ -1,44 +1,39 @@
 import React, { useEffect } from 'react';
 import './ChecklistComment.css';
-import Toggler from '../../../../shared/Toggler';
+import ChecklistItem from './ChecklistItem'
 import { connect } from 'react-redux';
 import { checkAll, toggleChecklistItem } from '../../../../../redux/actions'
 
-function ChecklistComment({content, taskId, index, dispatch}) {
+function ChecklistComment({content, taskId, commentIndex, dispatch}) {
   const allCompleted = content.every(item => item.completion === true);
   const completed = content.filter(item => item.completion === true).length;
   const allItems = content.length;
 
-  useEffect(() => {})
-
-  const toggleItem = (id) => {
-    dispatch(toggleChecklistItem(taskId, index, id))
+  const toggleItem = (itemIndex) => {
+    dispatch(toggleChecklistItem(taskId, commentIndex, itemIndex))
   }
+
+  useEffect(() => {})
 
   return (
     <>
-      <div className={allCompleted ? "checklist-comment-item completed" : "checklist-comment-item"}>
-        <Toggler
-          className={"checklist-toggler"}
-          onClick={() => dispatch(checkAll(taskId, index, !allCompleted))}
-        />
+      <ChecklistItem 
+        completion={allCompleted} 
+        onClick={() => dispatch(checkAll(taskId, commentIndex, !allCompleted))}
+      > 
         <p>{allCompleted ? 'Uncheck all' : 'Check all'}</p>
         <span className="stats">
           {completed}/{allItems} {Math.floor(completed/allItems * 100)}%
         </span>
-      </div> 
+      </ChecklistItem>
+
       {content.map((item, index) => 
-        <div
-          className={item.completion ? "checklist-comment-item completed" : "checklist-comment-item"}
+        <ChecklistItem 
+          {...item} 
+          onClick={toggleItem}
           key={index}
-        >
-          <Toggler
-            className={"checklist-toggler"}
-            id={item.id}
-            onClick={toggleItem}
-          />
-          <p>{item.value}</p>
-        </div> 
+          itemIndex={index} 
+        />
       )}
     </>
   );

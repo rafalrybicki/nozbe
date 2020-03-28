@@ -90,11 +90,11 @@ export const checkAll = (taskId, index, value) => ({
   value
 })
 
-export const toggleChecklistItem = (taskId, index, itemId) => ({
+export const toggleChecklistItem = (taskId, commentIndex, itemIndex) => ({
   type: TOGGLE_CHECKLIST_ITEM,
   taskId,
-  index,
-  itemId
+  commentIndex,
+  itemIndex
 })
 
 export const cloneTaskComments = (originalTaskId, newTaskId, date) => ({

@@ -12,7 +12,7 @@ function Comment({id, index, taskId, type, content, author, project, created_at,
   if (type === 'text') {
     commentBody = content;
   } else if (type === 'checklist') {
-    commentBody = <ChecklistComment content={content} taskId={taskId} index={index} />
+    commentBody = <ChecklistComment content={content} taskId={taskId} commentIndex={index} />
   } else {
     //attachment
   }

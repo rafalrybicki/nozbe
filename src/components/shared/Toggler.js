@@ -5,7 +5,7 @@ function Toggler({id, onClick, className}) {
   return (
     <span 
       className={"toggler " + className}
-      onClick={() => onClick(id)}
+      onClick={onClick ? () => onClick(id) : undefined}
     >&#10003;</span>
   );
 }
