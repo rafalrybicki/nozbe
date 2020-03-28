@@ -1,14 +1,12 @@
 import React from 'react';
 import './Toggler.css'
 
-function Toggler({completion, onclick}) {
+function Toggler({id, onClick, className}) {
   return (
-    <div 
-      className="toggler" 
-      onClick={onclick}
-    >
-      {completion && <span className="tick">&#10003;</span>}
-    </div>
+    <span 
+      className={"toggler " + className}
+      onClick={() => onClick(id)}
+    >&#10003;</span>
   );
 }
 

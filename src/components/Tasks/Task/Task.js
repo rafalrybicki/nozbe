@@ -1,12 +1,15 @@
 import React from 'react';
 import './Task.css';
 import Avatar from '../../shared/Avatar';
-import CompletionToggler from '../../shared/CompletionToggler';
+import Toggler from '../../shared/Toggler';
 import TaskAttributes from './TaskAttributes';
 import PriorityToggler from '../../shared/PriorityToggler';
 import Icon from '@material-ui/core/Icon';
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { toggleCompletion } from '../../../redux/actions';
 
 function Task(props) {
   const { 
@@ -18,7 +21,8 @@ function Task(props) {
     priority, 
     addToSelected, 
     editMode,
-    pathName
+    pathName,
+    toggleCompletion
   } = props
 
   const onTaskToggle = (e) => {
@@ -48,9 +52,10 @@ function Task(props) {
         onChange={addToSelected} 
       />
       <Avatar userName={author} />
-      <CompletionToggler 
-        completion={completion} 
+      <Toggler 
+        className={"completion-toggler"}
         id={id} 
+        onClick={toggleCompletion}
       />
       <Link 
         onClick={onTaskToggle}
@@ -69,5 +74,13 @@ function Task(props) {
   );
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleCompletion: (id) => dispatch(toggleCompletion(id))
+  }
+}
 
-export default withRouter(Task);
+export default compose(
+  withRouter,
+  connect(null, mapDispatchToProps)
+)(Task);

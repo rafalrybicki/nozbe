@@ -5,6 +5,7 @@ import ChecklistComment from './ChecklistComment';
 import CommentOptions from './CommentOptions';
 import { deleteComment, createTask, createCommentsKey } from '../../../../../redux/actions';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 function Comment({id, taskId, type, content, author, project, created_at, dispatch}) {
   let commentBody;
@@ -47,7 +48,7 @@ function Comment({id, taskId, type, content, author, project, created_at, dispat
       <div className="comment-header">
         <Avatar userName={author} />
         <span className="author">{author}</span>
-        <span className="date">{created_at.toDateString()}</span>
+        <span className="date">{moment(created_at).startOf('second').fromNow()}</span>
         <CommentOptions 
           createTask={addTask}
           deleteComment={() => dispatch(deleteComment(taskId, id))}

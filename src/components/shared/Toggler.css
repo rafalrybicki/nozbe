@@ -1,32 +1,48 @@
-.edit-mode .task .completion {
-  display: none;
-}
-
 .toggler {
-  height: 28px;
-  width: 28px;
-  font-size: 28px;
+  display: block;
   font-weight: bold;
   border-radius: 50%;
-  border: 1.3px #C7C7C7 solid;
-  margin-right: 10px;
-  color: #C7C7C7;
+  line-height: 1;
+  text-align: center;
+  color: transparent;
   flex-shrink: 0;
+  border: 1.3px #C7C7C7 solid;
   cursor: pointer;
 }
 
-.toggler .tick {
-  z-index: -1;
-  margin-left: 1px;
-  display: block;
-  margin-top: -2px;
+
+.checklist-toggler {
+  height: 18px;
+  width: 18px;
+  font-size: 14px;
+  margin-right: 8px;
+  padding-top: 3px;
 }
 
-.active .toggler {
+.completed .checklist-toggler  {
+  background-color: black;
+  border: 0;
+  color: white;
+}
+
+
+.completion-toggler {
+  height: 28px;
+  width: 28px;
+  font-size: 24px;
+  margin-right: 10px;
+  padding-top: 2px;
+}
+
+.completed .completion-toggler {
+  color: #C7C7C7
+}
+
+.active .completion-toggler {
   border-color: #646464;
 }
 
-.active.completed .toggler {
+.active.completed .completion-toggler {
   border-color: #ACACAC;
   color: #ACACAC;
 }

@@ -1,5 +1,9 @@
-.edit-mode .task {
+.edit-mode .task-link {
   cursor: default;
+}
+
+.edit-mode .task .completion-toggler {
+  display: none;
 }
 
 .task {
@@ -79,8 +83,8 @@
   height: 42px;
   width: 42px;
   color: rgb(199, 199, 199);
-  cursor: move;
-  padding: 10px;
+  cursor: grab;
+  padding: 8px;
   margin-right: 12px;
   margin-left: 5px;
   z-index: 4;
