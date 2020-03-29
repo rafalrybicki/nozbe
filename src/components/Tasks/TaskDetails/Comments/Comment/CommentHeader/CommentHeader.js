@@ -4,7 +4,7 @@ import Avatar from '../../../../../shared/Avatar';
 import CommentOptions from './CommentOptions';
 import moment from 'moment';
 
-function CommentHeader({author, created_at, taskId, commentId}) {
+function CommentHeader({author, type, content, created_at, taskId, commentId}) {
    return (
       <div className="comment-header">
          <Avatar userName={author} />
@@ -13,6 +13,8 @@ function CommentHeader({author, created_at, taskId, commentId}) {
          <CommentOptions 
             taskId={taskId}
             commentId={commentId}
+            type={type}
+            content={content}
          />
       </div>
    );

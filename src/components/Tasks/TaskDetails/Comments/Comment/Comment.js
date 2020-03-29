@@ -20,6 +20,9 @@ function Comment({id, index, taskId, type, content, author, project, created_at,
         created_at={created_at}
         taskId={taskId}
         commentId={id}
+        type={type}
+        content={content} 
+        project={project}
       />
       <div className="comment-body">
         {commentBody}

@@ -7,7 +7,7 @@ import {
   DELETE_TASK,
   COMPLETE_TASKS,
   CLONE_TASK,
-  CREATE_KEY,
+  CREATE_COMMENTS_KEY,
   ADD_COMMENT,
   DELETE_COMMENT,
   CLONE_COMMENTS,
@@ -15,12 +15,9 @@ import {
   TOGGLE_CHECKLIST_ITEM,
 } from './actionTypes'
 
-export const createTask = (id, content, project, date) => ({
+export const createTask = task => ({
   type: CREATE_TASK,
-  id,
-  content,
-  project,
-  date
+  task
 })
 
 export const cloneTask = (originalTaskId, newTaskId, date) => ({
@@ -66,7 +63,7 @@ export const deleteTasks = array => ({
 // comments
 
 export const createCommentsKey = (taskId, comments) => ({
-  type: CREATE_KEY,
+  type: CREATE_COMMENTS_KEY,
   taskId,
   comments
 })

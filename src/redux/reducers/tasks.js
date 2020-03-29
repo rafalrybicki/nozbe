@@ -151,26 +151,7 @@ const tasks = (state = initialState, action) => {
     case CREATE_TASK:
       return {
         ...state,
-        [action.id]: {
-          id: action.id,
-          author: 'Current User',
-          content: action.content,
-          completion: false,
-          priority: action.project === 'priority' ? true : false,
-          duration: null,
-          project: {
-            name: 'Inbox',
-            path: '/inbox',
-            color: 'black'
-          },
-          deadline: null,
-          categories: [],
-          repeat: false,
-          created_at: action.date,
-          updated_at: action.date,
-          holder: 'Current User',
-          comments: []
-        }
+        [action.task.id]: action.task
       };
     case EDIT_TASK:
       return {

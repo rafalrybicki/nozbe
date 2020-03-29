@@ -3,10 +3,9 @@ import './CommentOptions.css';
 import Icon from '@material-ui/core/Icon';
 import OptionListItem from '../../../../../shared/OptionListItem';
 import { connect } from 'react-redux';
-import { deleteComment } from '../../../../../../redux/actions';
-// import {  createTask, createCommentsKey } from '../../../../../redux/actions';
+import { deleteComment, createTask, createCommentsKey } from '../../../../../../redux/actions';
 
-function CommentOptions({taskId, commentId, deleteComment}) {
+function CommentOptions({taskId, commentId, type, content, deleteComment, createTask, createCommentsKey}) {
   const [optionList, showOptionList] = useState(false);
 
   const toggleOptions = () => {
@@ -42,6 +41,27 @@ function CommentOptions({taskId, commentId, deleteComment}) {
     }, 0)
   }
 
+  const createNewTask = () => {
+    const taskId = Math.random();
+    const date = new Date();
+    const taskContent = type === 'text' ? content : content[0].value;
+    const commentContent = type === 'text' ? content : [];
+
+    if (type === 'checklist') {
+      content.map(item => commentContent.push({
+        value: item.value, 
+        id: Math.random(), 
+        completion: false
+      }))    
+    }
+
+    const newTask = getNewTask(taskId, taskContent, date, 'project to change here');
+    const newComment = getNewComment(type, commentContent, date)
+
+    createTask(newTask);
+    createCommentsKey(taskId, [newComment]);
+  }
+
   return (
     <>
       <Icon onClick={toggleOptions}>more_horiz</Icon>
@@ -59,7 +79,7 @@ function CommentOptions({taskId, commentId, deleteComment}) {
         <OptionListItem
           icon={'add'}
           text={'Create a task with this comment'}
-          // onClick={createTask}
+          onClick={createNewTask}
         />
         <OptionListItem
           icon={'delete'}
@@ -71,9 +91,42 @@ function CommentOptions({taskId, commentId, deleteComment}) {
   );
 }
 
+const getNewTask = (id, content, date, project) => ({
+  id,
+  author: 'Current User',
+  content: content,
+  completion: false,
+  priority: project === 'priority' ? true : false,
+  duration: null,
+  project: {
+    name: 'Inbox',
+    path: '/inbox',
+    color: 'black'
+  },
+  deadline: null,
+  categories: [],
+  repeat: false,
+  created_at: date,
+  updated_at: date,
+  holder: 'Current User',
+  comments: []
+})
+
+const getNewComment = (type, content, date) => ({
+  id: Math.random(),
+  content,
+  date, 
+  type,
+  created_at: date,
+  updated_at: date,
+  author: 'Current User'
+})
+
 function mapDispatchToProps(dispatch) {
   return {
-    deleteComment: (taskId, commentId) => dispatch(deleteComment(taskId, commentId))
+    deleteComment: (taskId, commentId) => dispatch(deleteComment(taskId, commentId)),
+    createTask: task => dispatch(createTask(task)),
+    createCommentsKey: (taskId, arr) => dispatch(createCommentsKey(taskId, arr))
   }
 }
 

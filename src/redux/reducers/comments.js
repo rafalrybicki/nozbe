@@ -1,5 +1,5 @@
 import {
-  CREATE_KEY,
+  CREATE_COMMENTS_KEY,
   ADD_COMMENT,
   DELETE_COMMENT,
   CLONE_COMMENTS,
@@ -73,7 +73,7 @@ const initialState = {
 
 const comments = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_KEY:
+    case CREATE_COMMENTS_KEY:
       return {
         ...state,
         [action.taskId]: action.comments || []
