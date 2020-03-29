@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { checkAll, toggleChecklistItem } from '../../../../../redux/actions'
 
 function ChecklistComment({content, taskId, commentIndex, dispatch}) {
-  const allCompleted = content.every(item => item.completion === true);
+  const isAllCompleted = content.every(item => item.completion === true);
   const completed = content.filter(item => item.completion === true).length;
   const allItems = content.length;
 
@@ -18,10 +18,10 @@ function ChecklistComment({content, taskId, commentIndex, dispatch}) {
   return (
     <>
       <ChecklistItem 
-        completion={allCompleted} 
-        onClick={() => dispatch(checkAll(taskId, commentIndex, !allCompleted))}
+        completion={isAllCompleted} 
+        onClick={() => dispatch(checkAll(taskId, commentIndex, !isAllCompleted))}
       > 
-        <p>{allCompleted ? 'Uncheck all' : 'Check all'}</p>
+        <p>{isAllCompleted ? 'Uncheck all' : 'Check all'}</p>
         <span className="stats">
           {completed}/{allItems} {Math.floor(completed/allItems * 100)}%
         </span>
@@ -36,7 +36,7 @@ function ChecklistComment({content, taskId, commentIndex, dispatch}) {
         />
       )}
     </>
-  );
+  )
 }
 
 export default connect()(ChecklistComment);

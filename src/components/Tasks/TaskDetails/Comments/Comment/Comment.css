@@ -5,37 +5,6 @@
   border-radius: 3px;
 }
 
-.comment-header {
-  padding: 10px;
-  position: relative;
-  height: 52px;
-  border-bottom: 1px dashed #e5e5e5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.comment-header .date {
-  position: absolute;
-  bottom: 11px;
-  left: 48px;
-  color: rgba(21,21,21,0.5);
-  font-size: 11px;
-}
-
-.comment-header .author{
-  padding-bottom: 16px;
-  font-size: 13px;
-  font-weight: bold;
-  flex-grow: 1;
-}
-
-.comment-header .material-icons {
-  margin-top: 9px;
-  cursor: pointer;
-  margin-right: -2px;
-}
-
 .comment-body {
   padding: 20px 10px;
 }
