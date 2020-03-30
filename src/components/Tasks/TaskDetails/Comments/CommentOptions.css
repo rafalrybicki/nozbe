@@ -1,9 +1,15 @@
+.comment .comment-options {
+  position: absolute;
+  top: 15px;
+  right: 10px
+}
+
 .comment .option-list {
   display: block;
   position: absolute;
-  bottom: 45px;
-  right: 40px;
-  transform: translateY(100%);
+  width: 250px;
+  top: -5px;
+  right: 30px;
   background-color: white;
   box-shadow: 0 3px 10px rgba(21,21,21,0.3);
   border: 1px solid #ccc;

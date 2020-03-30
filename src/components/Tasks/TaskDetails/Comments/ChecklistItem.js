@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ChecklistItem.css';
-import Toggler from '../../../../shared/Toggler';
+import Toggler from '../../../shared/Toggler';
 
 function CheckListItem({completion, id, value, onClick, itemIndex, children}) {
-  const className = completion ? "checklist-item completed" : "checklist-item";
+  let className = completion ? "checklist-item completed" : "checklist-item";
 
-  useEffect(() => {})
+  if (children) className += " check-all";
 
   return (
     <div

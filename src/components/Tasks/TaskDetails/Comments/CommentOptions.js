@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './CommentOptions.css';
 import Icon from '@material-ui/core/Icon';
-import OptionListItem from '../../../../../shared/OptionListItem';
+import OptionListItem from '../../../shared/OptionListItem';
 import { connect } from 'react-redux';
-import { deleteComment, createTask, createCommentsKey } from '../../../../../../redux/actions';
+import { deleteComment, createTask, createCommentsKey } from '../../../../redux/actions';
 
 function CommentOptions({taskId, commentId, type, content, deleteComment, createTask, createCommentsKey, showEditForm}) {
   const [optionList, showOptionList] = useState(false);
@@ -63,7 +63,7 @@ function CommentOptions({taskId, commentId, type, content, deleteComment, create
   }
 
   return (
-    <>
+    <div className="comment-options">
       <Icon onClick={toggleOptions}>more_horiz</Icon>
       <div className={optionList ? "option-list" : "option-list hide"}>
         <OptionListItem
@@ -87,7 +87,7 @@ function CommentOptions({taskId, commentId, type, content, deleteComment, create
           onClick={handleDeleteAction}
         />
       </div>
-    </>
+    </div>
   );
 }
 
