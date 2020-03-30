@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-import './NewChecklist.css'
+import './ChecklistForm.css'
 import { v4 as uuid } from 'uuid';
 import ChecklistItem from './ChecklistItem'
 
-function NewChecklist(props) {
-  const [items, setItems] = useState([
-    { 
-      value: '',
-      completion: false, 
-      id: uuid(), 
-    }
-  ])
+function ChecklistForm({addChecklist}) {
+  const getNewItem = () => ({
+    value: '', 
+    completion: false, 
+    id: uuid()
+  })
 
-  const addNewItem = () => {
-    setItems([...items, { value: '', completion: false, id: uuid() }])
-  }
-
+  const [items, setItems] = useState([ getNewItem() ])
+  
   const updateItemValue = (newValue, index) => {
     let newItems = [...items];
     newItems[index].value = newValue;
@@ -23,6 +19,7 @@ function NewChecklist(props) {
   }
 
   const toggleCompletion = (index) => {
+    console.log(index)
     let newItems = [...items];
     newItems[index].completion = !newItems[index].completion;
     setItems(newItems)
@@ -31,45 +28,48 @@ function NewChecklist(props) {
   const addComment = () => {
     const date = new Date();
 
-    items.map(item => item.value.trim())
-
     const newComment = {
       type: 'checklist',
-      content: items.filter(item => item.value !== ''),
-      author: 'ThisCode ShouldBeChanged',
+      content: items.filter(item => item.value.trim() !== ''),
+      author: 'ChangeThis User',
       created_at: date,
       updated_at: date,
       id: Math.random()
     }
 
-    props.addComment(newComment)
+    addChecklist(newComment)
   }
+
+  const disabled = items[items.length - 1].value.trim() === '' ? true : false;
 
   return (
     <div className="new-checklist">
       <button
         onClick={addComment}
         className="btn-green"
-        disabled={items[items.length-1].value.trim() === ''}
+        disabled={disabled && items.length === 1}
       >Save</button>
 
       {items.map( (item,i) => 
         <ChecklistItem 
+          prevValue={item.value}
           key={i}
           index={i} 
           completion={item.completion} 
           updateItemValue={updateItemValue} 
           toggleCompletion={toggleCompletion}
+          autoFocus={i === items.length - 1}
+          addNewItem={() => setItems([...items, getNewItem()])}
         />
       )}
 
       <button 
-        onClick={addNewItem}
+        addNewItem={() => setItems([...items, getNewItem()])}
         className="add"
-        disabled={items[items.length-1].value === ''}
+        disabled={disabled}
       >+</button>
     </div>
   );
 }
 
-export default NewChecklist;
+export default ChecklistForm;

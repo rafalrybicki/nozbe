@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import CommentTypePicker from './CommentTypePicker';
 import TextareaAutosize from 'react-textarea-autosize';
 import TextComment from './TextComment';
-import NewChecklist from './NewChecklist/NewChecklist';
+import ChecklistForm from './ChecklistForm/ChecklistForm';
 import { connect } from 'react-redux';
 import { addComment } from '../../../../redux/actions'
 
@@ -42,9 +42,11 @@ function NewComment({taskId, dispatch}) {
       />}
 
       {type === 'Checklist' && 
-      <NewChecklist 
-        addComment={addNewComment}
+      <ChecklistForm 
+        addChecklist={addNewComment}
       />}
+
+      {type === 'Attachment' && 'type attachment coming soon'}
 
       {type === false && 
       <>

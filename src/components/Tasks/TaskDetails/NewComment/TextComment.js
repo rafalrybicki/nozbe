@@ -31,6 +31,7 @@ function TextComment(props) {
         onChange={(e) => setValue(e.target.value.trim())}
         minRows={7}
         placeholder="Add comment (ENTER)"
+        autoFocus
       />
     </>
   );
