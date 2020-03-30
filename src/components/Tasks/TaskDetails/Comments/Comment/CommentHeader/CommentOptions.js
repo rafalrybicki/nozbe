@@ -5,7 +5,7 @@ import OptionListItem from '../../../../../shared/OptionListItem';
 import { connect } from 'react-redux';
 import { deleteComment, createTask, createCommentsKey } from '../../../../../../redux/actions';
 
-function CommentOptions({taskId, commentId, type, content, deleteComment, createTask, createCommentsKey}) {
+function CommentOptions({taskId, commentId, type, content, deleteComment, createTask, createCommentsKey, showEditForm}) {
   const [optionList, showOptionList] = useState(false);
 
   const toggleOptions = () => {
@@ -21,11 +21,11 @@ function CommentOptions({taskId, commentId, type, content, deleteComment, create
     document.removeEventListener('click', hideOptions)
   }
 
-  const handleEditAction = () => {
-    setTimeout(() => {
-      alert('Coming soon')
-    }, 0)
-  }
+  // const handleEditAction = () => {
+  //   setTimeout(() => {
+  //     alert('Coming soon')
+  //   }, 0)
+  // }
 
   const handleDeleteAction = () => {
     setTimeout(() => {
@@ -69,7 +69,7 @@ function CommentOptions({taskId, commentId, type, content, deleteComment, create
         <OptionListItem
           icon={'edit'}
           text={'Edit'}
-          onClick={handleEditAction}
+          onClick={showEditForm}
         />
         <OptionListItem
           icon={'assignment_returned'}

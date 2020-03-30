@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { useState} from 'react';
 import './Comment.css'
 import CommentHeader from './CommentHeader/CommentHeader'
 import ChecklistComment from './ChecklistComment';
 
-function Comment({id, index, taskId, type, content, author, project, created_at, dispatch}) {
-  let commentBody;
-  if (type === 'text') {
-    commentBody = content;
-  } else if (type === 'checklist') {
-    commentBody = <ChecklistComment content={content} taskId={taskId} commentIndex={index} />
-  } else {
-    //type attachment
-  }
+function Comment({id, index, taskId, type, content, author, project, created_at }) {
+  const [editForm, showEditForm] = useState(false)
 
   return (
     <div className="comment">
@@ -23,9 +16,14 @@ function Comment({id, index, taskId, type, content, author, project, created_at,
         type={type}
         content={content} 
         project={project}
+        showEditForm={() => showEditForm(true)}
       />
       <div className="comment-body">
-        {commentBody}
+        {type === 'checklist' &&
+          <ChecklistComment edit={editForm} closeEditForm={() => showEditForm(false)} content={content} taskId={taskId} commentIndex={index} />
+        }
+
+        {type === 'text' && content}
       </div>
       
     </div>

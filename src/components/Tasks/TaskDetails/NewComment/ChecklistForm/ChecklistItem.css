@@ -1,15 +1,17 @@
-.new-checklist .checklist-item {
+.checklist-form .checklist-item {
+  width: 100%;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
+  min-height: 35px;
   height: auto;
 }
 
-.new-checklist .checklist-item:last-of-type {
+.checklist-form .checklist-item:last-of-type {
   margin-bottom: 10px;
 }
 
-.new-checklist .checklist-item textarea {
+.checklist-form .checklist-item textarea {
   padding: 8px;
   padding-right: 45px;
   height: 35px;

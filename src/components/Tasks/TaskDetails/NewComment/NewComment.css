@@ -1,5 +1,6 @@
 .hide-attributes .new-comment {
   padding-top: 45px;
+  margin-top: 4px;
 }
 
 .new-comment {
@@ -14,19 +15,6 @@
   min-height: 80px;
   padding: 10px;
 
-}
-
-.new-comment textarea {
-  border-radius: 3px;
-  resize: none;
-  font-family: inherit;
-  border: 1px solid rgba(21,21,21,0.2);
-  overflow: hidden;
-}
-
-.new-comment textarea:focus {
-  outline: none;
-  border: 1px solid black;
 }
 
 .new-comment .type-icon {
@@ -60,7 +48,7 @@
   cursor: pointer;
 }
 
-.new-comment button {
+.new-comment .btn-green {
   position: absolute;
   top: 0;
   right: 0;

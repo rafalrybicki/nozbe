@@ -7,7 +7,7 @@
   cursor: default;
 }
 
-.comment .checklist-item:first-of-type {
+.comment .checklist-item.check-all {
   padding: 3px;
   background-color: rgb(244, 244, 244);
   border-radius: 5px;

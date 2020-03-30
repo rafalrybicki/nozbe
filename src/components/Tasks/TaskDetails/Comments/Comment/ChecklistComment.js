@@ -1,42 +1,48 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ChecklistComment.css';
 import ChecklistItem from './ChecklistItem'
 import { connect } from 'react-redux';
-import { checkAll, toggleChecklistItem } from '../../../../../redux/actions'
+import { checkAll, toggleChecklistItem } from '../../../../../redux/actions';
 
-function ChecklistComment({content, taskId, commentIndex, dispatch}) {
-  const isAllCompleted = content.every(item => item.completion === true);
-  const completed = content.filter(item => item.completion === true).length;
-  const allItems = content.length;
+import ChecklistForm from '../../NewComment/ChecklistForm/ChecklistForm'
 
-  const toggleItem = (itemIndex) => {
-    dispatch(toggleChecklistItem(taskId, commentIndex, itemIndex))
-  }
+function ChecklistComment({content, taskId, commentIndex, closeEditForm, edit, dispatch}) {
 
-  useEffect(() => {})
+  if (edit) {
+    return <ChecklistForm editMode={true} oldItems={content} closeEditForm={closeEditForm} />
+  } else {
+    const isAllCompleted = content.every(item => item.completion === true);
+    const completed = content.filter(item => item.completion === true).length;
+    const allItems = content.length;
 
-  return (
-    <>
-      <ChecklistItem 
-        completion={isAllCompleted} 
-        onClick={() => dispatch(checkAll(taskId, commentIndex, !isAllCompleted))}
-      > 
-        <p>{isAllCompleted ? 'Uncheck all' : 'Check all'}</p>
-        <span className="stats">
-          {completed}/{allItems} {Math.floor(completed/allItems * 100)}%
-        </span>
-      </ChecklistItem>
+    const toggleItem = (itemIndex) => {
+      dispatch(toggleChecklistItem(taskId, commentIndex, itemIndex))
+    }
 
-      {content.map((item, index) => 
+    return (
+      <>
         <ChecklistItem 
-          {...item} 
-          onClick={toggleItem}
-          key={index}
-          itemIndex={index} 
-        />
-      )}
-    </>
-  )
+          completion={isAllCompleted} 
+          className="check-all"
+          onClick={() => dispatch(checkAll(taskId, commentIndex, !isAllCompleted))}
+        > 
+          <p>{isAllCompleted ? 'Uncheck all' : 'Check all'}</p>
+          <span className="stats">
+            {completed}/{allItems} {Math.floor(completed/allItems * 100)}%
+          </span>
+        </ChecklistItem>
+  
+        {content.map((item, index) => 
+          <ChecklistItem 
+            {...item} 
+            onClick={toggleItem}
+            key={index}
+            itemIndex={index} 
+          />
+        )}
+      </>
+    )
+  }
 }
 
 export default connect()(ChecklistComment);

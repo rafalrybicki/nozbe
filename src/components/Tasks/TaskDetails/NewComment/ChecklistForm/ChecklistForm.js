@@ -3,29 +3,28 @@ import './ChecklistForm.css'
 import { v4 as uuid } from 'uuid';
 import ChecklistItem from './ChecklistItem'
 
-function ChecklistForm({addChecklist}) {
+function ChecklistForm({addChecklist, editMode, closeEditForm, oldItems=[]}) {
   const getNewItem = () => ({
     value: '', 
     completion: false, 
     id: uuid()
   })
 
-  const [items, setItems] = useState([ getNewItem() ])
+  const [items, setItems] = useState(oldItems.concat([getNewItem()]))
   
   const updateItemValue = (newValue, index) => {
-    let newItems = [...items];
+    const newItems = [...items];
     newItems[index].value = newValue;
     setItems(newItems)
   }
 
   const toggleCompletion = (index) => {
-    console.log(index)
-    let newItems = [...items];
+    const newItems = [...items];
     newItems[index].completion = !newItems[index].completion;
     setItems(newItems)
   }
 
-  const addComment = () => {
+  const handleSave = () => {
     const date = new Date();
 
     const newComment = {
@@ -36,17 +35,20 @@ function ChecklistForm({addChecklist}) {
       updated_at: date,
       id: Math.random()
     }
+    if (editMode) {
 
-    addChecklist(newComment)
+    } else {
+      addChecklist(newComment)
+    }
   }
 
-  const disabled = items[items.length - 1].value.trim() === '' ? true : false;
+  const disabled = items[items.length - 1].value.trim() === '';
 
   return (
-    <div className="new-checklist">
+    <div className={editMode ? "checklist-form edit" : "checklist-form"}>
       <button
-        onClick={addComment}
-        className="btn-green"
+        onClick={handleSave}
+        className="save btn-green"
         disabled={disabled && items.length === 1}
       >Save</button>
 
@@ -68,6 +70,8 @@ function ChecklistForm({addChecklist}) {
         className="add"
         disabled={disabled}
       >+</button>
+
+      <button className="cancel" onClick={closeEditForm}>Cancel</button>
     </div>
   );
 }

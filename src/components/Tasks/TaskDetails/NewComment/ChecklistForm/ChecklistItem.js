@@ -9,7 +9,6 @@ function ChecklistItem({index, prevValue, completion, autoFocus, updateItemValue
     if (e.nativeEvent.inputType === 'insertLineBreak' && prevValue.length > 0) {
       addNewItem()
     } else if (e.target.value.trim() || prevValue.length === 1) {
-      console.log(prevValue)
       updateItemValue(e.target.value, index)
     }
   }
