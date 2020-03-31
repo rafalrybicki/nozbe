@@ -1,7 +1,10 @@
 .checklist-form {
-  padding-bottom: 10px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.checklist-comment .checklist-form {
+  padding: 0 10px;
 }
 
 .checklist-form .add {
@@ -16,34 +19,18 @@
   border: 1px solid black;
   border-radius: 3px;
   background-color: transparent;
-  margin: 5px 200px 5px 0;
+  margin: 5px 200px 15px 0;
   
 }
 .checklist-form .add:disabled {
   display: none;
 }
 
-.checklist-form .cancel {
-  display: none;
-  color: #555;
-  border: 1px solid rgba(21,21,21,0.2);
-  cursor: pointer;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
 .checklist-form.edit .save {
   position: relative;
-  order: 100;
   margin-left: auto;
-}
-
-.checklist-form.edit .cancel {
-  display: block;
-  background-color: transparent;
-}
-
-.checklist-form.edit .save, .checklist-form.edit .cancel {
+  
+  margin-bottom: 15px;
   width: calc(50% - 5px);
-  margin-top: 10px;
+  order: 100;
 }

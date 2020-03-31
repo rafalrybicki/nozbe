@@ -14,7 +14,7 @@ function ChecklistItem({index, prevValue, completion, autoFocus, updateItemValue
   }
 
   return (
-    <div className={completion ? "checklist-item completed" : "checklist-item"} >
+    <div className={completion ? "checklist-form-item completed" : "checklist-form-item"} >
       <Toggler 
         className={"checklist-toggler"}
         id={index}

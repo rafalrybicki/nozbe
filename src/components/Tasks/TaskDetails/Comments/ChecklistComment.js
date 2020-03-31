@@ -6,22 +6,22 @@ import CommentHeader from './CommentHeader'
 import ChecklistForm from '../NewComment/ChecklistForm/ChecklistForm'
 import CommentOptions from './CommentOptions';
 
-function ChecklistComment({id, taskId, content, closeEditForm, author, created_at, toggleItem, checkAll }) {
+function ChecklistComment({id, taskId, content, author, created_at, toggleItem, checkAll }) {
   const [edit, showEditForm] = useState(false);
 
-  if (edit) {
-    return <ChecklistForm editMode={true} oldItems={content} closeEditForm={() => showEditForm(false)} />
-  } else {
-    const allItemsCompleted = content.every(item => item.completion === true);
-    const completed = content.filter(item => item.completion === true).length;
-    const allItems = content.length;
+  const allItemsCompleted = content.every(item => item.completion === true);
+  const completed = content.filter(item => item.completion === true).length;
+  const allItems = content.length;
 
-    return (
-      <div className="comment checklist-comment">
-        <CommentHeader 
-          author={author}
-          created_at={created_at}
-        />
+  return (
+    <div className="comment checklist-comment">
+      <CommentHeader 
+        author={author}
+        created_at={created_at}
+      />
+
+      {edit === false &&
+      <>
         <CommentOptions
           commentId={id}
           taskId={taskId}
@@ -29,10 +29,8 @@ function ChecklistComment({id, taskId, content, closeEditForm, author, created_a
           content={content}
           showEditForm={() => showEditForm(true)}
         />
-
         <ChecklistItem 
           completion={allItemsCompleted} 
-          className="check-all"
           onClick={() => checkAll(!allItemsCompleted)}
           value={allItemsCompleted ? 'Uncheck all' : 'Check all'}
         > 
@@ -40,7 +38,7 @@ function ChecklistComment({id, taskId, content, closeEditForm, author, created_a
             {completed}/{allItems} {Math.floor(completed/allItems * 100)}%
           </span>
         </ChecklistItem>
-  
+
         {content.map((item, index) => 
           <ChecklistItem 
             {...item} 
@@ -49,15 +47,31 @@ function ChecklistComment({id, taskId, content, closeEditForm, author, created_a
             itemIndex={index} 
           />
         )}
-      </div>
-    )
-  }
+      </>}
+
+      {edit && 
+      <>
+        <ChecklistForm 
+          editMode={true} 
+          oldItems={content} 
+        />
+        <button 
+          className="cancel" 
+          onClick={() => showEditForm(false)}
+        >Cancel</button>
+      </>
+      }
+
+      
+    </div>
+  )
 }
 
 function mapDispatchToProps(dispatch, {taskId, commentIndex}) {
   return {
     toggleItem: (itemIndex) => dispatch(toggleChecklistItem(taskId, commentIndex, itemIndex)),
     checkAll: (bool) => dispatch(checkAll(taskId, commentIndex, bool))
+    //editComment (newContent) => dispatch(editComment(taskId, commentIndex, newContent))
   }
 }
 

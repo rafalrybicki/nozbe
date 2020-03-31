@@ -88,7 +88,7 @@ function CommentOptions({taskId, commentId, type, content, deleteComment, create
         />
       </div>
     </div>
-  );
+  )
 }
 
 const getNewTask = (id, content, date, project) => ({

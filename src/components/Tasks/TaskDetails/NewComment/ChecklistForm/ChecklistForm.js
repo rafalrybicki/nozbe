@@ -3,7 +3,7 @@ import './ChecklistForm.css'
 import { v4 as uuid } from 'uuid';
 import ChecklistItem from './ChecklistItem'
 
-function ChecklistForm({addChecklist, editMode, closeEditForm, oldItems=[]}) {
+function ChecklistForm({addChecklist, editMode, oldItems=[]}) {
   const getNewItem = () => ({
     value: '', 
     completion: false, 
@@ -27,16 +27,19 @@ function ChecklistForm({addChecklist, editMode, closeEditForm, oldItems=[]}) {
   const handleSave = () => {
     const date = new Date();
 
+    const content = items.filter(item => item.value.trim() !== '');
+
     const newComment = {
       type: 'checklist',
-      content: items.filter(item => item.value.trim() !== ''),
+      content,
       author: 'ChangeThis User',
       created_at: date,
       updated_at: date,
       id: Math.random()
     }
     if (editMode) {
-
+      console.log('write redux action')
+      // editChecklist(content)
     } else {
       addChecklist(newComment)
     }
@@ -66,12 +69,10 @@ function ChecklistForm({addChecklist, editMode, closeEditForm, oldItems=[]}) {
       )}
 
       <button 
-        addNewItem={() => setItems([...items, getNewItem()])}
+        onClick={() => setItems([...items, getNewItem()]) }
         className="add"
         disabled={disabled}
       >+</button>
-
-      <button className="cancel" onClick={closeEditForm}>Cancel</button>
     </div>
   );
 }
