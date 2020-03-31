@@ -53,7 +53,7 @@ function ChecklistForm({addChecklist, editMode, oldItems=[], editComment, closeF
       <button
         onClick={handleSave}
         className="save btn-green"
-        disabled={disabled && items.length === 1}
+        disabled={disabled}
       >Save</button>
 
       {items.map( (item,i) => 

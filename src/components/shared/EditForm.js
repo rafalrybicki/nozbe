@@ -18,8 +18,6 @@ function EditForm({prevContent, onSave, closeForm}) {
 
   const handleChange = (e) => {
     setNewContent(e.target.value)
-    console.log(newContent === prevContent)
-    console.log(newContent === e.target.value)
   }
 
 
@@ -29,6 +27,7 @@ function EditForm({prevContent, onSave, closeForm}) {
         name="newContent"
         onChange={handleChange}
         value={newContent}
+        autoFocus
       />
       <button 
         type="button" 

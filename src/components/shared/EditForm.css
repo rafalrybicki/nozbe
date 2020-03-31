@@ -1,15 +1,11 @@
 .edit-form {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding: 10px 0;
   background-color: white;
   justify-content: space-between;
   align-content: flex-start;
-}
-
-.show-form .edit-form {
-  display: flex;
 }
 
 .edit-form textarea {

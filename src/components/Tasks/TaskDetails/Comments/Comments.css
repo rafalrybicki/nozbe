@@ -27,3 +27,11 @@
   background-color: transparent;
   width: calc(50% - 15px);
 }
+
+.text-comment p{
+  padding: 0 10px 15px;
+}
+
+.text-comment .edit-form {
+  padding: 0 10px 10px;
+}

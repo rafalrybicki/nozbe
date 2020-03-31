@@ -6,7 +6,7 @@ import CommentHeader from './CommentHeader'
 import ChecklistForm from '../NewComment/ChecklistForm/ChecklistForm'
 import CommentOptions from './CommentOptions';
 
-function ChecklistComment({id, taskId, index, content, author, created_at, toggleItem, checkAll, editComment }) {
+function ChecklistComment({id, taskId, content, author, created_at, toggleItem, checkAll, editComment }) {
   const [edit, showEditForm] = useState(false);
 
   const allItemsCompleted = content.every(item => item.completion === true);
@@ -61,8 +61,8 @@ function ChecklistComment({id, taskId, index, content, author, created_at, toggl
           className="cancel" 
           onClick={() => showEditForm(false)}
         >Cancel</button>
-      </>
-      }
+      </>}
+      
     </div>
   )
 }

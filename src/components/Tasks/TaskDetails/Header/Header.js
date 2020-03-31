@@ -4,14 +4,14 @@ import { editTask, toggleCompletion } from '../../../../redux/actions';
 import './Header.css';
 import Toggler from '../../../shared/Toggler';
 import PriorityToggler from '../../../shared/PriorityToggler';
-import EditForm from './EditForm';
+import EditForm from '../../../shared/EditForm';
 
-function Header({ content, completion, id, priority, toggleCompletion, togglePriority, editTask}) {
-  const [editForm, showEditForm] = useState(false);
+function Header({ content, completion, id, priority, toggleCompletion, editTask}) {
+  const [edit, showEditForm] = useState(false);
 
   let className = completion ? "header completed" : "header";
   
-  if (editForm) {
+  if (edit) {
     className += " show-form"
   }
 
@@ -29,7 +29,7 @@ function Header({ content, completion, id, priority, toggleCompletion, togglePri
         priority={priority}
         id={id}
       />
-      {editForm && 
+      {edit && 
       <EditForm 
         prevContent={content} 
         closeForm={() => showEditForm(false)}
