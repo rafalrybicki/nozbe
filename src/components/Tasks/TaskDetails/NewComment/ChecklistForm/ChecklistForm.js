@@ -3,7 +3,7 @@ import './ChecklistForm.css'
 import { v4 as uuid } from 'uuid';
 import ChecklistItem from './ChecklistItem'
 
-function ChecklistForm({addChecklist, editMode, oldItems=[]}) {
+function ChecklistForm({addChecklist, editMode, oldItems=[], editComment, closeForm}) {
   const getNewItem = () => ({
     value: '', 
     completion: false, 
@@ -37,9 +37,10 @@ function ChecklistForm({addChecklist, editMode, oldItems=[]}) {
       updated_at: date,
       id: Math.random()
     }
+
     if (editMode) {
-      console.log('write redux action')
-      // editChecklist(content)
+      editComment(content)
+      closeForm()
     } else {
       addChecklist(newComment)
     }

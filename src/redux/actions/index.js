@@ -13,6 +13,7 @@ import {
   CLONE_COMMENTS,
   CHECK_ALL,
   TOGGLE_CHECKLIST_ITEM,
+  EDIT_COMMENT,
 } from './actionTypes'
 
 export const createTask = task => ({
@@ -72,6 +73,14 @@ export const addComment = (taskId, newComment) => ({
   type: ADD_COMMENT,
   taskId,
   newComment
+})
+
+
+export const editComment = (taskId, index, newContent) => ({
+  type: EDIT_COMMENT,
+  taskId,
+  index,
+  newContent
 })
 
 export const deleteComment = (taskId, commentId) => ({

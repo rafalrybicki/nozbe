@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import ChecklistItem from './ChecklistItem'
 import { connect } from 'react-redux';
-import { checkAll, toggleChecklistItem } from '../../../../redux/actions';
+import { checkAll, toggleChecklistItem, editComment } from '../../../../redux/actions';
 import CommentHeader from './CommentHeader'
 import ChecklistForm from '../NewComment/ChecklistForm/ChecklistForm'
 import CommentOptions from './CommentOptions';
 
-function ChecklistComment({id, taskId, content, author, created_at, toggleItem, checkAll }) {
+function ChecklistComment({id, taskId, index, content, author, created_at, toggleItem, checkAll, editComment }) {
   const [edit, showEditForm] = useState(false);
 
   const allItemsCompleted = content.every(item => item.completion === true);
@@ -52,8 +52,10 @@ function ChecklistComment({id, taskId, content, author, created_at, toggleItem, 
       {edit && 
       <>
         <ChecklistForm 
+          editComment={editComment}
+          closeForm={() => showEditForm(false)}
           editMode={true} 
-          oldItems={content} 
+          oldItems={content.map(item => ({...item}) )} 
         />
         <button 
           className="cancel" 
@@ -61,17 +63,15 @@ function ChecklistComment({id, taskId, content, author, created_at, toggleItem, 
         >Cancel</button>
       </>
       }
-
-      
     </div>
   )
 }
 
-function mapDispatchToProps(dispatch, {taskId, commentIndex}) {
+function mapDispatchToProps(dispatch, {taskId, index}) {
   return {
-    toggleItem: (itemIndex) => dispatch(toggleChecklistItem(taskId, commentIndex, itemIndex)),
-    checkAll: (bool) => dispatch(checkAll(taskId, commentIndex, bool))
-    //editComment (newContent) => dispatch(editComment(taskId, commentIndex, newContent))
+    toggleItem: (itemIndex) => dispatch(toggleChecklistItem(taskId, index, itemIndex)),
+    checkAll: (bool) => dispatch(checkAll(taskId, index, bool)),
+    editComment: (newContent) => dispatch(editComment(taskId, index, newContent))
   }
 }
 

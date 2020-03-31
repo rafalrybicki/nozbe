@@ -1,6 +1,7 @@
 import {
   CREATE_COMMENTS_KEY,
   ADD_COMMENT,
+  EDIT_COMMENT,
   DELETE_COMMENT,
   CLONE_COMMENTS,
   CHECK_ALL,
@@ -86,6 +87,11 @@ const comments = (state = initialState, action) => {
           action.newComment
         ]
       }
+    case EDIT_COMMENT:
+      return {
+        ...state,
+        [action.taskId]: editComment(state[action.taskId], action.index, action.newContent)
+      }
     case DELETE_COMMENT:
       return {
         ...state,
@@ -109,6 +115,15 @@ const comments = (state = initialState, action) => {
     default:
       return state;
   }
+}
+
+const editComment = (oldComments, index, newContent) => {
+  const newComments = [...oldComments];
+  newComments[index] = {
+    ...oldComments[index],
+    content: newContent
+  }
+  return newComments
 }
 
 const checkAll = (taskComments, index, value) => {

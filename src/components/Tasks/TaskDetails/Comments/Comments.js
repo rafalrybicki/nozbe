@@ -16,7 +16,7 @@ return (
                <ChecklistComment 
                   {...comment} 
                   taskId={taskId}
-                  commentIndex={index}
+                  index={index}
                   key={comment.id}
                />
             )
